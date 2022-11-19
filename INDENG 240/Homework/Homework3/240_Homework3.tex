@@ -1,0 +1,227 @@
+\documentclass{article}
+
+
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{xcolor}
+
+\definecolor{Zgris}{rgb}{0.95,0.95,0.95}
+
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+
+
+\newsavebox{\BBbox}
+\newenvironment{DDbox}[1]{
+\begin{lrbox}{\BBbox}
+    \begin{minipage}{\linewidth}}
+{\end{minipage}
+\end{lrbox}\noindent\colorbox{Zgris}{\usebox{\BBbox}} \\
+[.5cm]}
+
+\title{IEOR240 : Homework 2}
+\author{Arnaud Minondo}
+
+\begin{document}
+\maketitle
+\section*{Problem 1 : True or False}
+For the following problem I considered the following linear  optimization problem : 
+\begin{equation}
+    \min(c^Tx),  \text{ s.t. } x\in\mathbb{R}^n, A\in \mathcal{M}_{m,n}(\mathbb{R}), b\in\mathbb{R}^m, Ax \ge b, x\ge 0_{\mathbb{R}^n}
+\end{equation}
+\subsection*{1.a}
+As the problem in symmetrical is equivalent to the original optimization problem then if there exist an unboundedness certificate on the symmetrical form then the problem is unbounded.
+\subsection*{1.b}
+If a problem has an optimal solution then its dual also has and let $y$ be the solution of the dual then $y$ is a certificate of boundedness for the primal problem.
+\subsection*{1.c}
+To know whether a problem is feasable or not you
+ need to find an $x$ verifying all the conditions, 
+ ie. $x\ge 0$, $Ax \ge b $
+ \\
+ For example :
+ $\max (x_1+x_2), \text{ s.t. } x_1,x_2\ge 0, x_1+x_2<=4$ is feasable because 
+ $x=(0,0)$ is a certificate of feasability for this problem.
+\subsection*{1.d}
+This is true after the strong duality theorem, as $\mathcal{P}$ is feasable and bounded then $\mathcal{D}$ is feasable and bounded and both have optimal solutions.
+
+\subsection*{1.e}
+This is not true, if the maximizing/minimizing direction goes in the direction of a border then the problem can be bounded.
+\\
+For example : $\min x_1+x_2, x_1\ge 0, x_2\ge 0$, the feasable region : $S = (\mathbb{R}^+)^2$ is unbounded but there is an optimal solution which is $x_1=0,x_2=0$.
+\subsection*{1.f}
+This is true, as the set containing all feasable solution : $S = \{x\in\mathbb{R}^n, Ax\ge b\}$ is convex then if there are two optimal solution : $x_0,x_1$ then $\forall \lambda\in[0,1], \lambda x_0+(1-\lambda)x_1 = \bar{x}\in S $ so is a feasable solution.
+\\
+Moreover : $c^Tx_1 = c^Tx_0$ so $c^T(x_1-x_0) = 0$ and $c^T\bar{x} = \lambda c^Tx_0+(1-\lambda)c^Tx_1 = c^Tx_1$ so $\bar{x}$ is also optimal.
+\subsection*{1.g}
+This is false for example : $\max (x_1+x_2), \text{ s.t. } x_1,x_2\ge 0, x_1+x_2<=4$
+ is bounded because $y = (1)$  is a certificate of boundedness for this problem.
+\subsection*{1.h}
+This is false because to be unbounded means that the objective function can be as big/small in case of max/min.
+But there are no any x that can be plugged into the objective function so the function can't be as big/small as you wish.
+Althought there might exist a certificate for both of boundedness and feasability.
+\subsection*{1.i}
+It is false because of the Theorem ``either bounded or unbounded''. 
+\subsection*{1.j}
+This is true because : a max can be changed into a min,
+a $\leq$ can be changed by multiplying by $-1$,
+an $=$ can be changed into two inequalities,
+if a variable $x_i$ is free you can say $x_i=x_i^+-x_i^-$ with $x_i^+,x_i^-\ge0$.
+
+
+\section*{Problem 2 : Linear Program}
+\subsection*{2.a}
+The problem in symmetric form is :
+\begin{equation}
+    \begin{array}{c}
+        \min(c^Tx)\\
+        \text{s.t. } Ax\ge b, x \ge 0\\
+    \end{array}
+\end{equation}
+Where $A = \left(\begin{array}{ccccc}
+    -1&1&-1&0&0\\
+    0&-2&2&3&0\\
+    1&0&0&0&1\\
+\end{array}\right)$, $b = \left(\begin{array}{c}
+    -4\\
+    2\\
+    5\\
+\end{array}\right)$ and $c =\left(\begin{array}{c}
+    2\\
+    -3\\
+    3\\
+    5\\
+    6\\
+\end{array}\right)$ 
+\\
+\subsection*{2.b}
+Its dual is : \begin{equation}
+    \begin{array}{c}
+        \max(b^Ty)\\
+        \text{s.t. }y^TA\leq c^T\\
+    \end{array}
+\end{equation}
+\subsection*{2.c}
+My model file : pb2.mod
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        param n;
+        param p;
+        
+        param c{i in 1..n};
+        param b{i in 1..p};
+        
+        param A{j in 1..p, i in 1..n};
+        
+        var u{i in 1..n};
+        
+        minimize object: sum{i in 1..n}c[i]*u[i];
+        
+        s.t. constraints1{j in 1..p}: sum{i in 1..n}A[j,i]*u[i]>=b[j];
+        s.t. constraints2{i in 1..n}: u[i]>=0;
+    \end{verbatim}
+\end{DDbox}
+\\
+\newpage
+My data file : pb2.dat
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        param n := 5;
+        param p := 3;
+        
+        param b := 
+        1 -4
+        2 2
+        3 5;
+        
+        param A :
+           1  2  3  4  5=
+        1 -1  1 -1  0  0
+        2  0 -2  2  3  0
+        3  1  0  0  0  1;
+        
+        param c:=
+        1 2
+        2 -3
+        3 3
+        4 5
+        5 6; 
+    \end{verbatim}
+\end{DDbox}
+\\
+My run file : pb2.run
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        reset;
+
+        model pb2.mod;
+        
+        data pb2.dat;
+        
+        option solver cplex;
+        solve;
+        
+        display object, u;
+    \end{verbatim}
+\end{DDbox}
+\\
+The solution for this problem is : $x_1 = 5, x_2 = 1, x_3 = 1.333, x_4 = 0$ with the $\min = 13,6667$
+\\
+The dual problem solution is : $y = (\frac{1}{3},\frac{5}{3}, \frac{7}{3})$ 
+\\
+The data file is the same.
+The model file : pb2\_dual.mod 
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        param p;
+        param n;
+        
+        param A{i in 1..p,j in 1..n};
+        
+        param b{i in 1..p};
+        
+        param c{j in 1..n};
+        
+        var y{i in 1..p};
+        
+        
+        maximize object: sum{i in 1..p}y[i]*b[i];
+        
+        s.t. constraints{j in 1..n} :sum{i in 1..p}y[i]*A[i,j] <=c[j];
+    \end{verbatim}
+\end{DDbox}
+\\
+\newpage
+The run file : pb2\_dual.run
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        reset;
+
+        model pb2_dual.mod;
+        data pb2_dual.dat;
+        
+        option solver cplex;
+        
+        solve;
+        
+        display object, y;
+    \end{verbatim}
+\end{DDbox}
+\section*{Problem 3 : General Problem}
+\subsection*{(a)}
+($\mathcal{P}$) is feasable because $x =0_{\mathbb{R}^n}$ is a feasable solution.
+ As ($\mathcal{P}$) is feasable its dual can't be unbounded, it is either unfeasable if $(\mathcal{P})$ is unbounded and is feasable in the other case.
+\subsection*{(b)}
+($\mathcal{D}$) objective function is : $y^T0_{\mathbb{R}^m}$ so it's objective value will be 0.
+ Moreover, $x=0_{\mathbb{R}^n}$ verifies $c^Tx=y^T0_{\mathbb{R}^m}$ which means x is optimal.
+ The objective value function is then 0.
+\section*{Problem 4 :}
+The problem is feasable as $x=0_{\mathbb{R}^n}$ is a feasable solution. Moreover it is bounded as $c \ge 0$ and $x \ge 0$ so $c^Tx \ge 0$.\\
+ Thus $ \min(c^Tx)\ge 0$ and the problem is bounded. As it is feasable and bounded it must have an optimal solution.
+\end{document}

@@ -1,0 +1,510 @@
+\documentclass{article}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{xcolor}
+\usepackage{systeme}
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+
+\definecolor{Zgris}{rgb}{0.95,0.95,0.95}
+\definecolor{line1}{rgb}{0.74,0.35,0.74}
+\definecolor{line2}{rgb}{0.50,0.60,0.79}
+
+
+\newsavebox{\BBbox}
+\newenvironment{DDbox}[1]{
+\begin{lrbox}{\BBbox}
+    \begin{minipage}{\linewidth}}
+{\end{minipage}
+\end{lrbox}\noindent\colorbox{Zgris}{\usebox{\BBbox}} \\
+[.5cm]}
+
+
+\title{INDENG 240 : Homework 1}
+\author{Arnaud Minondo}
+
+
+
+\begin{document}
+
+
+% Use \lstset to make myStyle the global default
+\maketitle
+\section*{Production Planning Problem}
+
+My model file : pb1.mod
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        param n;
+        param order{i in 1..n};
+
+        param costPerTon{i in 1..n};
+        param inventoryCondition{i in 1..n};
+
+
+        param capacity ;
+        param invCostPerTon ;
+        param startInventory ;
+        param prodChangeCost ;
+
+
+        param matrix{i in 1..n,j in 1..n};
+
+
+        var production{i in 1..n}>=0;
+        var u{j in 1..(n-1)} >= 0;
+
+
+
+        minimize cost: (sum{i in 1..n} production[i]*costPerTon[i])
+        + prodChangeCost*(sum{j in 1..(n-1)}u[j])
+        + invCostPerTon*(3*(production[1]-order[1]+startInventory)+
+        2*(production[2]-order[2])+(production[3]- order[3]));
+
+        s.t. realLife{i in 1..n}: startInventory +
+         (sum{j in 1..n}(production[j]-order[j])*matrix[i,j]) >= inventoryCondition[i];
+        s.t. plantCapacity{i in 1..n} : production[i]<=capacity;
+        s.t. absolute1{i in 1..(n-1)}: u[i]>=production[i]-production[i+1];
+        s.t. absolute2{i in 1..(n-1)}: u[i]>=production[i+1]-production[i];
+    \end{verbatim}
+\end{DDbox}
+\newpage
+My data file : pb1.dat
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        param n := 4;
+
+        param order :=
+        1 2400
+        2 2000
+        3 2700
+        4 2500
+        ;
+        
+        param costPerTon :=
+        1 7400
+        2 7500
+        3 7600
+        4 7800
+        ;
+
+        param inventoryCondition :=
+        1 0
+        2 0
+        3 0
+        4 1500
+        ;
+        param matrix:
+        1 2 3 4 :=
+        1 1 0 0 0
+        2 1 1 0 0
+        3 1 1 1 0
+        4 1 1 1 1
+        ; 
+        param capacity := 4000;
+        param invCostPerTon := 120;
+        param startInventory := 1000;
+        param prodChangeCost := 50;
+    \end{verbatim}
+\end{DDbox}
+\\
+My run file : pb1.run
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        reset;
+
+        model pb1.mod;
+
+        data pb1.dat;
+
+        option solver cplex;
+
+        solve;
+
+        display production, cost;
+
+        display production, cost > answer_pb1.txt;
+    \end{verbatim}
+\end{DDbox}
+\\
+The answer for the problem is : production = (2525,2525,2525,2525) with a cost of 77017500.
+
+\section*{Betting Problem}
+My model file : pb2.mod
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        set SCENS;
+        set VARS;
+
+
+        
+
+        param matrix {SCENS, VARS};
+
+        param amount_bet;
+
+        var strategy{VARS} >= 0;
+        var w >= 0;
+
+        maximize win: w;
+
+
+        s.t. budget: sum{i in VARS}strategy[i] <= amount_bet;
+        s.t. scen{j in SCENS}: w <= sum{i in VARS}matrix[j, i]*strategy[i];
+    \end{verbatim}
+\end{DDbox}
+\\
+My data file : pb2.dat
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        set SCENS = AA ABA ABB BB BAB BAA ;
+        set VARS = x1a x2a x3a x1b x2b x3b ya yb;
+        
+        param amount_bet := 100;
+        
+        
+        param matrix: 
+            x1a   x1b   x2a  x2b   x3a   x3b   ya    yb :=
+        AA  0.67   -1   0.67 -1     0     0    0.4   -1
+        ABA 0.67   -1   -1   1.5   0.67  -1    0.4   -1
+        ABB 0.67   -1   -1   1.5   -1    1.5   -1    2.5
+        BB  -1    1.5   -1   1.5    0     0    -1    2.5
+        BAB -1    1.5   0.67 -1    -1    1.5   -1    2.5
+        BAA -1    1.5   0.67 -1    0.67  -1    0.4   -1
+        ;
+    \end{verbatim}
+\end{DDbox}
+\\
+My run file : pb2.run
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        reset;
+
+        model pb2.mod;
+
+        data pb2.dat;
+
+        option solver cplex;
+        solve;
+
+        display strategy, win;
+
+        display strategy, win > pb2_answer.txt;
+    \end{verbatim}
+\end{DDbox}
+\newpage
+The optimal solution of this problem is strategy = x1a  17.6 x1b   0 x2a  17.6 x2b   0 x3a  43.8685 x3b   0 ya   0 yb  20.9316
+where xia represents the amount bet on 'a' wins the i-th set,
+ xib represent the amount bet on 'b' wins the i-th set and
+ ya is the amount bet on 'a' wins the match and yb is the amount bet on 'b' wins the match.
+You are ensured to win at least \$2.65.
+\section*{Regression Problem}
+My model file : pb3.mod
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        param n;
+        param grades{i in 1..n};
+
+        param degree;
+
+        param hoursWorked{i in 1..n, j in 1..degree};
+
+
+        var u{i in 1..n};
+        var coefficients{i in 1..degree};
+
+        minimize Error :sum{i in 1..n}u[i];
+
+        s.t. absolute1{i in 1..n}: 
+        u[i] >= (sum{j in 1..degree}(coefficients[j]*hoursWorked[i,j]))-grades[i];
+        s.t. absolute2{i in 1..n}: 
+        u[i] >= (-1)*(sum{j in 1..degree}(coefficients[j]*hoursWorked[i,j])-grades[i]);
+    \end{verbatim}
+\end{DDbox}
+\\
+My data file : pb3.dat
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        param n := 8;
+
+        #bias introduced in the input
+        param hoursWorked :1 2 := 
+        1 4 1
+        2 9 1
+        3 10 1
+        4 14 1
+        5 4 1
+        6 7 1
+        7 12 1
+        8 3 1;
+
+        param grades := 
+        1 75
+        2 82
+        3 92
+        4 100
+        5 68
+        6 88
+        7 95
+        8 77;
+
+        param degree := 2;
+
+    \end{verbatim}
+\end{DDbox}
+\\
+\newpage
+My run file : pb3.run
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        reset;
+
+        model pb3.mod;
+
+        data pb3.dat;
+
+        option solver cplex;
+        solve;
+
+        display coefficients,Error;
+        display coefficients,Error>answer_pb3.txt;
+    \end{verbatim}
+\end{DDbox}
+\\
+The answer for this problem is coefficients=(2.5,65) with an Error of 24.5.
+The prediction for a student having worked only two hours is 2.5*2+65 = 70.
+\section*{Solving LP Graphically}
+\subsection*{a.}
+I draw the conditions on the graph below. After the theorem of linear optimization, the optimal solution is on a border.
+ As the function to maximize is $f(x,y)=3x+y$ it is most likely to be optimal for higher x.
+ benefit at the first critical point : $\systeme{y=0,2x+y=6}$ so $\systeme{x=3,y=0}$ with $f(x,y)=9$.
+\\
+We need to check if the neighbours of this point are better or worse than this point :
+\\
+$\systeme{2x+y=6,x+y=4}$ so $\systeme{x=2,y=2}$, whith a cost function $f(2,2)=8$.
+\\
+And obviously, (0,0) is not the maximizing point so (3,0) is the optimal solution.
+\\
+\setlength{\unitlength}{0.75cm}
+\begin{picture}(.5,.5)
+    \put(0,-10){\vector(1,0){7}}
+    \put(0,-10){\vector(0,1){7}}
+    \multiput(0, -10)(1, 0){7}{\line(0,-1){0.1}}
+    \multiput(0, -10)(0, 1){7}{\line(-1,0){0.1}}
+    %axe x
+    \put(-0.3,-10.5){0}
+    \put(0.9,-10.5){1}
+    \put(1.9,-10.5){2}
+    \put(2.9,-10.5){3}
+    \put(3.9,-10.5){4}
+    \put(4.9,-10.5){5}
+    \put(5.9,-10.5){6}
+    
+    %axe y
+    \put(-0.4,-9.1){1}
+    \put(-0.4,-8.1){2}
+    \put(-0.4,-7.1){3}
+    \put(-0.4,-6.1){4}
+    \put(-0.4,-5.1){5}
+    \put(-0.4,-4.1){6}
+    
+    %plot condition
+    \color{line1}
+    \put(0,-4){\line(1,-2){3}}
+    \color{line2}
+    \put(0,-6){\line(1,-1){4}}
+    
+    %plot legend
+    \color{black}
+    \put(8.7,-7.5){\line(-1,0){5.4}}
+    \put(8.7,-7.5){\line(0,1){3.5}}
+    \put(8.7,-4){\line(-1,0){5.4}}
+    \put(3.3,-7.5){\line(0,1){3.5}}
+
+    \color{line1}
+    \put(3.6,-4.55){\line(1,0){.5}}
+    \color{black}
+    \put(4.2,-4.7){border1 : $y = 6-2x$}
+
+    \color{line2}
+    \put(3.6,-5.35){\line(1,0){.5}}
+    \color{black}
+    \put(4.2,-5.5){border2 : $y = 4-x$}
+
+    \put(3.6,-6.3){\line(1,1){.5}}
+    \put(4.2,-6.2){decision region}
+
+    \color{green}
+    \put(3.6,-6.8){\line(1,0){.5}}
+    \color{black}
+    \put(4.2,-6.9){$f(x,y) = 3$}
+    \color{black}
+    %plot decision region
+    \put(2,-8){\line(-1,-2){1}}
+    \put(1,-7){\line(-1,-2){1}}
+    \put(0.5,-6.5){\line(-1,-2){.5}}
+    \put(1.5,-7.5){\line(-1,-2){1.25}}
+    \put(2.5,-9){\line(-1,-2){.5}}
+    %plot maximizer
+    \color{green}
+    \put(-1,-4){\line(1,-3){3}}
+\end{picture}
+\newpage
+\subsection*{b.}
+Every borders are the same for this variant of the problem, only the cost function changes : $f(x,y) = x + y$
+\\
+As $x+y\leq4$ then $max_{x,y}(f(x,y))<=4$ and x=2,y=2 verify this so $x = 2, y = 2$ is one optimal solution but there exist plenty of them, for example : $x=0.5, y =3.5$.
+\\
+\begin{picture}(.5,.5)
+    \put(0,-10){\vector(1,0){7}}
+    \put(0,-10){\vector(0,1){7}}
+    \multiput(0, -10)(1, 0){7}{\line(0,-1){0.1}}
+    \multiput(0, -10)(0, 1){7}{\line(-1,0){0.1}}
+    %axe x
+    \put(-0.3,-10.5){0}
+    \put(0.9,-10.5){1}
+    \put(1.9,-10.5){2}
+    \put(2.9,-10.5){3}
+    \put(3.9,-10.5){4}
+    \put(4.9,-10.5){5}
+    \put(5.9,-10.5){6}
+    
+    %axe y
+    \put(-0.4,-9.1){1}
+    \put(-0.4,-8.1){2}
+    \put(-0.4,-7.1){3}
+    \put(-0.4,-6.1){4}
+    \put(-0.4,-5.1){5}
+    \put(-0.4,-4.1){6}
+    
+    %plot condition
+    \color{line1}
+    \put(0,-4){\line(1,-2){3}}
+    \color{line2}
+    \put(0,-6){\line(1,-1){4}}
+    
+    %plot legend
+    \color{black}
+    \put(8.7,-7.5){\line(-1,0){5.4}}
+    \put(8.7,-7.5){\line(0,1){3.5}}
+    \put(8.7,-4){\line(-1,0){5.4}}
+    \put(3.3,-7.5){\line(0,1){3.5}}
+
+    \color{line1}
+    \put(3.6,-4.55){\line(1,0){.5}}
+    \color{black}
+    \put(4.2,-4.7){border1 : $y = 6-2x$}
+
+    \color{line2}
+    \put(3.6,-5.35){\line(1,0){.5}}
+    \color{black}
+    \put(4.2,-5.5){border2 : $y = 4-x$}
+
+    \put(3.6,-6.3){\line(1,1){.5}}
+    \put(4.2,-6.2){decision region}
+
+    \color{green}
+    \put(3.6,-6.8){\line(1,0){.5}}
+    \color{black}
+    \put(4.2,-6.9){$f(x,y) = 2$}
+    \color{black}
+    %plot decision region
+    \put(2,-8){\line(-1,-2){1}}
+    \put(1,-7){\line(-1,-2){1}}
+    \put(0.5,-6.5){\line(-1,-2){.5}}
+    \put(1.5,-7.5){\line(-1,-2){1.25}}
+    \put(2.5,-9){\line(-1,-2){.5}}
+    %plot maximizer
+    \color{green}
+    \put(-1,-7){\line(1,-1){4}}
+\end{picture}
+\newpage
+\subsection*{c.}
+The borders condition have changed but there is at the same time : $\systeme{-x + y \leq -1, -x + y \ge 1 }$ which is impossible
+\subsection*{d.}
+For this problem you can see in the plot, it is unbounded. Let's suppose there exist an optimal solution
+ $(x_0,y_0)$ such that $\forall (x,y)\in \mathbb{R}^2, f(x,y) \leq f(x_0,y_0)=x_0+y_0$.
+ Define $x_1=x_0 +1,y_1=y_0+1$, $x_1-y_1 = x_0-y_0 $ so $(x_1,y_1)$ is a valid couple as it verifies $-1\leq x_1-y_1\leq1$.
+ Moreover : $f(x_1,y_1) = x_0+y_0+2 = f(x_0,y_0) +2 > f(x_0,y_0)$ which contradicts the fact that $(x_0, y_0)$ is the optimal couple.
+ So there can't exist a maximum for this function under these limit conditions.
+ \\
+\begin{picture}(.5,.5)
+    \put(0,-10){\vector(1,0){7}}
+    \put(0,-10){\vector(0,1){7}}
+    \multiput(0, -10)(1, 0){7}{\line(0,-1){0.1}}
+    \multiput(0, -10)(0, 1){7}{\line(-1,0){0.1}}
+    %axe x
+    \put(-0.3,-10.5){0}
+    \put(0.9,-10.5){1}
+    \put(1.9,-10.5){2}
+    \put(2.9,-10.5){3}
+    \put(3.9,-10.5){4}
+    \put(4.9,-10.5){5}
+    \put(5.9,-10.5){6}
+    
+    %axe y
+    \put(-0.4,-9.1){1}
+    \put(-0.4,-8.1){2}
+    \put(-0.4,-7.1){3}
+    \put(-0.4,-6.1){4}
+    \put(-0.4,-5.1){5}
+    \put(-0.4,-4.1){6}
+    
+    %plot borders
+    \color{line1}
+    \put(-1,-10){\line(1,1){4}}
+    \color{line2}
+    \put(0,-11){\line(1,1){3}}
+    
+    %plot legend
+    \color{black}
+    \put(8.7,-7.5){\line(-1,0){5.4}}
+    \put(8.7,-7.5){\line(0,1){3.5}}
+    \put(8.7,-4){\line(-1,0){5.4}}
+    \put(3.3,-7.5){\line(0,1){3.5}}
+
+    \color{line1}
+    \put(3.6,-4.55){\line(1,0){.5}}
+    \color{black}
+    \put(4.2,-4.7){border1 : $y = 6-2x$}
+
+    \color{line2}
+    \put(3.6,-5.35){\line(1,0){.5}}
+    \color{black}
+    \put(4.2,-5.5){border2 : $y = 4-x$}
+
+    \color{red}
+    \put(3.6,-6.3){\vector(1,1){.5}}
+    \color{black}
+    \put(4.2,-6.2){max direction}
+
+    \color{green}
+    \put(3.6,-6.8){\line(1,0){.5}}
+    \color{black}
+    \put(4.2,-6.9){$f(x,y) = 1$}
+
+    \color{red}
+    \put(0.5,-9.5){\vector(1,1){1}}
+    %plot decision region
+    %\put(2,-8){\line(-1,-2){1}}
+    %\put(1,-7){\line(-1,-2){1}}
+    %\put(0.5,-6.5){\line(-1,-2){.5}}
+    %\put(1.5,-7.5){\line(-1,-2){1.25}}
+    %\put(2.5,-9){\line(-1,-2){.5}}
+
+    %plot maximizer
+    \color{green}
+    \put(-1,-8){\line(1,-1){4}}
+\end{picture}
+\end{document}

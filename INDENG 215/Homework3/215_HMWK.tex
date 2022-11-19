@@ -1,0 +1,27 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+
+\title{215 : Homework 3}
+\author{Arnaud Minondo}
+
+\begin{document}
+    \maketitle
+    \section*{Exercise 1 :}
+    $p\lor q \rightarrow r \equiv \lnot(p\lor q) \lor r \equiv (\lnot p \land \lnot q)\lor r$ after De Morgan's law.
+    \\\\
+    Thus : $p\lor q  \rightarrow r \equiv (\lnot p \lor r)\land (\lnot p\lor r)\equiv (p \rightarrow r) \land (q \rightarrow r)$.
+    \\\\
+    Finally we have obtained that : $$\boxed{p\lor q  \rightarrow r \equiv  (p \rightarrow r) \land (q \rightarrow r)}$$
+    \section*{Exercise 2 :}
+    Let $\{\lnot p \rightarrow (r\land \lnot s), t\rightarrow s, u\rightarrow \lnot p , \lnot w , u \lor w \} \subset F$ :
+    \\\\
+    As $\lnot w \land (u \lor w) \models u$, $u \land (u\rightarrow \lnot p) \models \lnot p$, $\lnot p \land (\lnot p \rightarrow (r\land \lnot s))\models r\land \lnot s$.
+    \\\\
+    Thus as $r\land \lnot s\models \lnot s$ and $\lnot s \land (t\rightarrow s) \models \lnot t $ by contrapositive, and finally $\lnot t \lor w$ is always true.
+    \\\\
+    As $\lnot t \lor w \equiv t\rightarrow w$ then : $$\boxed{F\models (t\rightarrow w)}$$
+\end{document}

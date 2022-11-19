@@ -1,0 +1,7 @@
+profit = 180
+
+production [*] :=
+1  20
+2  60
+;
+

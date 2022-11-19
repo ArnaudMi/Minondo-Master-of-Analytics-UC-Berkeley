@@ -1,0 +1,10 @@
+reset;
+
+model mba.mod;
+data mba.dat;
+
+option solver cplex;
+solve;
+
+display _var;
+display _con;

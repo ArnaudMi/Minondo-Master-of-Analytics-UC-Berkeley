@@ -1,0 +1,7 @@
+coefficients [*] :=
+1   2.5
+2  65
+;
+
+Error = 24.5
+

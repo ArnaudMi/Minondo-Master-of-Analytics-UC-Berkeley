@@ -1,0 +1,214 @@
+\documentclass{article}
+
+
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{xcolor}
+
+\definecolor{Zgris}{rgb}{0.95,0.95,0.95}
+
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+
+
+\newsavebox{\BBbox}
+\newenvironment{DDbox}[1]{
+\begin{lrbox}{\BBbox}
+    \begin{minipage}{\linewidth}}
+{\end{minipage}
+\end{lrbox}\noindent\colorbox{Zgris}{\usebox{\BBbox}} \\
+[.5cm]}
+
+\title{IEOR240 : Homework 2}
+\author{Arnaud Minondo}
+
+\begin{document}
+\maketitle
+\section*{Problem 1 : Giapetto's Woodcarving}
+We define two numbers : $n_S$ as the number of soldier produced and $n_T$ as the number of train produced.
+\\
+The optimization problem can be written as : 
+\begin{equation}
+    \begin{array}{c}
+        \max_{n_S,n_T}{3n_s+2n_T}\\
+        \text{s.t. }2n_S+n_T\leq 100  \\
+        n_S+n_T \leq 80  \\
+        n_S\leq 40 \\
+
+    \end{array}
+\end{equation}
+\\
+My model file : pb1.mod
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        param n;
+        param f{i in 1..n};
+        param A{i in 1..n,j in 1..n};
+        param time{i in 1..n};
+        param max_Soldier;
+
+        var production{i in 1..n};
+
+        maximize profit:sum{i in 1..n}f[i]*production[i];
+
+
+        s.t. time_constraints{i in 1..n} :sum{j in 1..n}A[i,j]*production[j]<= time[i];
+        s.t. max_demand : production[1]<=max_Soldier;  
+    \end{verbatim}
+\end{DDbox}
+\\
+My data file : pb1.dat
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        param n:= 2;
+        param f := 
+        1 3 
+        2 2;
+
+        param A :
+        1 2 =
+        1 2 1
+        2 1 1;
+
+        param max_Soldier = 40;
+
+        param time:= 
+        1 100 
+        2 80;
+    \end{verbatim}
+\end{DDbox}
+\\
+My run file : pb1.run
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        reset;
+
+        model pb1.mod;
+
+        data pb1.dat;
+
+        option solver cplex;
+        solve;
+
+        display profit, production;
+    \end{verbatim}
+\end{DDbox}
+\\
+And the output is profit = 180 and production = [20,60] where production[1]$=n_S$ and production[2]$=n_T$.
+
+\section*{Problem 2 : Work Scheduling Problem}
+I introduced a variable nurse : N $ = [n_1,n_2,n_3,n_4,n_5,n_6,n_7]^T$ where $n_i$ is the number of nurse starting to work on the i-th day of the week.
+This problem can be written this way : with $r = [17,13,15,19,14,16,11]^T$ and $A = \left(\begin{matrix}
+    1&1&1&1&1&0&0\\
+    
+    0 &1& 1& 1& 1& 1& 0\\
+    0 &0 &1 &1 &1 &1 &1\\
+    1 &0 &0 &1 &1 &1 &1\\
+    1 &1 &0& 0 &1 &1 &1\\
+    1 &1 &1 &0 &0 &1 &1\\
+    1 &1 &1 &1 &0 &0 &1\\
+\end{matrix}\right)$
+\begin{equation}
+    \begin{array}{c}
+        \min_{N}(\sum_{i=1}^7n_i)\\
+        \text{s.t. }AN\ge r\\
+    \end{array}
+\end{equation}
+\\
+My model file : pb2.mod
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        param days;
+
+        param week_schedule{i in 1..days,j in 1..days};
+        param requirement{i in 1..days};
+
+        var nurse{i in 1..days};
+
+
+        minimize nurse_needed : sum{i in 1..days}nurse[i];
+
+        s.t. day_nurse_need{i in 1..days}:
+         sum{j in 1..days}week_schedule[i,j]*nurse[j]>=requirement[i];
+        s.t. realLife{i in 1..days} :nurse[i]>=0;
+    \end{verbatim}
+\end{DDbox}
+\\
+\newpage
+My data file : pb2.dat
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        param days := 7;
+
+        param week_schedule : 
+        1 2 3 4 5 6 7 =
+        1 1 1 1 1 1 0 0
+        2 0 1 1 1 1 1 0
+        3 0 0 1 1 1 1 1
+        4 1 0 0 1 1 1 1
+        5 1 1 0 0 1 1 1
+        6 1 1 1 0 0 1 1
+        7 1 1 1 1 0 0 1;
+
+        param requirement :=
+        1 17
+        2 13
+        3 15
+        4 19
+        5 14
+        6 16
+        7 11;
+    \end{verbatim}
+\end{DDbox}
+\\
+My run file : pb2.run
+\\
+\begin{DDbox}{\linewidth}
+    \begin{verbatim}
+        reset;
+
+        model pb2.mod;
+
+        data pb2.dat;
+
+        option solver cplex;
+        solve;
+
+        display nurse_needed, nurse;
+        display nurse_needed, nurse > answer_pb2.txt;
+    \end{verbatim}
+\end{DDbox}
+\\
+The solution for this problem is : $N=[7.333, 0, 3.333, 5, 1.333, 5.3333, 0]$ and 22.333 nurse hired in total.\\
+If we require nurses to be integer values : $N=[7,0,3,5,2,6,0]$ and 23 nurses are to be hired
+\section*{Problem 3 : Blending Problem}
+This problem can be writen as follows : \begin{equation}
+    \begin{array}{c}
+        \max(0.2n_s+0.25n_E)\\
+        \text{s.t. }p_{S1}n_S+p_{E1}n_E\leq 100\\
+        p_{S2}n_S+p_{E2}n_E\leq 20 \\
+        p_{S3}n_S+p_{E3}n_E\leq 30\\
+        p_{E1}+p_{E2}+p_{E3} = 1\\
+        p_{S1}+p_{S2}+p_{S3} = 1, p_{S2}\ge 0.1, p_{S3}\ge 0.1, p_{E2}\ge 0.2\\
+        \text{     }n_S,n_E,p_{E1}, p_{E3},p_{S1}\ge0 \\
+    \end{array}
+\end{equation} 
+\section*{Problem 4 : School Districts}
+In this problem I introduced a tensor
+ $S=(s_{igj})_{i\in[1;I],g\in[1,G],j\in[1,J]}$ such that $\sum_{j=1}^Js_{ijg} = S_{ig}$.
+ $s_{ijg}$ reprensents the number of student from neighbourhood $i$ of grade $g$ going to school $j$
+ so that finding all $s_{ijg}$ identifies the maping between each student and its school.
+\\
+The optimization problem becomes : 
+\begin{equation}
+    \min_S\left(\sum_{i,j}d_{ij}\left[\sum_{g}s_{igj}\right]\right)
+    \text{s.t. } \forall (i,j,g)\in[1;I]\times[1,G]\times[1,J], \sum_{j=1}^{J} s_{igj} = S_{ig}, \sum_{i=1}^{I} s_{igj} \leq C_{jg}
+\end{equation}
+\end{document}

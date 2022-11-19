@@ -1,0 +1,67 @@
+set LINE = L1 L2 L3;
+set SIZE = S1 S2 S3;
+
+
+
+param profit: 
+		S1 S2 S3 =
+	L1  20 30 40
+	L2  50 80 125
+	L3  100 250 325;
+	
+param s_orders: 
+		S1 S2 S3 =
+	L1  750 1500 100
+	L2  400 1500 100
+	L3  25 150 50;
+	
+param alum:
+		S1 S2 S3 =
+	L1  14  24  30
+	L2  0  0  0
+	L3  0  0  0;
+	
+param particle:
+		S1 S2 S3 =
+	L1  8  15  24
+	L2  0  0  0
+	L3  0  0  0;
+	
+param pine:
+		S1 S2 S3 =
+	L1  0  0  0
+	L2  22  40  55
+	L3  25  45  60;
+	
+param pline_1:
+		S1 S2 S3 =
+	L1  1.5  2.0  2.5
+	L2  0  0  0
+	L3  0  0  0;
+	
+	
+param pline_2:
+		S1 S2 S3 =
+	L1  1  1  1
+	L2  1  1  1
+	L3  0  0  0;
+
+	
+param pline_3:
+		S1 S2 S3 =
+	L1  0  0  0
+	L2  3  4  5
+	L3  3  4  5;
+
+param assembly:
+		S1 S2 S3 =
+	L1  10 11 12
+	L2  15 18 20
+	L3  20 25 30;
+
+param hand_craft:
+		S1 S2 S3 =
+	L1  0  0  0
+	L2  0  0  0
+	L3  50 60 70;
+

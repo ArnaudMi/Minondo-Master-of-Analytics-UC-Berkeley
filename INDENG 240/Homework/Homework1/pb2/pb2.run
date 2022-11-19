@@ -1,0 +1,13 @@
+reset;
+
+model pb2.mod;
+
+data pb2.dat;
+
+option solver cplex;
+solve;
+
+display strategy, win;
+
+display strategy, win > pb2_answer.txt;
+

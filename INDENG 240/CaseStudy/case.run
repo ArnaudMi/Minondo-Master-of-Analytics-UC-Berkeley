@@ -1,0 +1,14 @@
+reset;
+
+option solver cplex;
+option cplex_options 'mipbasis 1 sensitivity';
+option presolve 10;
+
+model study.mod;
+
+data case.dat;
+
+solve;
+
+display _varname, _var, _var.rc, _var.lb, _var.ub, _var.val ;
+display _conname, _con, _con.slack, _con.current, _con.up, _con.down ;

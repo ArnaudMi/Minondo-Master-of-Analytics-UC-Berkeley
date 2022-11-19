@@ -1,0 +1,13 @@
+reset;
+
+model pb1.mod;
+
+data pb1.dat;
+
+option solver cplex;
+
+solve;
+
+display production, cost;
+
+display production, cost > answer_pb1.txt;

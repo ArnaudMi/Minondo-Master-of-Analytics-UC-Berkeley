@@ -1,0 +1,64 @@
+\documentclass{article}
+
+
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{xcolor}
+
+\definecolor{Zgris}{rgb}{0.95,0.95,0.95}
+
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+
+\title{IEOR 240 : Homework 4}
+\author{Arnaud Minondo}
+\begin{document}
+\maketitle
+\section*{Problem 1 :}
+Let $S =\{x\in\mathbb{R}^3|x_1+x_2+x_3\ge 1\text{ and }x_1,x_2\ge0\}$
+\\ 
+Let $S_l = \{(t,(x_1,x_2,x_3))\in\mathbb{R}\times S \text{ s.t. }t\ge 2x_1, t\ge 3x_2, t\ge4x_3 t\ge -4x_3\} $ 
+\\
+By definition of $S_l$, $\forall (t,x)\in S_l, t\ge \max(2x_1,3x_2,|4x_3|)$. 
+\\\\
+As a first result we have that $\min\limits_{(t,x)\in S_l}(t)\ge \min\limits_{(t,x)\in S_l}(\max(2x_1,3x_2,|4x_3|)) = \min\limits_{x\in S}(\max(2x_1,3x_2,|4x_3|))$ as the left side only depends on $x\in S$.
+\\\\
+As a second result we can notice that $(\min\limits_{x\in S}(\max(2x_1,3x_2,|4x_3|)),x^*)\in S_l$, so $\min\limits_{(t,x)\in S_l}(t)\leq \min\limits_{x\in S}(\max(2x_1,3x_2,|4x_3|))$.
+\\\\
+The results combined yield that the two min have to be equal. Moreover the problem where $(t,x)\in S_l $ is linear.
+
+\section*{Problem 2 :}
+\subsection*{2.(a)}
+The reduced cost is 0 because of the complementary slackness theorem.
+\subsection*{2.(b)}
+After the strong duality theorem : objective value are equal thus $0.5*12+2*10 +(b)*8= 2*7+4*3 = 26$ and conclude that $(b)=0$.
+\subsection*{2.(c)}
+The allowable decrease for constraint 3 is 2 as $8-6 = 2$ and we can decrease the constraint of two without changing the solution of the problem.
+\subsection*{2.(d)}
+The optimal solution will not change, $x=(2,0,4,0)$ is still optimal but the objective value changes and it is : $28$.
+\subsection*{2.(e)}
+If you decrease C1 to 10, the solution of the dual does not change, $\overline{y} = (0.5,2,0)$ is still optimal and the new objective value is : 25.
+\subsection*{2.(f)}
+We need to compute the reduced cost of $x_5$, which is equal to $3-2*0.5+2*2 4*0 = -2$ which is negative so the objective function value can't be increased as it is a maximization problem.
+The solution is still optimal.
+\section*{Problem 3 :}
+\subsection*{3.(a)}
+This is false : let $(\mathcal{P})$ $\max(x_1-x_2)$ s.t. $x_1+x_2 = 1$ and $x_1+x_2 = -1$. Its dual constraints is the same and obviously both are infeasible.
+\subsection*{3.(b)}
+This is false : Let the problem be $\min(x_1+x_2)$ s.t. $x_1+2x_2\ge 2$, $-x_1-2x_2\ge -2$ and $x_1,x_2\ge 0$ then after some computations you have the dual solution is $y_1 = \frac{1}{2}, y_2 = 0$.
+\subsection*{3.(c)}
+This is false : consider the problem $\max(x_1+x_2)$ s.t. $x_1 \leq 1$, $x_2\leq 1$ and $x_1,x_2\ge 0$, its dual is : $\min(-y_1-y_2), y_1\leq -1, y_2 \leq -1$ and the optimal sol is $y_1 = y_2 = -1$.
+Now consider the proble $\max(2x_1+2x_2)$ s.t. $x_1 \leq 1$, $x_2\leq 1$ and $x_1,x_2\ge 0$ which is the same as the original but only with the coefficient multiplied by two. The dual is : $\min(-y_1-y_2)$ s.t. $y_1\leq -2$, $y_2\leq -2$ and $y_1,y_2\leq 0$ with optimal solution $y_1=y_2=-2$.
+We can see that the solution of the dual changed.
+\subsection*{3.(d)}
+As $x=0_{\mathbb{R}^n}$ is feasible whatever are the value of $a_1,a_2$ the problem is feasible.
+\subsection*{3.(e)}
+Suppose $\forall z\in \mathbb{R}^m, (\forall j \in \llbracket 1;m\rrbracket, \sum\limits_{i=1}^n a_{ij}z_i \leq 0, z_j\ge 0 ) \implies z = 0$.
+\\
+Let $w$ be a certificate of infeasibility. $w^TA \leq 0$ and we can notice that $\forall j \in \llbracket 1;m\rrbracket ,(w^TA)_j = \sum\limits_{i=1}^n a_{ij}z_i\leq 0$. Moreover, $w\ge 0$ so $w$ verifies the first two conditions so $w=0$ which means that $w^Tb = 0$ which is in contradiction with $w^Tb<0$ the last condition of the unfeasibility certificate.
+\\\\
+So there does not exist any infeasibility certificate therefore after the theorem of alternatives, the problem is always feasible.
+
+\end{document}

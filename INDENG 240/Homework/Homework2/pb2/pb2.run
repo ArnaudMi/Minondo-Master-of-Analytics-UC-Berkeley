@@ -1,0 +1,11 @@
+reset;
+
+model pb2.mod;
+
+data pb2.dat;
+
+option solver cplex;
+solve;
+
+display nurse_needed, nurse;
+display nurse_needed, nurse > answer_pb2.txt;

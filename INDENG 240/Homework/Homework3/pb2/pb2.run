@@ -1,0 +1,10 @@
+reset;
+
+model pb2.mod;
+
+data pb2.dat;
+
+option solver cplex;
+solve;
+
+display object, u;

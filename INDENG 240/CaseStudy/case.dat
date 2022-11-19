@@ -1,0 +1,107 @@
+set LINE := ECONOMY, BASIC, HANDCRAFTED;
+set SIZE := STUDENT, STANDARD, EXECUTIVE;
+
+
+param profit : 
+		  ECONOMY BASIC HANDCRAFTED =
+STUDENT   20      50	100
+STANDARD  30	  80	250
+EXECUTIVE 40	  125	325
+;
+
+param orders : 
+		  ECONOMY BASIC HANDCRAFTED =
+STUDENT   750     400	25
+STANDARD  1500	  1500	150
+EXECUTIVE 100	  100	50
+;
+ 
+param aluminium :
+		  ECONOMY BASIC HANDCRAFTED =
+STUDENT   14      0		0
+STANDARD  24	  0		0
+EXECUTIVE 30	  0		0
+;
+
+param particle_board :
+		  ECONOMY BASIC HANDCRAFTED =
+STUDENT   8       0		0
+STANDARD  15	  0		0
+EXECUTIVE 24	  0		0
+;
+
+
+param pine_sheets :
+		ECONOMY BASIC HANDCRAFTED =
+STUDENT    0      22		25
+STANDARD   0	  40		45
+EXECUTIVE  0	  55		60
+;
+
+param line1_time :
+		ECONOMY BASIC HANDCRAFTED =
+STUDENT   1.5      0		0
+STANDARD  2.0	   0		0
+EXECUTIVE 2.5	   0		0
+;
+
+
+param line2_time :
+			ECONOMY BASIC HANDCRAFTED =
+STUDENT   	1       1		0
+STANDARD  	1	  	1		0
+EXECUTIVE 	1	  	1		0
+;
+
+
+param line3_time :
+		ECONOMY BASIC HANDCRAFTED =
+STUDENT   0      3		3
+STANDARD  0	  	 4		4
+EXECUTIVE 0	  	 5		5
+;
+
+
+param a_finishing : 
+		ECONOMY BASIC HANDCRAFTED =
+STUDENT   10      15		20
+STANDARD  11	  18		25
+EXECUTIVE 12	  20		30
+;
+
+
+param hf :
+		ECONOMY BASIC HANDCRAFTED =
+STUDENT   0      0		50
+STANDARD  0	  	 0		60
+EXECUTIVE 0	  	 0		70
+;
+
+/*
+param low_quot_line := 
+ECONOMY 		20
+BASIC 			40
+HANDCRAFTED 	10; 
+
+param high_quot_line :=
+ECONOMY 50
+BASIC 60
+HANDCRAFTED 20;
+
+param low_quot_size :=
+STUDENT 20
+STANDARD 40
+EXECUTIVE 5;
+
+param high_quot_size :=
+STUDENT 35
+STANDARD 70
+EXECUTIVE 15;
+*/
+param labour := 230400;
+param alumin :=65000;
+param particle := 60000;
+param pish := 175000;
+param prod_line1 := 9600;
+param prod_line2 := 9600;
+param prod_line3 := 19200;

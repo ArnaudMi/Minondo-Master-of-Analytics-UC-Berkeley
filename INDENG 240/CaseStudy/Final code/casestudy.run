@@ -1,0 +1,17 @@
+reset;
+reset data;
+
+model casestudy.mod;
+
+data casestudy.dat;
+option presolve 10;
+option solver cplex;
+option cplex_options 'sensitivity';
+
+
+
+
+solve;
+
+display _varname, _var , _var.rc ,_var.current , _var.down, _var.up ;
+display _conname, _con, _con.slack,_con.current, _con.down, _con.up;

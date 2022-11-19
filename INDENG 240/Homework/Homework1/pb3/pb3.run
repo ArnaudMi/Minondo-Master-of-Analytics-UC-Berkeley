@@ -1,0 +1,12 @@
+
+reset;
+
+model pb3.mod;
+
+data pb3.dat;
+
+option solver cplex;
+solve;
+
+display coefficients,Error;
+display coefficients,Error>answer_pb3.txt
