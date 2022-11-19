@@ -1,0 +1,50 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{stmaryrd}
+\usepackage{geometry}
+\usepackage{dsfont}
+\geometry{hmargin = 2.5cm, vmargin = 1.5cm}
+\title{IEOR 263A : Homework 10}
+\author{Arnaud Minondo}
+\begin{document}
+\maketitle
+\section*{Problem 7.13}
+\textbf{a.} Let $T$ be the number of game played. Let $\forall i \in\mathbb{N}^*$, $X_i$ be the outcome of the play $i$. We have $(X_i)_{i\in\mathbb{N}^*}$ iid. and $T$ is a stopping time as it does not depend on the future games played. Let $X = \sum\limits_{i=1}^TX_i$ be the winnings. Furthermore, $\mathbb{E}(T)\leq 3<\infty$ thus after Wald's equation we have $$\boxed{\mathbb{E}(X) = \mathbb{E}(T)\mathbb{E}(X_i) = 0\text{ as }\mathbb{E}(X_i) = 0}$$.
+\\\\
+\textbf{b.} Let $I = \mathds{1}(X_1 = -1)$ and notice that $T=2I+1$. Thus $\mathbb{P}(T=1) = \mathbb{P}(I=0) = \frac{1}{2}$, $\mathbb{P}(T=2) = 0$ and $\mathbb{P}(T=3) = \frac{1}{2}$. Moreover, $\mathbb{P}(X=-3) = \frac{1}{8}$, $\mathbb{P}(X = -1) = \frac{1}{4}$, $\mathbb{P}(X=1) = \frac{5}{8}$. $$\boxed{\mathbb{E}(X) = -3\frac{1}{8} -\frac{1}{4}+\frac{5}{8} = 0 }$$ 
+\section*{Problem 7.15}
+\textbf{a.} Let $\forall i\in\mathbb{N}^*$, $X_i\sim\mathcal{U}(\{2,4,6\})$ be the inter travel time before either reaching safety either going back to his room. Let $N = \min(n\in\mathbb{N}^*|X_n=2)$ then $N$ is a stopping time as $\mathbb{P}(N=n)=\mathbb{P}(\cap_{i=1}^{n-1},X_i\neq 2,X_n=2)$ which is independent from $X_i$, $i\ge n+1$. $$\boxed{T = \sum\limits_{i=1}^NX_i}$$
+\textbf{b.} We notice that $N\sim \mathcal{G}(\frac{1}{3})$ thus $\forall n\in\mathbb{N}^*$, $\mathbb{P}(N=n) = \frac{1}{3}(\frac{2}{3})^{n-1}$ and $\mathbb{E}(N) = 3$. After Wald's Equation : $$\boxed{\mathbb{E}(T) = \mathbb{E}(N)\mathbb{E}(X) = 12}$$
+\textbf{c.} $$\boxed{\mathbb{E}\left(\sum_{i=1}^NX_i|N=n\right) = 2+5(n-1)}$$
+This is different from $$\boxed{\mathbb{E}\left(\sum_{i=1}^nX_i\right) = 4n}$$
+\textbf{d.} We have $\mathbb{E}(T) = \mathbb{E}\left(\mathbb{E}(\sum\limits_{i=1}^NX_i|N)\right) = \sum\limits_{n=1}^\infty\mathbb{P}(N=n)\mathbb{E}\left(\sum\limits_{i=1}^NX_i|N=n\right)$. Hence : $$\boxed{\mathbb{E}(T) = 2+5\sum_{n=1}^\infty(n-1)p(1-p)^{n-1} = 2 + 5\left(\dfrac{\frac{2}{3}}{\frac{1}{3}}\right) = 12}$$
+\section*{Problem 7.16}
+Wald's equation does not hold here as $X_i$ are not iid. Let $N_i$ be the number of aces discovered after having revealed $i$ cards. Then $\forall i\in\llbracket 1;48\rrbracket$, $\mathbb{P}(X_i=1|N_{i-1}=0) = \frac{4}{52-i}$ which is different for all $i$. Moreover $N$ is not a stopping time as knowing $N=n$ yields $X_{n+1},X_{n+2},...,X_{52}$ will be 0. 
+\section*{Problem 7.34}
+\textbf{a.} Let $\lambda$ be the rate at which customers are coming in the system. The number of customers lost during service time is a non homogeneous poisson process $N_1(t)$ with rate $\lambda(t) = \left\{\begin{array}{cl}
+    0& \text{if }t\in [nT;nT+T/4],n\in\mathbb{N}\\
+    \lambda \int_t^{T}1-G(u)du & \text{if }t\in [nT+T/4;(n+1)T],n\in\mathbb{N}\\
+\end{array}\right.$. Define the number of customers lost during cleaning : $N_2(t) = \left\{\begin{array}{cl}
+    \lambda & \text{if }t\in [nT+T/4;(n+1)T],n\in\mathbb{N}\\
+    0 & \text{if }t\in [nT;nT+T/4],n\in\mathbb{N}\\
+\end{array}\right.$
+\\
+$$\boxed{\lim_{t\to\infty} \dfrac{C_1N_1(t)+C_2N_2(t)}{t} = \dfrac{\mathbb{E}(N_1(T)C_1+N_2(T)C_2)}{T} = \dfrac{C_1\mathbb{E}(N_1(T))+C_2\mathbb{E}(N_2(T))}{T} = \dfrac{C_1\int_0^T\lambda(s)ds+C_2\lambda T/4}{T}}$$
+\textbf{b.} Let $E$ be the time the system is being cleaned after the last clean. A cycle happens every $T$. The long run proportion of time the system is being cleaned is $$\boxed{\dfrac{\mathbb{E}(E)}{T} = \dfrac{1}{4}}$$
+\section*{Problem 7.37}
+\textbf{a.} Let $T$ be the time before one machine fails. Let $R$ be the time for repairation. With $\mathbb{E}(T) = \dfrac{1}{\lambda_1+\lambda_2+\lambda_3}$ and $\mathbb{E}(R) = 1+ \dfrac{\lambda_1}{5(\lambda_1+\lambda_2+\lambda_3)}+ \dfrac{2\lambda_2}{\lambda_1+\lambda_2+\lambda_3} + \dfrac{3\lambda_3}{2(\lambda_1+\lambda_2+\lambda_3)}$. $C = T+R$ is the time of a cycle made of a failure and a repairation. The proportion of time the system is working is $$\boxed{\dfrac{\mathbb{E}(T)}{\mathbb{E}(T+R)} = \dfrac{1}{1+\frac{\lambda_1}{5}+2\lambda_2+\frac{3}{2}\lambda_3}}$$
+\textbf{b.} Let $R_i$ be the time the machine $i$ is repaired in a cycle : $$\boxed{\dfrac{\mathbb{E}(R_1)}{\mathbb{E}(C)} = \dfrac{\lambda_1}{5(1+\frac{\lambda_1}{5}+2\lambda_2+\frac{3}{2}\lambda_3)}}$$
+\textbf{c.} Let $S_2$ be the time the machine 2 is in suspended animation : $$\boxed{\dfrac{\mathbb{E}(R_1+R_3)}{\mathbb{E}(C)} = \dfrac{\lambda_1/5+3\lambda_3/2}{1+\frac{\lambda_1}{5}+2\lambda_2+\frac{3}{2}\lambda_3}}$$
+\section*{Additionnal Problem 1}
+\textbf{a.} Let $\forall n\in\mathbb{N}$, $u_n = m(n+0.5)-m(n) = 0$ then $\lim_{n\to\infty}u_n = 0$.
+\\
+Let $\forall n\in\mathbb{N}^*$, $v_n = m(n+0.4)-m(n-0.1) = 1$ and $\lim_{n\to\infty}v_n=1$
+$$\boxed{\text{There is no limits as two subsequences don't converge to the same limit}}$$
+\\\\
+\textbf{b.} $F$ is non lattice and we can apply the limit theorem for Renewal Process Mean, $\lim_{t\to\infty} \frac{m(t)}{t} -\frac{1}{\mu}= (c^2-1)/2$ where $\mu = \mathbb{E}(X) = \frac{3}{2}$.
+Thus we have $m(t+a)-m(t) = \dfrac{t+a}{\mu}-\dfrac{t}{\mu}+\dfrac{(c^2-1)}{2}-\dfrac{(c^2-1)}{2}+o_{t\to\infty}(1) =_{t\to\infty} \dfrac{a}{\mu}+o(1)\to_{t\to\infty}\dfrac{a}{\mu} = \dfrac{1}{3}$
+\end{document}

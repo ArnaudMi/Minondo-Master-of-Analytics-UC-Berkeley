@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+
+
+
+
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+
+\title{INDENG241 : Homework 4}
+\author{Arnaud Minondo}
+
+\begin{document}
+
+\maketitle
+\section*{Problem : Convergence of the Binomial to Poisson}
+Let $n\in\mathbb{N}, \lambda\in\mathbb{R}, X_n \sim \mathcal{B}(n,\frac{\lambda}{n}), X \sim \mathcal{P}(\lambda)$
+\subsection*{1.}
+Show that : $\forall k \in\mathbb{N}, \lim_{n\to\infty} \mathbb{P}(X_n = k) = \mathbb{P}(X = k)$.
+\subsection*{2.}
+Show that : $\forall k \in \mathbb{N} , |P(X_n=k)-P(X=k)|\sim_{n\to\infty} \mathbb{P}(X=k)\frac{|2k\lambda-2k(k-1)-\lambda^2|}{2n}$
+\subsection*{3.}
+A fisherman fishes in a lake where there are two kinds of fishes : kind A and B.
+There are 10000 fishes among which are 1000 A and 9000 B.
+The fisherman releases all its catches just after having fished it and fishes 100 fishes.\\
+Let X be the random variable counting the number of fish of kind A fished. 
+Give $\mathbb{P}(X=10)$
+\subsection*{4.}
+Give an appraoched value using 1. and comment on the difference using 2.
+
+\section*{Solution}
+\subsection*{1.}
+Let $k\in\mathbb{N}, \mathbb{P}(X_n = k) = \binom{n}{k}(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k} = \frac{\lambda^k}{k!}\left[\frac{n!}{(n-k)!n^k}(1-\frac{\lambda}{n})^{n-k}\right]$.
+\\
+Moreover : $\frac{n!}{n^k(n-k)!} = \prod_{i=0}^{k-1}\frac{n-i}{n} \to_{n\to \infty} 1$
+\\
+And $(1-\frac{\lambda}{n})^{n-k} = \exp((n-k)\log(1-\frac{\lambda}{n})) =_{n\to \infty} \exp(-\lambda)\exp(\frac{k}{n})\to_{n\to\infty} \exp(-\lambda) $
+\\
+Finally : $\forall k \in \mathbb{N}, \lim_{n\to\infty} \mathbb{P}(X_n=k)= \exp (-\lambda) \frac{\lambda^k}{k!} = \mathbb{P}(X=k)$
+\subsection*{2.}
+After 1. we can write : $|\mathbb{P}(X_n = k)-\mathbb{P}(X=k)| = \exp(-\lambda)\frac{\lambda^k}{k!}\left|\left(\prod_{i=0}^{k-1}\frac{n-i}{n}\right)(1-\frac{\lambda}{n})^{n-k}\exp(\lambda) - 1\right|$
+\\
+With : $\prod_{i=0}^{k-1}\frac{n-i}{n} = \prod_{i=0}^{k-1} (1-\frac{i}{n}) =_{n\to \infty} 1 - \frac{\sum_{i=0}^{k-1} i}{n} +o(\frac{1}{n}) =_{n\to \infty} 1 - \frac{k(k-1)}{n} + o(\frac{1}{n})$
+\\
+And : $\left(1-\frac{\lambda}{n}\right)^{n-k}\exp(\lambda) = \exp((n-k)\log(1-\frac{\lambda}{n})+1) =_{n\to\infty} \exp(1+(n-k)(-\frac{\lambda}{n}-\frac{\lambda^2}{2n^2} + o(\frac{1}{n^2})))$
+\\
+$= \exp(\frac{2\lambda k-\lambda^2}{2n})+o(\frac{1}{n}) = (1+\frac{2k\lambda-\lambda^2}{2n}) + o(\frac{1}{n})$
+\\
+Finally : $|\left(\prod_{i=0}^{k-1}\frac{n-i}{n}\right)\left(1-\frac{\lambda}{n}\right)^{n-k}\exp(\lambda) -1| = |\left(1+\frac{2k\lambda-\lambda^2}{2n}\right)\left(1 - \frac{k(k-1)}{n}\right) -1| + o(\frac{1}{n})$
+\\
+$= \frac{|2k\lambda-2k(k-1)-\lambda^2|}{2n}+o(\frac{1}{n})\sim\frac{|2k\lambda-2k(k-1)-\lambda^2|}{2n}$
+\\
+And : $$\boxed{|\mathbb{P}(X_n=k)-\mathbb{P}(X=k)|\sim_{n\to\infty}\mathbb{P}(X=k)\frac{|2k\lambda-2k(k-1)-\lambda^2|}{2n}}$$
+\newpage
+\subsection*{3.}
+$\mathbb{P}(X=10) = \binom{100}{10}\left(\frac{1}{10}\right)^{10}\left(\frac{9}{10}\right)^{90} = 0.131$
+\subsection*{4.}
+As $\frac{\lambda}{100} = \frac{1}{10}$ then $\lambda = 10$ and let a Poisson random variable $Y\sim\mathcal{P}(10)$ then $\mathbb{P}(Y) = \exp(-10)\frac{10^10}{10!} = 0.125$.\\
+After 2. the error between the two probabilities would be : $0.125*0.1 = 0.01$
+\\
+We notice that $0.131\in[0.125-0.1,0.125+0.1]$
+\end{document}

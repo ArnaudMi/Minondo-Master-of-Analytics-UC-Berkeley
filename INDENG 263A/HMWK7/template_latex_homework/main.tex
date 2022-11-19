@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+
+
+\title{IEOR 263A : Homework 7}
+\author{Arnaud Minondo}
+\begin{document}
+\maketitle
+\section*{Problem 51}
+Let $t\in\mathbb{R}+$, $A(t)\in\mathbb{N}$ be the number of accident. \\
+Let $I(t) = \left\{\begin{array}{l}
+    1 \text{ if the person already had an accident by time } t\\
+    0 \text{ otherwise}
+\end{array}\right.$\\
+Let $P(t)\sim PP(\beta)$. We can notice that $A(t) = I(t)(1+P(t))$. Let $E$ be the time before the first accident.
+As the number of accident is a poisson process with rate $\alpha$ before the first accident we have that $\mathbb{P}(I(t) = 1) = \mathbb{P}(E\leq t) = 1 - e^{-\alpha t}$
+\\
+Thus : $\mathbb{E}(A(t)) 
+= \mathbb{E}(I(t)(1+P(t)))
+= \mathbb{E}(I(t))+\mathbb{E}(I(t)P(t)) 
+= 1 - e^{-\alpha t} + \int_0^t \beta (t-u) \alpha e ^{-\alpha u} du $\\
+Hence : \begin{equation*}
+    \boxed{\mathbb{E}(A(t))= 2(1-e^{-\alpha t}) + \beta t (1-e^{-\alpha t}) + t e^{-\alpha t}}
+\end{equation*}
+\section*{Problem 52}
+Define $\forall i \in \llbracket -k, k\rrbracket$, $A_i$ = ``Team 1 wins starting with $i$ points advantage'', $p_i = \mathbb{P}(A_i)$ so that $p_{-k} = 0$ and $p_k = 1$.
+\\
+We notice that $p_i = \dfrac{\lambda_2}{\lambda_1+\lambda_2}p_{i+1} + \dfrac{\lambda_1}{\lambda_1+\lambda_2}p_{i-1}$.
+\\
+Two solution for this recursive equation are : $u_i = 1$ or $v_i =\left(\dfrac{\lambda_1}{\lambda_2}\right)^i$
+\\
+Thus $p_i = C_1+C_2\left(\dfrac{\lambda_1}{\lambda_2}\right)^i$, with $p_{-k} = 0$ and $p_k = 1$ it yields $$\boxed{p_i = \dfrac{\lambda_2^{k-i}\lambda_1^{k+i}-\lambda_2^{2k}}{\lambda_1^{2k}-\lambda_2^{2k}}}$$
+\section*{Problem 66}
+\textbf{a.} Define $\forall t \in\mathbb{R}$, $N(t) = $ number of accidents.
+ Among those accidents some are reported at time t some are not.
+ This is a poisson process that is being splitted.
+ Thus $N(t)\sim PP(\lambda \int_0^tG(u)du)$ and $$\boxed{\forall n \in \mathbb{N}, \mathbb{P}(N(t) = n) = \dfrac{(\lambda \int_0^tG(u)du)^n}{n!}e^{-\lambda \int_0^tG(u)du}}$$
+\\\\
+\textbf{b.} Let $t\in\mathbb{R}+$, $A(t)$ be the amount of the accidents that have not been reported yet at time t :
+ $$\boxed{\mathbb{E}(A(t)) = \mathbb{E}(\mathbb{E}(A(t)|N(t))) = \mathbb{E}(N(t)\mathbb{E}(F)) = \mathbb{E}(N(t))\mathbb{E}(F) = \mathbb{E}(F)\lambda \int_0^t G(u)du }$$
+
+ \section*{Problem 70}
+\textbf{a.} Let $\lambda \in \mathbb{R}+$ be the rate of the poisson process $\{N(t)\}$. Let H = ``The first client to arrive is also the first leaving''. Let $i\in\mathbb{N}$, $T_i$ is the service time for $i$-th server, $t$ is the arrival time of the customer leaving second.\\
+ $\mathbb{P}(H|t) = \mathbb{P}(T_1\leq t + T_2) = \mathbb{P}(T_1>t, T_1-t\leq T_2)+\mathbb{P}(T_1\leq t)$.\\
+Thus $$\boxed{\mathbb{P}(H) = \int_0^{\infty}\lambda e^{-\lambda t}\left(G(t)+1-\int_t^{\infty}G(x-t)dG(x)\right)dt}$$
+\\\\
+\textbf{b.} We can write : $S(t) = \sum\limits_{i=1}^{N(t)}T_i - \sum\limits_{j=1}^{M(t)} T_j$ where $\{M(t)\}$ is the poisson process counting the number of person that left the system. $S(t)$ is a compound poisson process as it is a linear combination of two $CPP$.
+\\\\
+\textbf{c.} Let $N_1(t) = N(t)-M(t)$ be the number of customer in the system by time $t$ : $$\boxed{\mathbb{E}(S(t)) = \mathbb{E}(N_1(t))\mathbb{E}(T)}$$ where $T\sim G$.
+\\\\
+\textbf{d.} $$\boxed{\mathbb{V}(S(t)) = \mathbb{E}(\mathbb{V}(S(t)|N_1(t)))+\mathbb{V}(\mathbb{E}(S(t)|N_1(t))) = \mathbb{E}(N_1^2(t))\mathbb{V}(T)+\mathbb{E}(T)^2\mathbb{V}(N_1(t))}$$
+
+\section*{Problem 80}
+\textbf{i.} $\forall i \in\mathbb{N}$, $T_i$ are not independent between each other.
+\\\\
+\textbf{ii.} They are not identically distributed because $\lambda$ is a function of time.
+\\\\
+\textbf{iii.} $T_1\sim \mathcal{E}(\lambda(t))$ ie. $$\boxed{\forall t \in \mathbb{R}+, \mathbb{P}(T_1\leq t) = \int_0^t\lambda(u)e^{-\lambda(u)u}du}$$.
+\section*{Problem 86}
+\textbf{a. } Let $I = \left\{\begin{array}{ll}
+    0 & \text{if it is a bad year}\\
+    1 & \text{otherwise}\\
+\end{array}\right.$
+$$\boxed{\mathbb{P}(N(t)=n) = \mathbb{P}(N(t)=n|I = 1)\mathbb{P}(I=1)+ \mathbb{P}(N(t)=n|I=0)\mathbb{P}(I=0) = 0.3\dfrac{(3t)^n}{n!}e^{-3t}+0.7\dfrac{(5t)^n}{n!}e^{-5t}}$$
+\\\\
+\textbf{b.} ${N(t)}$ is not a poisson process because it does not verify the indepependent arrival times.
+\\\\
+\textbf{c.} $$\boxed{\mathbb{E}(N(t)) = \mathbb{E}(\mathbb{E}(N(t)|I)) = \mathbb{E}(N(t)|I=1)\mathbb{P}(I=1)+\mathbb{E}(N(t)|I=0)\mathbb{P}(I=0) = 0.3(3t)+0.7(5t) = 4.4t}$$
+\\\\
+\textbf{d.} We use the formula of the conditionnal variance : $\mathbb{V}(X) = \mathbb{E}(\mathbb{V}(X|Y))+\mathbb{V}(\mathbb{E}(X|Y))$ : $$\boxed{\mathbb{V}(N(t)) = \mathbb{E}(\mathbb{V}(N(t)|I))+\mathbb{V}(\mathbb{E}(N(t)|I))} $$
+\section*{Problem 1}
+Let $\lambda(t) = \left\{\begin{array}{ll}
+    1 & \text{if }t\in[0;1]\\
+    2 & \text{if }t\in[1;+\infty[\\
+\end{array}\right.$ then if $T_1 >1 $, $\mathbb{P}(T_{2}\ge t|T_1) = e^{-2t}$ and $\mathbb{P}(T_{2}\ge t) \neq e^{-2t}$ so interarrival time can't be independent. 
+\\
+But increments are independent.
+\section*{Problem 2}
+Consider a Markov Chain with three states : $P_{12}=P_{23}=P_{31}=1$. Let $\forall n\in\mathbb{N}$, $N_n$ count the number of time going by 1 starting at 1. You know the interarrival times will be 3 so all are independent as it is constant. Now suppose $N_{n+1}-N_n = 1$ then you know $N_{n+2}-N_{n+1} = 0$ and $N_{n+3}-N_{n+2} = 0$ so increments can't be independent.
+\section*{Problem 3}
+Consider a Markov Chain with two states : $P_{11} = P_{12}= \frac{1}{2}$ and $P_{22} = 1$. Let $N_n$ count the number of time going by one starting at 1 after $n$ steps. Then the interarrival time are identically distributed : 
+$T_i = \left\{\begin{array}{ll}
+    1 & \text{if we were in 1 and steped at one with } p=\frac{1}{2}\\
+    \infty & \text{otherwise}
+\end{array}\right.$ \\
+Thus all interarrival time are identically distributed.
+\\
+But suppose $N_n$ stationnary : $\forall n,s \in \mathbb{N}$, $N_{n+s}-N_n \sim_{st.}N_s$. As $n\to \infty$ $N_{n+s}-N_n \to 0$ and $N_s \sim 0$ which is not true.
+\section*{Problem 4}
+${X_i(t)}\sim CPP(2i, \mathcal{U}(i,3i))$ which means $\exists \{N_i(t)\}\sim PP(2i)$ and $\{T_{ij}\}_{j\in \mathbb{N}}\sim \mathcal{U}(i,3i)$ such that $X_i(t) = \sum\limits_{j=0}^{N_i(t)}T_{ij}$\\
+$X(t)=X_1(t)+X_2(t) = \sum\limits_{j=1}^{N_1(t)}T_{1j}+\sum\limits_{j=1}^{N_2(t)}T_{2j}$ an event arrives each $\min(X,Y)$ where $X\sim\mathcal{E}(2),Y\sim\mathcal{E}(4)$ which implies $\min(X,Y)\sim\mathcal{E}(6)$ so the rate of the $CPP$ has to be 6.
+The probability for $N_1(t)$ to increase before $N_2(t)$ is $\frac{2}{2+4} = \frac{1}{3}$ thus $N_2(t)$ to increases before $N_1(t)$ with probability $\frac{2}{3}$. Thus $1/3$ of the time $X(t)$ gains $\mathcal{U}([1,3])$ and $2/3$ of the times gains $\mathcal{U}([3,6])$ which is equivalent to always gaining $\mathcal{U}([1/3;1])+\mathcal{U}([4/3,4])$
+\\\\
+That's why : $$\boxed{X(t)\sim CPP(6, \mathcal{U}([1/3;1])+\mathcal{U}([4/3;4]))}$$
+\section*{Problem 7}
+After the course notation : $L_{n+1} = L_n+I_n(L_{n+1}'-1)$ so $\mathbb{V}(L_{n+1}) = \mathbb{V}(L_{n})+\mathbb{V}(I_nL_{n+1}')-\mathbb{V}(I_n)$.\\
+Using the conditionnal variance formula : \begin{flalign*}
+    \mathbb{V}(I_nL_{n+1}') & = \mathbb{V}(\mathbb{E}(I_nL_{n+1}'|I_n))+\mathbb{E}(\mathbb{V}(I_nL_{n+1}'|I_n))&&\\
+    &  = \mathbb{V}(I_n)\mathbb{E}(L_{n+1})^2+\mathbb{V}(L_{n+1})\mathbb{E}(I_n)&& \\
+    &  = p_n(1-p_n)+ \mathbb{V}(L_{n+1})p_n&&\\
+\end{flalign*}
+Thus :$$\boxed{\mathbb{V}(L_{n+1}) = \dfrac{\mathbb{V}(L_n)}{1-p_n}}$$
+\end{document}

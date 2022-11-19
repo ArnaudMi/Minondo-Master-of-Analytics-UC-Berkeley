@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{graphicx}
+
+\geometry{hmargin = 2.5cm, vmargin = 1.5cm}
+\title{IEOR 263A : Homework 10}
+\author{Arnaud Minondo}
+\begin{document}
+\maketitle
+\section*{Problem 7.32}
+We want to determine : $\lim\limits_{t\to\infty}\displaystyle \int_0^t\dfrac{\mathbb{I}(X_{N(s)+1}<c) ds}{t}$
+\section*{Problem 7.42}
+\textbf{a.} Having an exponential with mean $\mu$ is the same as having an exponantial with rate $\frac{1}{\mu}$.
+\\
+$\forall x\in\mathbb{R}+$, $F_e(x) = \frac{1}{\mu}\int_0^x (1-F(y))dy = \frac{1}{\mu}\int_0^x e^{-\frac{y}{\mu}}dy = \dfrac{\mu - \mu e^{-\frac{x}{\mu}}}{\mu} = 1 - e^{-\frac{x}{\mu}}$
+$$\boxed{\text{Hence } F_e = F }$$
+\textbf{b.} We have that $\mu = \int_0^{\infty}1-F(t)dt = c$.
+\\
+Thus : $\forall x\in\mathbb{R}+$, $F_e(x) = \frac{1}{c}\int_0^{x}1-F(t)dt = \frac{1}{c}\int_0^{c}1-F(t)dt + \frac{1}{c}\int_c^x 1-F(t)dt$. If $x<c$ then $F_e(x) = \frac{x}{c}$ and if $x\ge c$ then $F_e(x) = 1$
+$$\boxed{\text{Hence } F_e\sim \mathcal{U}([0;c])}$$
+\textbf{c.} Suppose the time after which the officer marks the car is $T\sim\mathcal{U}([0;2])$ because the arrival time should follow the equilibrium distribution. The probability of event $R$ :``you will receive a ticket'' is $$\boxed{\mathbb{P}(R)= \mathbb{P}(T<1) = \frac{1}{2}}$$
+\section*{Problem 7.43}
+\textbf{a.}Let $I\sim \mathcal{B}(\frac{1}{3})$.$$\boxed{\text{The equilibrium distribution should be : }F_e\sim I\mathcal{E}(1)+(1-I)\mathcal{E}(\frac{1}{2})}$$
+\textbf{b.} $$\boxed{F_e(x) = \frac{2}{3}\int_0^x \frac{1}{2}e^{-x}+\frac{1}{2}e^{-\frac{x}{2}}dx = 1 - (\frac{1}{3}e^{-x}+\frac{2}{3}e^{-\frac{x}{2}})}$$
+\section*{Problem 7.44}
+\textbf{a.} $N$ is a stopping time thus we can apply Wald's formula. Thus $\dfrac{\mathbb{E}\left(\sum\limits_{i=1}^NX_i\right)}{\mathbb{E}(N)} = \mathbb{E}(X_1) = \mathbb{P}(W_1<x)$.
+Moreover, after the weak law of large numbers : $\lim\limits_{n\to\infty}\frac{1}{n}\sum\limits_{i=1}^nX_i = \mathbb{P}(W_1<x) = \mathbb{\pi}$.
+Hence $$\boxed{\pi = \dfrac{\mathbb{E}\left(\sum\limits_{i=1}^NX_i\right)}{\mathbb{E}(N)}}$$
+\textbf{b.} Let $R = \sum\limits_{i=1}^N X_i$, $\mathbb{E}(R|T=t) = \mathbb{E}(\mathbb{E}(R|(N,T=t)))$ $$\boxed{\mathbb{E}(R|T=t) = \lambda \min(t,x)}$$
+\textbf{c.} We have $\mathbb{E}(X_1+X_2+...+X_N|T=t) = \lambda \min(t,x)$ thus $$\boxed{\mathbb{E}(X_1+X_2+...+X_N) = \int_0^\infty \lambda \min(t,x)dF(t) = \lambda \mathbb{E}(\min(T,x))}$$
+\textbf{d.} $\pi = \dfrac{\mathbb{E}(X_1+X_2+...+X_N)}{\mathbb{E}(N)} = \dfrac{\lambda\mathbb{E}(\min(T,x))}{\mathbb{E}(N)} = \dfrac{\lambda\mathbb{E}(\min(T,x))}{\mathbb{E}(\mathbb{E}(N|T))} = \dfrac{\mathbb{E}(\min(T,x))}{\mathbb{E}(T)}$.
+\\\\
+With $\mathbb{E}(\min(T,x)) = \displaystyle \int_0^x t dF(t) + \displaystyle \int_x^\infty xdF(t) = xF(x)- \int_0^x F(t)dt +x(1-F(x)) = x - \displaystyle \int_0^x 1- \mathbb{P}(T>t)dt = \int_0^x \mathbb{P}(T>t)dt$ we have the result : $$\boxed{\pi =\dfrac{\int_0^x\mathbb{P}(T>t)dt}{\mathbb{E}(T)}}$$
+\end{document}
