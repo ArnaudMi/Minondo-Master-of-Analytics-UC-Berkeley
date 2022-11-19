@@ -1,0 +1,110 @@
+\documentclass{article}
+
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+
+\title{INDENG 262A : Homework 2}
+\author{Arnaud Minondo}
+
+\begin{document}
+\maketitle
+\section*{Problem 1.4}
+$\min(2x_1+3|x_2-10|)$ s.t. $|x_1+2|+|x_2|\leq5$
+\\\\
+Let $u_0\in\mathbb{R}$ such that $u_0\ge u_0\ge x_2-10$ and $u_0\ge 10-x_2$
+\\
+Then $u_0\ge |x_2-10|$ so $2x_1+3u_0\ge 2x_1+3|x_2-10|$ and $\min_{x_1,x_2,u_0}(2x_1+3u_0)\ge \min_{x_1,x_2,u_0}(2x_1+3|x_2-10|)$
+\\
+But let $u_0 = |x_2-10|$ and $2x_1+3u_0=2x_1+3|x_2-10|$ so $\min_{x_1,x_2,u_0}(2x_1+3u_0)=\min_{x_1,x_2,u_0}(2x_1+3|x_2-10|)$.
+\\\\
+To linearize $|x_1+2|+|x_2|\leq 5$ :
+\\
+Introduce $u_1,u_2\in\mathbb{R}$ such that, $u_1\ge x_1+2$ and $u_1\ge -2-x_1$ and $u_2\ge x_2$ and $u_2\ge-x_2$ and $u_1+u_2\leq 5$
+\\\\
+The first problem which is non linear is equivalent to this linear problem :\\
+$$\boxed{\begin{array}{c|c}
+    & u_0\ge x_2-10 \\
+    & u_0\ge 10-x_2\\
+    & u_1\ge x_1+2\\
+    \min(2x_1+3u_0) \text{ s.t.}& u_1\ge -2-x_1\\
+    & u_2\ge x_2 \\
+    & u_2\ge-x_2\\
+    & u_1+u_2\leq 5\\
+\end{array}
+}$$
+\section*{Problem 1.9}
+In this problem I introduced a tensor $T = (s_{igj})_{(i,g,j)\in\llbracket 1;I\rrbracket\times\llbracket 1;G\rrbracket\times\llbracket 1;J\rrbracket }$ where $s_{igj}$ represents the number of students from neighborhood $i$ of grade $g$ going to school $j$.
+\\
+So that finding $T$ gives an attribution of each student to a school.\\
+\\
+Moreover : we can notice that $\sum\limits_{j=1}^Js_{igj}=S_{ig}$ as a student has a school, no students has no school to say so. And $\sum\limits_{i=1}^Is_{igj}\leq C_{jg}$ as the number of students in a school and of a certain grade can not exceed the school capacity.
+\\
+The problem becomes : $$\boxed{\min(\sum\limits_{i,j}d_{ij}\sum\limits_{g=1}^Gs_{igj}) \text{ s.t. } \forall (i,g,j)\in\llbracket 1;I\rrbracket\times\llbracket 1;G\rrbracket\times\llbracket 1;J\rrbracket, \sum\limits_{j=1}^J s_{igj} = S_{ig}, \sum\limits_{i=1}^I s_{igj}\leq C_{jg}, s_{igj}\ge 0 }$$
+\section*{Problem 1.11}
+Define $\forall r\in \llbracket 0;N-3\rrbracket, S_r = \left\{(i_0,i_1,...,i_r)\in \llbracket 2;N-1\rrbracket^r\text{ s.t. } \forall p,q \in\llbracket 0;r\rrbracket^2 , p\neq q \implies i_p\neq i_q\right\}$
+\\
+And define : $\forall k \in \llbracket 2;N-1\rrbracket , S_{rk} = \left\{s\in S_r, k\in s\right\}$
+\\
+Now notice that a transaction from devise 1 to devise N is uniquely identified by the intermediate devise and the order in which they are exchanged.
+\\
+Let $r\in \llbracket 0;N-3\rrbracket, p=(p_0,p_1,...,p_r) \in S_r$, $r$ is the number of intermediate devise used to change 1 in N, $p$ is identifying which devise is being exchange from which divise so that $\forall i\in\llbracket 0;r-1\rrbracket, p_i$ is exchanged for $p_{i+1}$ and if $r = 0$ it means 1 is directly exchanged to N. 
+\\
+Define $\forall r\in \llbracket 0;N-3\rrbracket, \forall p \in S_r x_p$ which is the amount changed using the path $p$ from 1 to N.
+\\
+The problem is : $$\boxed{\max\left(\sum\limits_{r=0}^{N-3}\sum\limits_{(i_0,i_1,...,i_r)\in S_r}x_{i_0,i_1,...,i_r}r_{1i_0}r_{i_{r}N}\prod\limits_{k=0}^r r_{i_k}\right)\text{ s.t. } \sum\limits_{k=2}^{N-1}\sum\limits_{p\in S_{rk}}x_p\leq u_r}$$
+\section*{Problem 4.1}
+The corresponding dual problem is : 
+$$\boxed{
+\begin{array}{cc}
+    \max(3y_2+6y_3)\text{ s.t.}& 2y_1+3y_2-y_3\ge 1\\
+    & 3y_1+y_2-y_3\leq-1\\
+    & -y_1+4y_2+2y_3\leq 0\\
+    & y_1-2y_2+y_3 = 0\\
+    & y_1\leq 0, y_2\ge 0
+\end{array}}
+$$
+\section*{Problem 4.4}
+$x^*$ is also a boundedness certificate : ${x^*}^TA = (A^Tx^*)^T = (Ax^*)^T = c^T$ so ${x^*}^TA\leq c^T$ and $x^* \ge 0$ so $x^*$ is a certificate of boundedness.
+\\
+After the weak duality : $\min(c^Tx)\ge {x^*}^T c = c^Tx^*$ as $x^*$ is also feasable then $\min(c^Tx)\leq c^Tx^*$ and finally combining the two inequalities we have :$$\boxed{\min(c^Tx) = c^Tx^*,\text{ $x^*$ is optimal}}$$
+\section*{Problem 4.8}
+\subsection*{(a)}
+$\tilde{x}$ (resp. $ x^*$) is optimal for $\overline{c}$ (resp. $c$) so $\forall x\in\mathbb{R}^n, \overline{c}^T\tilde{x}\leq \overline{c}^Tx$ (resp. $c^Tx^*\leq c^Tx$)
+\\
+So : $(\overline{c}-c)^T(\tilde{x}-x^*) = \overline{c}^T\tilde{x}-\overline{c}^Tx^*-c^T\tilde{x}+c^Tx^*$ using the two conditions above it is clear that $\overline{c}^T\tilde{x}\leq \overline{c}^Tx^*$ and $c^Tx^*\leq c^T\tilde{x}$
+\\
+Finally summing the two inequalities and reorganizing the terms we have :$$\boxed{(\overline{c}-c)^T(\tilde{x}-x^*)\leq 0}$$
+\subsection*{(b)}
+Firstly : ${p^*}^Tb = c^Tx^*$.
+\\
+As between the two problems only b has changed and it does not change the condition of feasability of the dual then $p^*$ is a certificate of boundedness for the changed dual and we can conclude that ${p^*}^T\tilde{b}\leq c^T \tilde{x}$
+\\
+So ${p^*}^T\tilde{b}-{p^*}^Tb\leq c^T \tilde{x}-{p^*}^Tb =c^T \tilde{x}-c^Tx^* $ and we have obtained that : ${p^*}^T\tilde{b}-{p^*}^Tb\leq c^T \tilde{x}-c^Tx^*$
+which is the same thing as : $$\boxed{{p^*}^T(\tilde{b}-b)\leq c^T( \tilde{x}-x^*)}$$
+\section*{Problem 4.26}
+Suppose both are true at the same time : then $\forall j\in\llbracket 1;n\rrbracket, (pA)_j = u_j > 0$ but $pAx = 0$ thus $\sum\limits_{i=1}^n u_jx_j = 0 $ with $x_j\ge 0$ thus $u_jx_j \ge 0$ so $\forall j \in \llbracket 1;n\rrbracket, u_jx_j = 0 $ so $x_j = 0$ as $u_j\neq 0$ which contradicts $x \neq 0$.
+\\
+So both can't be true at the same time.
+\\\\
+Need to show that if one is false the other is true.
+\\
+Let  $u\in \mathbb{R}^n$ such that $\forall i \in \llbracket 1;n \rrbracket , u_i = 1 $ now notice that the condition $pA>0$ is equivalent to $pA\ge u$.
+\\\\\\
+Write the optimization problem $(\mathcal{P}):$
+$\begin{array}{cc}
+    \min(p^T0_{\mathbb{R}^m})\text{ s.t.}& pA \ge u^T\\
+\end{array}$
+\\
+Its dual is $(\mathcal{D}): \max(u^Tx)\text{ s.t. } Ax=0, x\ge 0$.
+\\\\
+Suppose not (b) which means : $\forall p\in\mathbb{R}^m, pA$ is not greater or equal to 0. So $(\mathcal{P})$ is unfeasable.
+Thus $(\mathcal{D})$ is either unfeasable either unbounded. But $x=0$ is a certificate of feasability for $(\mathcal{D})$ so $(\mathcal{D})$ has to be unbounded.
+\\
+Which means that $\exists w \in \mathbb{R}^n, w\ge0, Aw = 0$ and $u^Tw = \sum\limits_{i=1}^n w_i >0$ thus $w \neq 0$. Thus (a) is true.
+\\\\
+So we have shown : [(b)$ \implies $not (a)] and [not (b)$ \implies $(a)] thus [(b) $ \Leftrightarrow$ not (a)] or more simply either a is true or b is true.
+\end{document}

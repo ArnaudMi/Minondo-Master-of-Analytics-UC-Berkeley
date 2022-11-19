@@ -1,0 +1,383 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{stmaryrd}
+\usepackage{geometry}
+
+\geometry{hmargin = 2.5cm, vmargin = 1.5cm}
+\title{IEOR 262A : Homework 4}
+\author{Arnaud Minondo}
+\begin{document}
+\maketitle
+\section*{Problem 1.15 :}
+\textbf{a. } Let $x_i$ be the number produced of type $i$. Then the problem can be formulated as follows : 
+$$\boxed{\begin{split}
+    &\max(7.8x_1+7.2x_2)\\
+    &\begin{split}
+        \text{s.t. }&\frac{1}{4}x_1+\frac{1}{3}x_2\leq 90\\
+        &\frac{1}{8}x_1+\frac{1}{3}x_2\leq 80\\
+        &x_1,x_2\ge 0\\
+    \end{split}\\
+\end{split}}$$
+\textbf{b.} The situation $ii.$ is easier to implement : let 
+$d= \left\{\begin{array}{cl}
+    1& \text{if } 1.2x_1+0.9x_2\ge300\\
+    0& \text{ortherwise}\\
+\end{array}\right.$ the problem becomes : $$\boxed{\begin{split}
+    &\max((7.8+0.12d)x_1+(7.2+0.09d)x_2)\\
+    &\begin{split}
+        \text{s.t. }&\frac{1}{4}x_1+\frac{1}{3}x_2\leq 90\\
+        &\frac{1}{8}x_1+\frac{1}{3}x_2\leq 80\\
+        &1.2x_1+0.8x_2 \ge 300d\\        
+        &x_1,x_2\ge 0\\
+    \end{split}\\
+\end{split}}$$
+For the situation $i.$ I would introduce a new variable $l$ which is the number of hours above 90.
+The problem would become :  $$\boxed{\begin{split}
+    &\max(7.8x_1+7.2x_2-7l)\\
+    &\begin{split}
+        \text{s.t. }&\frac{1}{4}x_1+\frac{1}{3}x_2-l\leq 90\\
+        &\frac{1}{8}x_1+\frac{1}{3}x_2\leq 80\\
+        &x_1,x_2\ge 0\\
+        &0\leq l\leq 50\\
+    \end{split}\\
+\end{split}}$$
+
+\section*{Problem 5.2 :}
+\textbf{a.} Let $G = I_m+\delta B^{-1}E$  notice that G is an inferior triangular matrix as 
+$\delta B^{-1}E = \left(\begin{array}{cc}
+    \delta (B^{-1})_1 & 0_{\mathcal{M}_{(m,m-1)}}
+\end{array}\right)$. Thus $\det(G) = 1+\delta (B^{-1})_{1,1}$. If $(B^{-1})_{1,1}\neq 0$ then $\forall \delta \in \mathbb{R}$ such that $|\delta|<|1/(B^{-1})_{1,1}|$ : $\det(G)\neq 0$.
+If $(B^{-1})_{1,1} = 0$ then $\det(G) = 1$. In both case, $G$ is invertible.
+\\\\
+Notice that $B+\delta E \in \mathcal{M}_{(m,m)}$ which means that $B+\delta E$ is a squared matrix and if $\exists A\in\mathcal{M}_{(m,m)}$ such that $A(B+\delta E)=I_m$ then $A$ is the inverse of $B+\delta E$.\\
+Moreover $G^{-1}B^{-1}(B+\delta E) = (I_m+\delta B^{-1}E)^{-1}B^{-1}(B+\delta E) = (I_m+\delta B^{-1}E)^{-1}(I_m+\delta B^{-1}E) = I_m$ then $B+\delta E$ is invertible with inverse $G^{-1}B^{-1}$ and 
+$$\boxed{B+\delta E\text{ is a basis matrix.}}$$
+\textbf{b.} We have $(B+\delta E)x_B = b$ thus : $$\boxed{x_B = G^{-1}B^{-1}b = (I_m+\delta B^{-1}E)^{-1}B^{-1}b}$$
+\textbf{c.} For primal feasibility : let $d_\delta \in\mathbb{R}^m$ such that $d_\delta = \delta B^{-1}Ex_B$ we have $x_B = x^*-d_{\delta}$ where $x^*$ is the original solution of the problem. $(B+\delta E)x_B = (Bx^*-Bd_\delta) +\delta Ex_B = b- Bd_\delta+\delta E x_B = b$. As $B$ is invertible $\lim_{\delta\to0}d_\delta = 0$ ie. $\forall \epsilon>0$, $\exists\alpha\in\mathbb{R}+$ such that $|\delta|<\alpha \implies d_\delta<\epsilon\left(\begin{array}{c}
+    1\\
+    |\\
+    1\\
+\end{array}\right)$.
+Which means that for $\epsilon = \min_{i\in\llbracket 1,m \rrbracket}((B^{-1})_ib)$ then $\exists \alpha\in\mathbb{R}+$ such that $\forall |\delta| <\alpha$, $B^{-1}b-d_\delta\ge0$ ie. $x_B\ge 0$ because $x_B = B^{-1}b-d_\delta$. Which means there exists $ \delta $ small enough for the problem to stay feasible.
+\\\\
+For the dual feasibility : we need to check the positivity of the reduced cost. In a similar way as the primal feasibility : the new reduced cost is somewhat a difference between the original one and a term multiplied by $\delta$. As the old reduced cost were all strictly positive because it is a non degenerate solution then removing a small amount $\delta$ can not transform it to negative values or rather there always exist a $\delta$ such that the reduced cost is still positive.
+\\\\
+Taking $\delta = \min(\delta_1,\delta_2)$ where $\delta_1$ is given in primal feasibility proof and $\delta_2$ is given in dual feasibility proof we have shown that $$\boxed{\text{there exist $\delta$ such that the problem stays optimal}}$$
+\textbf{d.} We use that $x^* = B^{-1}b$ and $c_B^TB^{-1} = p$ with the hint : $$\boxed{\begin{split}
+    c_B^Tx_B &= c_B^T(I+\delta B^{-1} E)^{-1}B^{-1}b\\
+    &\approx c_B^T(I-\delta B^{-1} E)x^*\\
+    &\approx c^Tx^*-\delta c_B^TB^{-1} Ex^*\\
+    &\approx c^Tx^*-\delta p_1x^*_1
+\end{split}}$$
+\section*{Problem 5.5 :}
+\textbf{a.} Let $C = \overline{c_3},\overline{c_5}\ge 0$. Suppose $C$ then the simplex algorithm can't loop anymore and you can't imporve the objective value which means that the solution $x_2 = 1,x_4 = 2, x_1 = 3,x_3 = 0, x_5=0$ is optimal.
+\\\\
+Now suppose that $x = (3,1,0,2,0)$ is optimal. It means that $\forall y\in \mathbb{R}^5$, $y$ feasible $\implies$ objective value at $y$ is greater or equal to objective value at $x$. It implies that all reduced cost for the choice of the basis is greater or equal to 0 ie. $C$ is true.
+\\\\
+$$\boxed{C \Leftrightarrow x \text{ optimal}}$$
+\textbf{b.} If $\overline{c_3} = 0$ then we can let $x_3$ enters the basis as the objective value changes by the reduced cost $\overline{c_3} = 0$ ie. the objective value won't change. If $x_3$ enters the basis then $x_1$ has to leave the basis and the resulting tableau is : \\
+\begin{center}$
+    \begin{array}{|c|ccccc|}
+    \hline
+     &x_1&x_2&x_3&x_4&x_5\\\hline
+     &-\frac{\overline{c_3}}{4}& 0 & 0 & 0 & \overline{c_5}-\overline{c_3}\frac{\delta}{4}\\\hline
+    x_2 = \frac{7}{4}& \frac{1}{4}& 1 & 0& 0 & \beta+\frac{\delta}{4}\\
+    x_4 = \frac{1}{2}& -\frac{1}{2}& 0 & 0 & 1 & \gamma - \frac{\delta}{2}\\
+    x_3 = \frac{3}{4}& \frac{1}{4} & 0 & 1 & 0 & \frac{\delta}{4}\\\hline
+\end{array}$\end{center}
+Hence $$\boxed{x_3 = \frac{3}{4} = 0.75, x_4 = 0.5\text{ and } x_2 = 1.75 \text{ is another optimal solution.}}$$
+\textbf{c.} Supose $\gamma>0$ : the problem is already feasible as $x = (3,1,0,2,0)$ is feasible and we can apply the simplex algorithm from this point. 
+If the problem were infeasible then either column 3 or column 5 would have only negative value. It is not the case here as column 3 is $(-1,2,4)$ is not negative and column 5 is $(\beta,\gamma,\delta)$ is not negative as $\gamma>0$. Hence the problem can't be unbounded which means that the problem has an optimal solution and finally $$\boxed{\text{The problem has a optimal basic feasible solution.}}$$
+\textbf{d.} This change only affects $x$ as changing the right hand side constraints means changing the dual objective value and so it does not change the reduced costs which are positive as shown in question \textbf{a.}
+Thus we need to verify that $x$ with this choice of basis is still feasible ie. \begin{equation} x = B^{-1}b+\epsilon B^{-1}e_1\ge 0\end{equation}.
+In the exercise we have supposed that $A = \left(\begin{array}{ccccc}
+    a_{11} & a_{12}& 1 & 0 & 0\\
+    a_{21} & a_{22}& 0 & 1 & 0\\
+    a_{31} & a_{32}& 0 & 0 & 1\\
+\end{array}\right)$ and because $x_1,x_2,x_4$ are in the basis with $B(1) = 2, B(2) = 4$ and $B(3) = 1$ it means $B = \left(\begin{array}{ccc}
+    a_{12}& 0&a_{11}\\
+    a_{22}& 1&a_{21}\\
+    a_{32}& 0&a_{31}\\
+\end{array}\right)$ and $N = \left(\begin{array}{cc}
+    1&0\\
+    0&0\\
+    0&1\\
+\end{array}\right)$. 
+Using that $B^{-1}\left(\begin{array}{cc}1& 0 \\0& 0 \\0&1 \\\end{array}\right) = B^{-1}\left(\begin{array}{cc}e_1 & e_3\end{array}\right) = \left(\begin{array}{cc}-1&\beta\\ 2&\gamma \\ 4&\delta \\\end{array}\right)$ we can deduce that the first column of $B^{-1}$ is $B^{-1}e_1 = \left(\begin{array}{c} -1 \\ 2 \\ 4 \\\end{array}\right)$. Hence the condition (1) yields $\left(\begin{array}{c}
+    3-\epsilon\\
+    1+2\epsilon\\
+    2+4\epsilon\\
+\end{array}\right)\ge 0$ ie.
+ $$\boxed{-\dfrac{1}{2}\leq \epsilon\leq 3}$$
+\textbf{e.} When $c_1$ become $c_1+\epsilon$ as $x_1$ is a basic variable we need to check the dual feasibility. For the solution to stay optimal $\epsilon$ has to verify : $\forall i\in\llbracket 2;5\rrbracket$, $ c_i\ge \epsilon q_{3i}$ where $q_{3i}$ is the i-th coefficient of the third row as $x_1$ is in the third row. This condition yields : $\epsilon 4 \leq \overline{c_3 }$, $\epsilon \delta \leq \overline{c_3}$ as shown in \textbf{a.} $\overline{c_3}\ge 0$ and $\overline{c_5}\ge 0$ thus : 
+$$\boxed{\left\{\begin{array}{lc}
+    \frac{\overline{c_5}}{\delta}\leq \epsilon \leq \frac{\overline{c_3}}{4} & \text{if }\delta<0\\
+    \epsilon \leq \min(\frac{\overline{c_3}}{4},\frac{\overline{c_5}}{\delta})& \text{if } \delta>0\\
+    \epsilon \leq \frac{\overline{c_3}}{4} & \text{if }\delta = 0\\
+\end{array}\right.}$$
+\section*{Problem 5.15 :}
+\textbf{a.} Consider the problem $(\mathcal{P}))$: 
+\begin{equation*}
+\begin{split}
+    &\min(x_1+2x_2+3x_3)\\
+    &\begin{split}
+        \text{s.t. }& x_1+x_2 = 1\\
+        & x_1 + x_3 = 3\\
+        & x_1,x_2,x_3\ge 0\\
+    \end{split}\\
+\end{split}
+\end{equation*}
+Its optimal tableau is $$\begin{array}{|c|ccc|}\hline
+    -7&0&4&0\\\hline
+    x_1=1&1&1&0\\
+    x_3=2&0&-1&1\\\hline
+\end{array}$$ Consider adding $\theta$ to $b_1$ ie. change $(\mathcal{P})$ into $(\mathcal{P}(\theta))$ : 
+\begin{equation*}
+    \begin{split}
+        &\min(x_1+2x_2+3x_3)\\
+        &\begin{split}
+            \text{s.t. }& x_1+x_2 = 1+\theta\\
+            & x_1 + x_3 = 3\\
+            & x_1,x_2,x_3\ge 0\\
+        \end{split}\\
+    \end{split}
+    \end{equation*}
+We have that $x_B = \left(\begin{array}{c}1\\2\\\end{array}\right)+\theta B^{-1}\left(\begin{array}{c}
+    1\\
+    0\\
+\end{array}\right) \ge 0$ thus $-1\leq \theta\leq 2$ and $\left\{\left(\begin{array}{c}1+\theta\\0\\2-\theta\\\end{array}\right) ,\forall \theta \in [-1;2]\right\}\subset X(-\infty,2)$
+\\\\
+If $\theta \in ]-\infty;-1]$ then we have to apply the dual simplex algorithm to keep dual feasibility but find primal feasibility back. As $1+\theta<0$ then $x_1$ has to leave the basis but no any other one can enter it and the problem is infeasible.
+\\\\
+If $\theta \in ]2;\infty[$ then we apply the dual simplex algorithm and $x_3$ leaves the basis, $x_2$ enters and the resulting tableau, which is also optimal as it is primal and dual feasible, is : 
+$$\begin{array}{|c|ccc|}\hline
+    1-2\theta & 0 & 0 & 4\\\hline
+    x_1 =3 & 1 & 0 & 1 \\
+    x_2 = \theta - 2 & 0 & 1 & -1\\\hline
+\end{array}$$ 
+Hence $ \left\{\left(\begin{array}{c}3\\\theta-2\\0\end{array}\right),\forall \theta \in [2;\infty[\right\}\subset X(2;\infty)$
+\\\\
+To conclude, look at $\left\{u\in\mathbb{R}^3, \exists \theta\in [0;2], u =\left(\begin{array}{c}
+    1+\theta\\
+    0\\
+    2-\theta\\
+\end{array}\right) \text{ or } \exists \theta \in ]2;3], u = \left(\begin{array}{c}
+        3\\
+        \theta-2\\
+        0\\
+\end{array}\right)\right\}\subset X(0,3)$\\ Let $s_1 = \left(\begin{array}{c}
+    1\\
+    0\\
+    2\\
+\end{array}\right) \in X(0)\subset X(0,3)$ and $s_2 = \left(\begin{array}{c}
+    3\\
+    1\\
+    0\\
+\end{array}\right)\in X(3)\subset X(0,3)$. Let $\lambda = \frac{1}{2}$ and compute $\lambda s_1 + (1-\lambda) s_2 = \left(\begin{array}{c}
+    4\\
+    0.5\\
+    1\\
+\end{array}\right)$ and it cannot be in $X(0;3)$ as its cost is $7$ whereas the optimal cost should be $4$. $$\boxed{X(0;3)\text{ is not convex}}$$ 
+\textbf{b. Removing the inequality constraints.}\\
+The general problem is ($\mathcal{G}$): \begin{equation*}
+    \begin{split}
+        &\min(c^Tx)\\
+        &\begin{split}
+            \text{s.t. }& Ax = b+\theta d\\
+        \end{split}\\
+    \end{split}
+\end{equation*}
+Where $A\in\mathcal{M}_{m,n}(\mathbb{R})$ without loss of generality $\text{rg}(A) = m$ because you can remove the linearly dependent conditions. Thus the system described by $Ax = b+\theta d$ has at least $n-m$ degrees of liberty. If $m>n$ then the problem is infeasible. If $m=n$ then there is an optimal solution and it is the only feasible point $x = A^{-1}(b+\theta d)$ and $\forall t\in\mathbb{R}, X(0,t)$ is convex.
+\\\\
+If $m<n$ : let $P_\theta = \left\{x\in\mathbb{R}^n\text{ such that } Ax = b+\theta d\right\}$. Suppose $A = \left(\begin{array}{cc}
+    B&N\\
+ \end{array}\right)$ and let $x_0 = \left(\begin{array}{c}B^{-1}(b+\theta d)\\0\\\end{array}\right)$ then $\forall x\in P_\theta$, $x-x_0 \in \ker(A)$ as $A(x-x_0) = b+\theta d - (b+\theta d) = 0$ this space is of dimension $n-m$ after the rank theorem. It means that $\exists (v_1,v_2,...,v_{n-m})\in(\mathbb{R}^n)^{n-m}$ such that $\forall p\in P_\theta$, $\exists(\lambda_1,\lambda_2,...,\lambda_{n-m})$, $p = x_0+\sum\limits_{i=1}^{n-m}\lambda_iv_i$ and ($\mathcal{G}$) becomes $\min\limits_{(\lambda_i)_{i\in\llbracket 1;n-m\rrbracket} }(c^Tx_0+\sum\limits_{i=1}^{n-m}\lambda_ic^Tv_i)$. If $c\notin \text{Vect}(v_1,v_2,...,v_{n-m})^\perp$ then the problem is unbounded letting $\lambda_j\to \pm \infty$ for a good choice of $j$. If $c\in \text{Vect}(v_1,v_2,...,v_{n-m})^\perp$ then the set of optimal solution is $P$ which is convex as it is a polyhedron. We have seen that the problem is either unbounded either $X(\theta) = P_\theta$. Now take $(\theta_1,\theta_2) \in \mathbb{R}^2$, $\lambda\in[0;1]$, let $(x_1,x_2)\in P_{\theta_1}\times P_{\theta_2}$, $A(\lambda x_1+(1-\lambda)x_2) = b+(\lambda\theta_1+(1-\lambda)\theta_2)d$ ie. $\lambda x_1+(1-\lambda)x_2\in P_{\lambda\theta_1 + (1-\lambda)\theta_2} = X(\lambda\theta_1 + (1-\lambda)\theta_2)$ hence
+%10.1.0.1 DNS
+
+% where $B\in GL_m(\mathbb{R})$ then 
+
+%$Ax=b+\theta d \Leftrightarrow \left(\begin{array}{cc} I_m & B^{-1}N\end{array}\right)x = B^{-1}(b+\theta d)$ if $B^{-1}N = 0$ then $N = 0$ and if $c_N\neq 0$ then the problem is unbounded taking $i\in\mathbb{N}$ such that ${c_N}_i \neq 0$ and letting either $x_{m+i}\to\pm\infty$ if $c_N = 0$ then $n-m$ variables were useless and we are in the case where $m=n$ and $\forall t\in \mathbb{R},X(0,t)$ is convex. If $B^{-1}N\neq 0$ then there exist 
+$$\boxed{\forall t\in\mathbb{R}, X(0,t)\text{ is convex.}}$$
+\textbf{c.} In $(\mathcal{G})$ : let $B_\theta$ be the optimal basis matrix for ($\mathcal{G}$) with parameter $\theta$. $x_{B_\theta} = f(\theta) = B_\theta^{-1}(b+\theta d)$. Let $\theta_1\in\mathbb{R}$ such that $x_{B_{\theta_1}}$ is a degenerate solution. Let $\epsilon\in\mathbb{R}$ small enough so that $\theta_1+\epsilon$ has the same optimal basis then 
+$x_{B_{\theta_1+\epsilon}} = B_{\theta_1}^{-1}(b+(\theta_1+\epsilon)d) = x_{B_{\theta_1}} +\epsilon B_{\theta_1}^{-1}d$ 
+Thus if the basis does not change the function is continuous because linear. Now consider a degenerate solution so that the basis can change with respect to the variations of $\theta$. The basis only changes when a coordinate goes to 0. The optimal degenerate point does not change with respect to those two basis as you are entering a 0 variable into the basis and a 0 varibale leaves the basis. Once the number left the basis you are in the case where $g$ is linear and so is continuous. That's why in both cases :
+$$\boxed{g \text{ is continuous}}$$
+\newpage
+\section*{Additionnal Problem 1} 
+Let $(x,y)\in\mathbb{R}^2$, $f\in\mathcal{C}^2(\mathbb{R}^2,\mathbb{R})$ as it is a polynomial form.
+\\\\
+$(x,y)$ is an extreme point $\Leftrightarrow$ $\nabla f(x,y) = \left(\begin{array}{c}
+    2x+\beta y +1\\
+    \beta x +2y+2\\
+\end{array}\right) = \left(\begin{array}{c}
+    0\\
+    0
+\end{array}\right)$ $\Leftrightarrow$ $\boxed{\left\{\begin{array}{ll}
+    \left(\begin{array}{c}x\\y\\\end{array}\right) = \left(\begin{array}{c}\dfrac{2-2\beta}{\beta^2-4}\\\dfrac{4-\beta}{\beta^2-4}\\\end{array}\right)&\text{if }\beta\neq \pm 2\\
+    \text{impossible} &\text{otherwise}\\
+\end{array}\right.}$
+\\\\
+$\nabla^2f(x,y) = \left(\begin{array}{cc}
+    2&\beta\\
+    \beta&2\\
+\end{array}\right)$ we need to know when is it positive semi-definite. \\\\
+Let $\lambda\in \mathbb{R}$, $\det(\nabla^2f(x,y)-\lambda I_2) = (\lambda-(2+\beta))(\lambda-(2-\beta))$ thus the eigen values are $2+\beta$ and $2-\beta$ hence $$\boxed{\forall \beta \in ]-2;2[, \left(\begin{array}{c}x\\y\\\end{array}\right) = \left(\begin{array}{c}\dfrac{2-2\beta}{\beta^2-4}\\\dfrac{4-\beta}{\beta^2-4}\\\end{array}\right) \text{is a global minima}}$$
+If $\beta\notin ]-2;2[$ then two cases. First suppose $\beta<-2$, $f(x,y) = (x-y)^2+(\beta+2)xy+x+2y$ and $\lim_{x\to - \infty}f(x,x) = -\infty$ thus there can't be any minima. Second case suppose $\beta>2$, $f(x,y) = (x+y)^2+(\beta-2)xy+x+2y$ and $\lim_{x\to \infty}f(x,-x) = -\infty$ thus there are no minima.
+\section*{Additonnal problem 2}
+\textbf{a.} $f\in\mathcal{C}^2(\mathbb{R}^2,\mathbb{R})$ as $f$ is a polynomial form. Thus $\nabla f(x,y) = \left(\begin{array}{c}
+    4x(x-2)(x+2)\\
+    2y\\
+\end{array}\right)$ and the stationary points are : $\left(\begin{array}[]{c}
+    0\\
+    0\\
+\end{array}\right)$, $\left(\begin{array}[]{c}
+    2\\
+    0\\
+\end{array}\right)$ and $\left(\begin{array}[]{c}
+    -2\\
+    0\\
+\end{array}\right)$.
+\\\\
+Moreover, $f(x,y) = (x^2-4)^2+y^2\ge 0$ and $f(2,0) = f(-2,0) = 0$ thus $\left(\begin{array}[]{c}
+    2\\
+    0\\
+\end{array}\right)$ and $\left(\begin{array}[]{c}
+    -2\\
+    0\\
+\end{array}\right)$ are global minimas.
+\\\\
+$\nabla^2f(0,0) = \left(\begin{array}{cc}
+    -16&0\\
+    0&2\\
+\end{array}\right)$ thus the eigen values are $-16$ and $2$ which means that the hessian is indefinite and $\left(\begin{array}{c}
+    0\\
+    0\\
+\end{array}\right)$ is neither a local minima nor a global minima.
+\\\\
+\textbf{b.} $f(x,y) = \dfrac{x^2}{2}+x\cos(y)$, $f\in\mathcal{C}^2(\mathbb{R}^2,\mathbb{R})$ as it is a sum of function that are twice differentiable.
+\\
+$\forall (x,y)\in\mathbb{R}^2, \nabla f(x,y) = \left(\begin{array}{c}
+    x+\cos(y)\\
+    -x\sin(y)\\
+\end{array}\right)$.
+\\
+$\left(\begin{array}{c}
+    x\\
+    y\\
+\end{array}\right)$ is a stationary point $\Leftrightarrow$ $\nabla f(x,y) = \left(\begin{array}{c}
+    x+\cos(y)\\
+    -x\sin(y)\\
+\end{array}\right) = \left(\begin{array}{c}
+    0\\
+    0\\
+\end{array}\right)$ ie. $\exists k \in \mathbb{Z}$ such that $y = k\frac{\pi}{2}$ and $x = \left\{\begin{array}{cl}
+    (-1)^{k/2}&\text{if $k$ even}\\
+    0&\text{otherwise}\\
+\end{array}\right.$\\
+Moreover, $\forall (x,y)\in\mathbb{R}^2, \nabla^2f(x,y) = \left(\begin{array}{cc}
+    1& -\sin(y)\\
+    -\sin(y)&-x\cos(y)\\
+\end{array}\right)$ thus $\forall k\in \mathbb{Z}$, with $k$ even :
+\\
+$\nabla^2f((-1)^{k/2+1},k\frac{\pi}{2}) = I_2$ thus is definite positive and those points are local minimas.
+\\
+For $k$ odd : $\nabla^2f(0,k\frac{\pi}{2}) = \left(\begin{array}{cc}
+    1&(-1)^{k/2+1}\\
+    (-1)^{k/2+1}&0\\
+\end{array}\right)$ as $\det(\nabla^2f(0,k\frac{\pi}{2})) = -1$ the matrix can't be positive semi-definite and the corresponding points can't be local minimas.
+$$\boxed{\text{Local minimas are : }\forall n\in\mathbb{Z}, \left(\begin{array}{c}
+    (-1)^{n+1}\\
+    n\pi\\
+\end{array}\right)}$$
+\textbf{c.}$f : x,y \mapsto \sin{x}+\sin{y}+\sin{x+y}$ let $\mathcal{A}=(0,2\pi)^2$.
+$f$ is twice differentiable and its gradient and hessian matrix are : 
+$$\forall x,y\in\mathcal{C}, \ \nabla f (x,y)=\begin{pmatrix}
+\cos{x}+\cos{x+y}  \\
+\cos{y}+\cos{x+y}
+\end{pmatrix} $$
+And : 
+$$\forall x,y\in\mathcal{C}, \ \nabla^2 f (x,y)=\begin{pmatrix}
+-\sin{x}-\sin{x+y} & -\sin{x+y}  \\
+-\sin{x+y} & -\sin{x}-\sin{x+y}
+\end{pmatrix} $$
+The stationary point condition yields : $\cos{x+y}=-\cos{y}=-\cos{x}$ then $\cos{x}=\cos{y}$ which means that $y=x$ or $y=2\pi-x$.
+\\\\
+If $y=2\pi-x$ : we have that $\cos{x+y}=-\cos{x}$. Then, $\cos{x}=-1$ which means $\boxed{x=y=\pi}$ since $x,y\in \mathcal{C}$.
+\\\\
+Now if $y=x$ : $\cos{2x}=-\cos{x}$ which means that : $2\cos{x}^2-1=-\cos{x}$. We have a second degree polynomial in $\cos{x}$ we know how to solve this type of equation : it gives us that : $\cos{x}=-1$ or $\cos{x}=\frac{1}{2}$. The first solution gives us that $\boxed{x=y=\pi}$. So we have that $\boxed{x=y=\frac{\pi}{3}}$ or $\boxed{x=y=\frac{5\pi}{3}}$.
+Now to get the character of these stationary points we have to look at the hessian for $x=y=\pi$  : \\
+$$ \nabla^2 f (x,y)=\begin{pmatrix}
+0 & 0 \\
+0 & 0
+\end{pmatrix}$$
+Hence the hessian is indefinite and the point is just a stationary point.
+For $x=y=\frac{\pi}{3}$  :
+$$ \nabla^2 f (x,y)=\begin{pmatrix}
+-\sqrt{3} & -\frac{\sqrt{3}}{2} \\
+-\frac{\sqrt{3}}{2} & -\sqrt{3}
+\end{pmatrix} $$
+Then we have that the eigenvalues of the hessian are : $-\frac{\sqrt{3}}{2}$ and $-\frac{3\sqrt{3}}{2}$. \\
+Then this points are maximums since the hessian definite negative.\\
+we have for $x=y=\frac{5\pi}{3}$  : 
+$$ \nabla^2 f (x,y)=\begin{pmatrix}
+\sqrt{3} & \frac{\sqrt{3}}{2} \\
+\frac{\sqrt{3}}{2} & \sqrt{3}
+\end{pmatrix} $$
+Then we have that the eigenvalues of the hessian are : $\frac{\sqrt{3}}{2}$ and $\frac{3\sqrt{3}}{2}$. \\
+Then this points are minimums since the hessian definite positive.\\
+\\\\
+\textbf{d.} For this : $f:(x,y)\mapsto (y-x^2)^2-x^2$ is twice differentiable as it is a polynomial form.
+\\
+$\forall (x,y)\in\mathbb{R}^2, \nabla f(x,y) = \begin{pmatrix}
+    -4x(y-x^2)-2x\\
+    2(y-x^2)\\
+\end{pmatrix} = \begin{pmatrix}
+    0\\
+    0\\
+\end{pmatrix} \implies x=y=0$ and $\nabla^2 f(0,0) = \begin{pmatrix}
+    -2&0\\
+    0&2\\
+\end{pmatrix}$ which is indefinite hence $$\boxed{\text{The stationary point }\begin{pmatrix}
+    0\\
+    0
+\end{pmatrix}\text{ is neither a local minimum nor a local maximum.}}$$
+\textbf{e.} The Karush-Kuhn-Tucker conditions are : \begin{equation*}
+    \begin{split}
+        &-1-y\leq 0\\
+        &y-1\leq 0\\
+        &\begin{pmatrix}
+            4x(y-x^2)+2x\\
+            -2(y-x^2)\end{pmatrix} = \lambda_1\begin{pmatrix}
+            0\\
+            -1\\\end{pmatrix}+\lambda_2 \begin{pmatrix}
+            0\\
+            1\\\end{pmatrix}\\
+        &\lambda_1,\lambda_2\ge 0\\
+        &(-1-y)\lambda_1 = 0\\
+        &(y-1)\lambda_2 = 0\\
+    \end{split}
+\end{equation*}
+We can deduce that  $4x(y-x^2)+2x = 0$ which yields $x=0$ or $x^2 = y+1/2$. If $x=0$, $2y=-\lambda_1+\lambda_2$. Suppose $\lambda_1\neq 0$ it implies that $y=-1$ and $\lambda_2 = 0$ thus $\lambda_1=1$ first KKT point : $\begin{pmatrix}
+    0\\
+    -1\\
+\end{pmatrix}$ the objective value is 1. Suppose that $\lambda_1 = 0$, $-2y=\lambda_2$ which means that either $\lambda_2 = 0$ and $y=0$ and $\begin{pmatrix}
+    0\\
+    0\\
+\end{pmatrix}$ is a KKT point with objective value 0.
+Now suppose $x\neq 0$, which yields $x^2 = y+1/2$ and $-\lambda_1+\lambda_2 = 1$ so $\lambda_2 = \lambda_1+1$ ie. $\lambda_2\ge 1$ thus $y = 1$ and $\lambda_2 = 0$ and $\lambda_1=1$. $\begin{pmatrix}
+    \sqrt{3/2}\\
+    1\\
+\end{pmatrix}$ is another KKT point with objective value $-5/4$.
+If a min exist then it verifies the KKT conditions. Moreover the KKT conditions implies that $x\in[-\sqrt{3/2};\sqrt{3/2}]$ and f is continuous on $[-\sqrt{3/2};\sqrt{3/2}]\times[-1;1]$ thus has a minimum value. A minimum exist and has been found it is $\begin{pmatrix}
+    \sqrt{3/2}\\
+    1\\
+\end{pmatrix}$. Note that $f(-x,y) = f(x,y)$ thus $\begin{pmatrix}
+    -\sqrt{3/2}\\
+    1\\
+\end{pmatrix}$ is another solution.
+
+\end{document}
