@@ -1,0 +1,108 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+\title{IEOR 241 : Homework 8}
+\author{Arnaud Minondo}
+\begin{document}
+\maketitle
+\section*{Exercise 1}
+Let $X$ be the location of the car at the moment of the accident. Let $P$ be the location of the accident. With the problem statement assumptions we have : $X\sim \mathcal{U}([0;L])$ and $P\sim \mathcal{U}([0;L])$.
+\\
+We are trying to search $\forall t \in [0;L]$, $\mathbb{P}(|X-P|\leq t)$ the cumulative distribution of $|X-P|$.
+\\
+Let $t \in [0;L]$, $\mathbb{P}(|X-P|\leq t) = \mathbb{P}(|X-P|\leq t, X>P)+ \mathbb{P}(|X-P|\leq t, X\leq P)$
+\\
+By symmetry of $P$ and $X$ we have $\mathbb{P}(|X-P|\leq t, X>P) =\mathbb{P}(|X-P|\leq t, X\leq P) $\\
+That's why :
+\begin{flalign*}
+    \mathbb{P}(|X-P|\leq t) &= 2\mathbb{P}(X\leq P+t,X>P) &&\\
+    &= 2\int_0^L \int_u^{u+t} f_X(x)dxf_P(u)du&&\\
+    &= 2\int_0^{L-t}\int_u^{u+t}f_X(x)dxf_P(u)du + 2\int_{L-t}^{L}\int_u^Lf_X(x)dx f_P(u)du&&\\
+    &= 2\int_0^{L-t}\frac{t}{L^2}du + \frac{t^2}{L^2}&&\\
+    &= 2\frac{(L-t)t}{L^2}+\frac{t^2}{L^2}&&\\
+    &= \frac{2tL-t^2}{L^2}
+\end{flalign*}
+Finally the cumulative function distribution of $|X-P|$ is $F$: $$\boxed{\forall t \in \mathbb{R}, F(t) = \left\{\begin{array}{ll}
+    0 & \text{if } t\leq 0\\
+    \dfrac{2tL-t^2}{L^2} & \text{if } t\in [0;L]\\
+    1 & \text{if } t\ge [L;\infty]\\
+\end{array}\right.}$$
+\section*{Exercise 2}
+$f(x,y) = xe^{-(x+y)}I(x\in[0;+\infty[)I(x\in[0;+\infty[) = g(x)h(y)$
+\\
+where $g(x) = xe^{-x}I(x\in[0;+\infty[)$ and $h(y) = e^{-y}I(y\in[0;\infty[)$ so $Y$ and $X$ are independent.
+\\\\
+If $f(x,y) = 2 I(0<x<y)I(y\in[0;1[)$ then $\mathbb{P}(x>\frac{1}{2}|y<\frac{1}{2}) = 0$ and $\mathbb{P}(x>\frac{1}{2}) = 1/4$ so $X$ and $Y$ can't be independent.
+\section*{Exercise 3}
+\textbf{a.} $X$ and $Y$ are not independent.
+\\\\
+\textbf{b.} Let $t\in[0;1]$, $\mathbb{P}(X\leq t) = \int_0^t\int_0^1f(x,y)dydx = \int_0^tx+\frac{1}{2}dx = \frac{t(1+t)}{2}$ 
+\\\\
+\textbf{c.} $\mathbb{P}(X+Y<1) = \int_0^1 \int_0^{1-y} f(x,y)dxdy =\int_0^1 (1-y)y +\frac{(1-y)^2}{2}dy = \frac{1}{2}-\frac{1}{6} = \frac{1}{3}$
+\section*{Exercise 4}
+Let $t \in \mathbb{R}+$, $\mathbb{P}(Z\leq t) = \mathbb{P}(X_1\leq tX_2) = \int_0^\infty\lambda_2e^{-\lambda_2y}\int_0^{ty}\lambda_1e^{-\lambda_1x}dxdy = \int_0^\infty \lambda_2e^{-\lambda_2y}(1-e^{-\lambda_1ty})dy = 1 - \dfrac{\lambda_2}{\lambda_1t+\lambda_2}$. As a result we have: 
+$$\boxed{F_Z(t) = \left\{\begin{array}{cc}
+    0 & \text{if } t\in]-\infty;0]\\
+    \dfrac{\lambda_1t}{\lambda_1t+\lambda_2} & \text{otherwise}\\
+\end{array}\right.}$$
+Moreover, $\mathbb{P}(X<Y) = \int_0^\infty \lambda_1e^{-\lambda_1x}\int_x^\infty \lambda_2e^{-\lambda_2y}dydx = \int_0^\infty\lambda_1e^{-(\lambda_1+\lambda_2)x}dx$ so:
+$$\boxed{\mathbb{P}(X<Y) = \frac{\lambda_1}{\lambda_1+\lambda_2}}$$
+\section*{Exercise 5}
+Let $(x,y,r,\theta)\in [0;1]^2\times \mathbb{R}^2$: $\left\{\begin{array}{cc}
+    r = \sqrt{x^2+y^2}\\
+    \theta = \text{arctan}\left(\dfrac{x}{y}\right)\\
+\end{array}\right. \Leftrightarrow \left\{\begin{array}{cc}
+    x = r\cos(\theta)\\
+    y = r\sin(\theta)\\
+    (r,\theta) \in[0;1]\times[0;2\pi]\\
+\end{array}\right.$.
+\\
+ Now let $\forall (x,y)\in[0;1]^2$, $\varphi(x,y) = \left(\begin{array}{c}
+    \sqrt{x^2+y^2}\\
+    \text{arctan}(\frac{x}{y})\\
+ \end{array}\right)$, $|J_\varphi(x,y)| = \dfrac{1}{r}$ and finally $$\boxed{f(r,\theta) = \dfrac{f(x,y)}{|J_\varphi(x,y)|} = \dfrac{r}{\pi} I(r\in[0;1],\theta \in [0;2\pi])}$$
+\section*{Exercise 6}
+Let $\varphi : (x,y)\to \left(\begin{array}{c}
+    xy\\
+    x/y\\
+\end{array}\right)$ the jacobian of $\varphi$ is : $J(x,y) = \det\left(\begin{array}{cc}
+        y & x \\
+        \dfrac{1}{y} & \dfrac{-x}{y^2}\\
+\end{array}\right) = \frac{-2x}{y}$ and the new density is : $f_{U,V}(u,v) = \dfrac{f_{X,Y}(x,y)}{J(x,y)}$ where $(u,v) = \varphi(x,y)$ ie. $(x,y) = \varphi^{-1}(u,v) = (\sqrt{uv}, \sqrt{\frac{u}{v}})$ hence :
+$$\boxed{f_{U,V}(u,v) = \dfrac{1}{2u^2v}I(u\in[1;\infty[)I\left(v\in\left[\dfrac{1}{u};u\right]\right)}$$
+We notice that : $u\ge v$ and $u\ge \frac{1}{v}$ thus $f_V(v) = \left\{\begin{array}{cl}
+    \int_v^\infty f_{U,V}(u,v)du & \text{if } v>1\\
+    \int_\frac{1}{v}^\infty f_{U,V}(u,v)du & \text{if } 1\ge v>0\\
+    0 & \text{otherwise}\\
+\end{array}\right.$
+\\
+That's why : $$\boxed{ f_U(u) = \frac{\log(u)}{u^2}I(u\in[1;\infty[)\text{ and }f_V(v)= \left\{\begin{array}{cl}
+    \frac{1}{2v^2} & \text{if } v>1\\
+    \frac{1}{2} & \text{if } 1\ge v>0\\
+    0 & \text{otherwise}\\
+\end{array}\right.}$$
+\section*{Exercise 7}
+\textbf{a.} We have that $\int_{-\infty}^{\infty}\int_{-\infty}^\infty f(x,y)dxdy = 1$ so $\int_1^5\int_0^1\frac{x}{5}+cydxdy = 1$\\
+Thus $\int_1^5\frac{1}{10}+cy$ $dy = 1$ so $\dfrac{2}{5}+12c = 1$ and finally: $$\boxed{c=\dfrac{1}{20}}$$
+\\\\
+\textbf{b. }If $X$ and $Y$ were independent then we would have $f(x,y)=f(x)f(y)$ which is not the case. So $X$ and $Y$ are not independent.
+\\\\
+\textbf{c. }$\mathbb{P}(X+Y<3) = \mathbb{P}(Y<3-X) = \int_0^1\int_1^{3-x}\frac{x}{5}+\frac{y}{20}dydx = \int_0^1\frac{(3-x)x}{5}+\frac{(3-x)^2}{40}-\frac{1}{40}dx =\frac{3}{10}-\frac{1}{15}+\frac{9}{40}-\frac{3}{40}+\frac{1}{120}-\frac{1}{40}$
+$$\boxed{\mathbb{P}(X+Y<3) = \dfrac{11}{30}}$$
+
+
+
+
+
+
+
+
+
+\end{document}

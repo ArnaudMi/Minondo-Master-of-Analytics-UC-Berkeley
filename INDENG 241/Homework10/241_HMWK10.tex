@@ -1,0 +1,90 @@
+\documentclass{article}
+
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{appendix}
+\usepackage{pdfpages}
+
+\geometry{hmargin = 2.5cm, vmargin = 1.5cm}
+
+\title{IEOR 241 : Homework 10}
+\author{Arnaud Minondo}
+\begin{document}
+\maketitle
+\section*{Exercise 1}
+\textbf{1.} To verify if $f$ is a density we just need to check that $\int_0^\infty f(t)dt = 1$ : $$\boxed{\int_0^\infty f(x)dx = \int_0^\infty \dfrac{x}{a}e^{-\frac{x^2}{2a}}dx  = \left[-e^{-\frac{x^2}{2a}}\right]_0^\infty = 1}$$
+\textbf{2.} Define $\forall i\in\llbracket 1;8\rrbracket, h_i$ to be the height of year $i$. The likelihood of $h$ is : $\mathcal{L}(a) = \prod\limits_{i=1}^8 f(h_i)$. We will try to find $\hat{a }= \arg\max(\mathcal{L}(a))$.
+\begin{align*}
+    \hat{a }&= \arg\max(\mathcal{L}(a))\\
+    &=\arg\max(\log(\mathcal{L}(a)))\\
+    &=\arg\max(\sum\limits_{i=1}^8\log(h_i)-\dfrac{h_i^2}{2a}-\log(a))\\
+    &=\arg\max\left(\left[\sum\limits_{i=1}^8\log(h_i)\right]-\dfrac{\sum\limits_{i=1}^8h_i^2}{2a}-8\log(a)\right)\\
+\end{align*}
+As $\hat{a}$ is a maximum it implies that $\dfrac{\sum\limits_{i=1}^8h_i^2}{2\hat{a}^2}-\dfrac{8}{\hat{a}} = 0$ thus $$\boxed{\hat{a} = \dfrac{\sum\limits_{i=1}^8h_i^2}{16} = 2.42}$$
+\textbf{3.} Let $t\in\mathbb{R}+$, $\mathbb{P}(H\leq t) = \displaystyle\int_0^t\dfrac{x}{a}e^{-\frac{x^2}{2a}}dx = 1-e^{\frac{-t^2}{2a}}$. 
+Hence : $$\boxed{\forall t\in\mathbb{R}, F(t) = \left\{\begin{array}{cl}
+    0 &\text{if }t<0\\
+    1-e^{\frac{-t^2}{2\hat{a}}} & \text{otherwise}\\
+\end{array}\right.}$$
+\textbf{4.} The probability of a disaster is the probability of the event that $H>6$. $$\boxed{\mathbb{P}(H>6) = 1-F(6) = e^{\frac{-6^2}{2\hat{a}} = 0.0006}}$$
+\textbf{5.} Let N be the number of flood in $100$ years. Under the assumption that all years are independent $N\sim\mathcal{B}(100,\mathbb{P}(H>6))$. We have that $$\boxed{\mathbb{P}(N=0) = F(6)^{100} = 0.94}$$
+\section*{Exercise 2}
+\textbf{1.} Let $t\in\mathbb{R}$. If $t<0$ then $\mathbb{P}(S\leq t) = 0$ as $\exp$ takes only positive values.
+\\
+If $t\ge 0$ then $\mathbb{P}(S\leq t) = \mathbb{P}(X\leq ln(t)) = \int_{-\infty}^{\log(t)}\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx$. Diffenrentiating both sides with respect to $t$ we have : $$\boxed{f_S(t) =\left\{\begin{array}{cl}
+    \dfrac{1}{t\sigma\sqrt{2\pi}}e^{-\frac{(\log(t)-\mu)^2}{2\sigma^2}}& \text{if }t>0\\
+    0&\text{otherwise}\\
+\end{array} \right.}$$
+\textbf{2.} $$\boxed{\mathbb{E}(S) = \displaystyle\int_0^\infty \dfrac{1}{\sigma\sqrt{2\pi}}e^{t-\frac{(t-\mu)^2}{2\sigma^2}}dt = e^{\frac{\sigma^2}{2}(1+\frac{1}{\sigma^2})^2-\frac{\mu^2}{2\sigma^2}}}$$
+\textbf{3.} The means should match :
+
+
+
+
+\section*{Exercise 3}
+
+
+\subsection*{Part A}
+\textbf{1.} Let $\forall i \in\llbracket 1;N\rrbracket$, $p_i:t\mapsto p_i(t)$ be the price of the asset $i$ as a function of time.
+\\
+We have that $\pi_i = \frac{p_i(0)}{\sum\limits_{i=1}^N p_i(0)} = \frac{p_i(0)}{X(0)}$ and $X(T) = \sum\limits_{i=1}^N p_i(T)$.
+\\
+Thus $$\boxed{\frac{X(T)-X(0)}{X(0)} = \frac{\sum_{i=1}^N p_i(T)-p_i(0)}{X(0)} = \frac{\sum_{i=1}^N p_i(0)(1+R_i)-p_i(0)}{X(0)} = \sum\limits_{i=1}^N \pi_iR_i}$$
+\textbf{2.} Let $R = \frac{X(T)-X(0)}{X(0)} = \sum\limits_{i=1}^N\pi_iR_i$ then $\mathbb{V}(R)\left(\sum\limits_{i=1}^N\pi_iR_i\right) = \sum\limits_{i=1}^N\pi^2\mathbb{V}(R_i) = \sum\limits_{i=1}^N\pi_i^2\sigma^2$. Hence :$$\boxed{\mathbb{V}(R) = \sigma^2\sum_{i=1}^N\pi_i^2}$$
+\textbf{3.} We use the Lagrange Multipliers Method : define $\forall \lambda,\pi$, $L(\lambda,\pi) = \sigma^2\sum_{i=1}^N\pi_i^2 + \lambda\left(1-\sum\limits_{i=1}^N\pi_i\right)$ to minimize $L$ is equivalent to minimizing $\mathbb{V}(R)$. Diffenrentiating with respect to $\pi$ we have : $\nabla_\pi L(\lambda,\pi) = \left(\begin{array}{c}
+    2\sigma^2\pi_1-\lambda\\
+    2\sigma^2\pi_2-\lambda\\
+    ...\\
+    2\sigma^2\pi_N-\lambda\\
+\end{array}\right)$. Let $\pi^*$ be the optimal distribution, the optimality condition yields $\nabla_\pi L(\lambda,\pi^*) = 0$ thus $$\boxed{\pi^*_1=\pi^*_2=...=\pi^*_N = \frac{1}{N}}$$
+\textbf{4.} $\mathbb{V}(R) = \sigma^2\sum\limits_{i=1}^N(\frac{1}{N})^2 = \frac{\sigma^2}{N}$ hence $$\boxed{\mathbb{V}(R)\to_{N\to\infty}0}$$
+
+
+
+\subsection*{Part B}
+\textbf{5.}
+$$\boxed{\begin{split}
+    \mathbb{V}(R) &= \text{Cov}(R,R) = \text{Cov}(\sum\limits_{i=1}^N\pi_iR_i,\sum\limits_{j=1}^N\pi_jR_j) = \sum\limits_{i=1}^N\pi_i^2\text{Cov}(R_i,R_i)+ \sum\limits_{i\neq j}\pi_i\pi_j\text{Cov}(R_i,R_j) \\
+    &= \sigma^2\sum\limits_{i=1}^N\pi_i^2+\rho\sigma^2\sum\limits_{i\neq j}\pi_i\pi_j\\
+\end{split}}$$
+\textbf{6.} Same as question \textbf{3.} we use Lagrange Multipliers Method.
+\\
+Define $L(\lambda,\pi) = \sigma^2\sum\limits_{i=1}^N\pi_i^2+\rho\sigma^2\sum\limits_{i\neq j}\pi_i\pi_j+\lambda\left(1-\sum\limits_{i=1}^N\pi_i\right)$ we have $\nabla_\pi L(\lambda,\pi) = \left(\begin{array}{c}
+    2\sigma^2\pi_1+2\sigma^2\rho\sum\limits_{1\neq j}\pi_j-\lambda\\
+    2\sigma^2\pi_2+2\sigma^2\rho\sum\limits_{2\neq j}\pi_j-\lambda\\
+    ...\\
+    2\sigma^2\pi_N+2\sigma^2\rho\sum\limits_{N\neq j}\pi_j-\lambda\\
+\end{array}\right)$
+\\
+We can notice that for each term $i$ fixed, $2\sigma^2\rho\sum\limits_{i\neq j}\pi_j =2\sigma^2\rho\sum\limits_{i\neq j}\pi_j + 2\sigma^2\rho\pi_i - 2\sigma^2\rho\pi_i =1-2\sigma^2\rho\pi_i$. Hence we have the same solution : $$\boxed{\pi^*_1=\pi_2^*=...=\pi_N^*=\frac{1}{N}}$$
+\textbf{7.} $\mathbb{V}(R) = \sigma^2\sum\limits_{i=1}^N\pi_i^2+\rho\sigma^2\sum\limits_{i\neq j}\pi_i\pi_j = \frac{\sigma^2}{N} +\sigma^2\rho\frac{N-1}{N}$ $$\boxed{\mathbb{V}(R) \to_{N\to\infty} \sigma^2\rho}$$
+
+
+\subsection*{Part C}
+\textbf{8.} $\mathbb{V}(R) = \pi_1^2+2\pi_2^2+4\pi_1\pi_2 = \pi_1^2+2(1-\pi_1)^2+4\pi_1(1-\pi_1) = \pi_1^2+2-4\pi_1+2\pi_1^2+4\pi_1-4\pi_1^2 = 2-\pi_1^2$ which is a decreasing function in $\pi_1$ as $\pi_1 >0$ hence $$\boxed{\text{The optimal portfolio minimizing the risk is : } \pi_1=1, \pi_2 = 0}$$
+\end{document}

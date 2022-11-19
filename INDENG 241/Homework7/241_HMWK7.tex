@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+\title{IEOR 241 : Homework 7}
+\author{Arnaud Minondo}
+\begin{document}
+\maketitle
+\section*{Problem 1}
+If $\mathbb{E}(X) = \frac{3}{5} = \int_{0}^1f(x)dx = \frac{a}{2}+\frac{b}{4}$. Moreover, $\int_0^1f(x)dx = a+\frac{b}{3} = 1$
+\\
+Solving the linear system we find : $$\boxed{a = \frac{3}{5}$, $b = \dfrac{6}{5}}$$.
+\section*{Problem 2}
+Let $L$ be the lifetime of the tube : $\mathbb{E}(L) = \int_{0}^\infty xf(x)dx = \int_{0}^\infty x^2f(x)dx$ integrating by part two times we find that $$\boxed{\mathbb{E}(X) = 2}$$
+
+\section*{Problem 3}
+Notice that : $\forall t \in \mathbb{R}+, t\in[0;1] \Longleftrightarrow e^t\in[1;e]$. Thus $\mathbb{P}(Y\leq t) = \mathbb{P}(e^X\leq t)$. If $t<1$ then $\mathbb{P}(Y\leq t) = 0$ because $X\ge 0$.
+Moreover, $\forall t\in [1;\infty], \mathbb{P}(Y\leq t) = \mathbb{P}(X\leq \log(t)) = \left\{\begin{array}{ll}
+    \log(t) & \text{if } t\in [1;e[\\
+    1 & \text{if } t\in [e;\infty[\\
+\end{array}\right.$
+Thus, $$\boxed{f_Y(t) = \left\{\begin{array}{ll}
+    0 & \text{if } t\in ]-\infty;1]\cup]e, \infty[\\
+    \frac{1}{t} & \text{if } t\in [1,e]\\
+\end{array}\right.}$$
+
+\section*{Problem 4}
+After problem 1 : $a=\frac{3}{5}, b=\frac{6}{5}$.\\
+$\mathbb{P}(X<\frac{1}{2}) = \int_0^{\frac{1}{2}}\frac{3}{5}+\frac{6}{5}x^2dx = \frac{7}{20}$\\
+Moreover : $$\boxed{\mathbb{V}(X) = \mathbb{E}(X^2)-\mathbb{E}(X)^2 = \frac{11}{25}-\frac{9}{25} = \frac{2}{25}}$$
+
+\section*{Problem 5}
+\subsection*{(a)}
+You can find the joint probability in the following table : $\mathbb{P}(X_1 = i, X_2 = j)$ $$\begin{array}{|c|c|c|}
+    \hline
+    i \backslash j & 1  & 0\\\hline
+    
+    1 & \dfrac{5}{39} & \dfrac{10}{39}\\\hline
+    
+    0 & \dfrac{10}{39} & \dfrac{14}{39}\\\hline
+\end{array}$$
+
+\subsection*{(b)}
+You can find the joint probability in the following table : $\mathbb{P}(X_1 = i, (X_2,X_3)= j)$ $$\begin{array}{|c|c|c|c|c|}
+    \hline
+    i\backslash j & (1,1) & (1,0) & (0,1) & (0,0)\\\hline
+    1&0.03496503497	& 0.09324009324	&0.09324009324	&0.1631701632\\\hline
+    0&0.09324009324	&0.1631701632	&0.1631701632	&0.1958041958\\\hline
+\end{array}$$
+
+\section*{Problem 6}
+$\mathbb{V}(X) = \mathbb{E}(X^2)-\mathbb{E}(X)^2$\\
+\begin{align*}
+    \mathbb{E}(X) & = \displaystyle \int_{-\infty}^\infty \dfrac{x}{\sqrt{2\pi\sigma^2}}e^{-\dfrac{(x-\mu)^2}{2\sigma^2}}dx \\
+     & = \displaystyle \int_{-\infty}^\infty \dfrac{x+\mu}{\sqrt{2\pi\sigma^2}}e^{-\dfrac{x^2}{2\sigma^2}}dx  \\
+     & = \mu \displaystyle \int_{-\infty}^\infty \dfrac{1}{\sqrt{2\pi\sigma^2}}e^{-\dfrac{x^2}{2\sigma^2}}dx+\displaystyle \int_{-\infty}^\infty \dfrac{x}{\sqrt{2\pi\sigma^2}}e^{-\dfrac{x^2}{2\sigma^2}}dx \\
+     & = \mu + 0 \\
+     & = \mu \\
+\end{align*}
+\begin{align*}
+    \mathbb{E}(X^2) & = \displaystyle \int_{-\infty}^\infty \dfrac{x^2}{\sqrt{2\pi\sigma^2}}e^{-\dfrac{(x-\mu)^2}{2\sigma^2}}dx \\
+     & = \displaystyle \int_{-\infty}^\infty \dfrac{(x+\mu)^2}{\sqrt{2\pi\sigma^2}}e^{-\dfrac{x^2}{2\sigma^2}}dx  \\
+     & = \mu^2 \displaystyle \int_{-\infty}^\infty \dfrac{1}{\sqrt{2\pi\sigma^2}}e^{-\dfrac{x^2}{2\sigma^2}}dx+2\mu\displaystyle \int_{-\infty}^\infty \dfrac{x}{\sqrt{2\pi\sigma^2}}e^{-\dfrac{x^2}{2\sigma^2}}dx +\displaystyle \int_{-\infty}^\infty \dfrac{x^2}{\sqrt{2\pi\sigma^2}}e^{-\dfrac{x^2}{2\sigma^2}}dx\\
+     & = \mu^2 + 0 + \sigma^2 \\
+     & = \mu^2 + \sigma^2 \\
+\end{align*}
+Thus $$\boxed{\mathbb{E}(X) = \mu, \mathbb{V}(X) = \sigma^2 }$$
+\section*{Problem 7}
+Let $L =$ ``A random person is chosen and is left-handed''\\
+$\mathbb{P}(L) = \frac{12}{100} = \frac{3}{25}$\\
+Let $n\in\mathbb{N},A_n$ = number of left handed in a given population follows $\sim \mathcal{B}(n,p)$.
+We can approximate the binomial with a normal distribution. After the theorem of Moivre Laplace, $\frac{A_n -np}{\sqrt{np(1-p)}} \sim_{n\to\infty} \mathcal{N}(0,1)$ \\
+The approximation is good for $np(1-p) \ge 10$. In our case, $n=200$, $p=\frac{3}{25}$, $np(1-p) = 21,12\ge 10$ the approximation is : $$\boxed{\mathbb{P}(A_{200} \ge 20) = \mathbb{P}(A_{200}>19.5) \simeq\mathbb{P}(Z \ge -0.98) = 0.84}$$ where $Z\sim\mathcal{N}(0,1)$.
+
+\end{document}

@@ -1,0 +1,104 @@
+\documentclass{article}
+
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+\title{IEOR 241 : Homework 5}
+\author{Arnaud Minondo}
+
+\begin{document}
+    \maketitle
+    \section*{Exercise 1}
+    \subsection*{(a)}
+    $\mathbb{P}(X=1) = \lim\limits_{t\to1, t\leq 1}(F(1)-F(t)) = \frac{1}{4}$.
+    \\
+    $\mathbb{P}(X=2) = \lim\limits_{t\to 2, t\leq 2}(F(2)-F(t)) = \frac{1}{6}$
+    \\
+    $\mathbb{P}(X=3) = \lim\limits_{t\to 3, t\leq 3}(F(3)-F(t)) = \frac{1}{12}$
+    \subsection*{(b)}
+    $\mathbb{P}(\frac{1}{2}<X<\frac{3}{2}) = F(\frac{3}{2}) - F(\frac{1}{2}) = \frac{5}{8} - \frac{1}{8} = \frac{1}{2}$
+    \section*{Exercise 2}
+    Case $i=2$ : 
+    \\
+    Let $j\in\mathbb{N}$,  $A_j$ : ``The $j$-th match is won by Team A'', $B_j$:``The $j$-th match is won by Team B''. Let $S$ be the number of match played.
+    \\
+    The probability that the game ends on the second match is :
+    \\
+    $\mathbb{P}(S = 2) =\mathbb{P}\left((A_1\cap A_2)\cup(B_1\cap B_2)\right) = p^2+(1-p)^2 = 1 - 2p(1-p)$.
+    \\
+    The probability that the game ends on the third match is :
+    \\
+    $\mathbb{P}(S = 3) = \mathbb{P}\left((A_1B_2A_3\cup A_1B_2B_3\cup B_1A_2B_3\cup B_1A_2A_3)\right) = 2p^2(1-p)+2p(1-p)^2 = 2 p(1-p)$
+    \\
+    So : $$\boxed{\mathbb{E}(S) = 2 \mathbb{P}(S = 2) + 3 \mathbb{P}(S = 3) = 2(1-2p(1-p)) + 3(2p(1-p)) = 2 - 4p(1-p)+ 6p(1-p) = 2 + 2p(1-p)}$$
+    \\\\
+    Now let $f:x\to 2+2x(1-x)$, $f\in\mathcal{C}^1([0;1],\mathbb{R}) $ as $f$ is a polynomial function.
+    \\
+     $\forall x \in[0;1], f'(x) = 2[(1-p)-p] = 2 - 4p$ as $\forall x \in[0;\frac{1}{2}], f'(x)\ge 0$ it is a maximum that is reached in $\frac{1}{2}$.
+    \\
+    That's why $E(X) = f(p)$ is maximum when $p = \frac{1}{2}$ and in this case : $\mathbb{E}(X) = \frac{5}{2}$.
+    \\\\
+    Case $i=3$ : 
+    \\
+    $\mathbb{P}(S = 3) = p^3+(1-p)^3$
+    \\
+    $\mathbb{P}(S = 4) = 3p^3(1-p)+3p(1-p)^3$
+    \\
+    $\mathbb{P}(S = 5) = 5p^3(1-p)^2+5p^2(1-p)^3$
+    \\\\
+    $\mathbb{E}(X) = 3\mathbb{P}(S = 3)+ 4\mathbb{P}(S = 4)+5\mathbb{P}(S = 5) = 3 + 3p + 3p^2 - 12 p^3 + 6p^4 $
+    \\\\
+    Let $f:x\to 3+3p+3p^2-12p^3+6p^4\in \mathcal{C}^2([0;1],\mathbb{R})$ because it is polynomial.
+    \\
+    $\forall x\in[0;1] f'(x) = 3+6p-36p^2+24p^3 $ and $f''(x) = 6-72p+72p^2 = 6(1-12p+12p^2)$.
+    \\
+    As A and B are playing symmetric roles in the problem you have :
+    \\
+    $\forall x\in[0;\frac{1}{2}],f(x) = f(1-x)$ which implies : $f'(x) = -f'(1-x)$ and $f''(x) = f''(1-x)$. Finding the root of $f''(x^*)=0$ in $[0;\frac{1}{2}]$ yields $x^* = \frac{12-4\sqrt{6}}{24}$.
+    \\\\
+    As $\forall x\in[0;x^*],f''(x)\ge 0$ and $\forall x\in[x^*,\frac{1}{2}], f''(x)\leq 0$ it means $\forall x\in[0;\frac{1}{2}], f'(x)\ge 0$ and $f'(1-x)\leq 0$ and finally $f$ is maximized on $x=\frac{1}{2}$.
+    \\\\
+    As $\mathbb{E}(X) = f(p)$ then $\mathbb{E}(X)$ is maximized for $p=\frac{1}{2}$.
+    \\
+    \section*{Exercise 3}
+    Let $i\in\mathbb{N},X_i = 1$ if the $i$-th person sits at an unoccupied table and 0 instead. Let also $Y$ the number of table.
+    \\
+    You can notice that : $\mathbb{P}(X_i = 1) = (1-p)^{i-1}$ and $Y = \sum\limits_{i=1}^NX_i$
+    \\
+    $$\boxed{\mathbb{E}(Y) = \sum\limits_{i=1}^N \mathbb{E}(X_i) = \sum\limits_{i=1}^N p^{i-1} = \frac{1-(1-p)^N}{p}}$$.
+    \section*{Exercise 4}
+    In this case suppose $\forall i \in \mathbb{N},i$-th person is aged $i$. Let $X_i$ be 1 if the $i$-th person finds his hat and 0 otherwise.
+    \\
+    $\forall i \in \llbracket 1;1000\rrbracket, \mathbb{P}(X_i = 1) = \frac{1}{1000}$ and $\mathbb{E}(X_i) = \frac{1}{1000}$.
+    \\
+    Let $S = \sum\limits_{i=1}^{1000}X_i$ be the number of people finding their hat. $$\boxed{\mathbb{E}(S) = \sum\limits_{i=1}^{1000}\mathbb{E}(X_i) = 1000\frac{1}{1000} = 1}$$
+    \section*{Exercise 5}
+    Let $M$ be the number of matched pairs and let $\forall (i,j)\in\llbracket 1;N \rrbracket, I_{ij}$ be the indicator of the $i$-th person finds hat $j$ and $j$-th person finds hat $i$.
+    $\mathbb{P}(I_{ij} = 1) \frac{1}{N(N-1)}$ and there are $\binom{N}{2}$ possible pairs so $$\boxed{\mathbb{E}(M) = \frac{\binom{N}{2}}{N(N-1)} = \frac{1}{2}}$$ 
+    \section*{Exercise 6}
+    \subsection*{(a)}
+    $\mathbb{E}((2+X)^2 ) = 8 + \mathbb{E}(X^2)$. With $\mathbb{V}(X) = \mathbb{E}(X^2)-\mathbb{E}(X)^2 = \mathbb{E}(X^2) - 1$ and $\mathbb{V}(X) = 5$ you have $\mathbb{E}(X^2) = 6$ and $$\boxed{\mathbb{E}((2+X)^2) = 14}$$
+    \subsection*{(b)}
+    $\mathbb{V}(4+3X) = \mathbb{V}(3X) = 9\mathbb{V}(X) = 45$ so $$\boxed{\mathbb{V}(4+3X) = 45}$$
+    \section*{Exercise 7}
+    $$\boxed{\mathbb{E}((X-Y)^2) = \mathbb{E}(X^2-2XY+Y^2) = 2(\sigma^2+\mu^2)-2\mu^2}$$
+    \section*{Exercise 8}
+    Let $i\in\mathbb{N}, X_i$ = $\lbrace \begin{array}{cc}
+        1& \text{if } i\text{-th roll is a 1}\\
+        0& \text{otherwise}
+    \end{array}\text{ and } Y_i = \lbrace \begin{array}{cc}
+        1& \text{if } i\text{-th roll is a 2}\\
+        0& \text{otherwise}
+    \end{array}$\\
+    Notice that $X = \sum\limits_{i=1}^n X_i$ and $Y = \sum\limits_{i=1}^n Y_i$ then Cov$(X,Y) =\text{Cov}(\sum\limits_{i=1}^n X_i,\sum\limits_{i=1}^n Y_i) = \sum\limits_{(i,j)\in\llbracket 1 ; n\rrbracket^2}\text{Cov}(X_i,Y_j) $.
+    \\\\
+    Now notice that $\forall i,j\in\mathbb{N}^2, i\neq j \implies X_i\text{ indep with } Y_i $. Thus $\forall i,j\in\mathbb{N}^2, i\neq j, \text{Cov}(X_i,Y_j) = 0$
+    \\\\
+    Thus Cov$(X,Y) = \sum\limits_{i=1}^n\text{Cov}(X_i,Y_i)$. Moreover Cov$(X_i,Y_i) = \mathbb{E}(X_iY_i)-\mathbb{E}(X_i)\mathbb{E}(Y_i) = -(\frac{1}{6})^2$
+    \\\\
+    Finally : $$\boxed{\text{Cov}(X,Y) = -\frac{n}{36}} $$
+\end{document}
