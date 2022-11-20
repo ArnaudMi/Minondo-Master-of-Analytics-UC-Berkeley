@@ -1,0 +1,11 @@
+param n:= 4;
+
+param Prod_Cost := 35;
+param Purchase_Cost := 50;
+param Produc_Limit := 160;
+
+param Demand := 
+1 150 
+2 160
+3 225
+4 180;

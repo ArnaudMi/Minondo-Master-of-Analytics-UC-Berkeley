@@ -1,0 +1,41 @@
+param n:= 5;
+
+param Clay:=
+1 10
+2 15
+3 10
+4 10
+5 20;
+param Clay_Limit:=130;
+
+param Enamel:=
+1 1
+2 2
+3 2
+4 1
+5 1
+;
+param Enamel_Limit:=13;
+
+param Dry_Room:= 
+1 3
+2 1
+3 6
+4 6
+5 3;
+param Dry_Room_Limit:=45;
+
+param Kiln:=
+1 2
+2 4
+3 2
+4 5
+5 3;
+param Kiln_Limit:= 23;
+
+param prof:=
+1 51
+2 102
+3 66
+4 66
+5 89;
