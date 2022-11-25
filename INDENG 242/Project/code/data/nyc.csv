@@ -1,0 +1,348 @@
+;Tourist_Spot;Address;Zipcode;Lat;Long;Rating
+0;47th Street - The Diamond District;47th St. betw. Fifth & Sixth Aves. Manhattan, NY 10036, Midtown West;10036;40.7573441;-73.98044569999999;5.0
+1;9/11 Memorial & Museum;World Trade Center (museum: 180 Greenwich St.) Manhattan, NY 1000, Lower Manhattan;10007;40.7114147;-74.0124786;4.8
+2;Abyssinian Baptist Church;132 Odell Clark Place New York, NY 10030, Harlem;10030;40.8166794;-73.94145;0.0
+3;Alice Austen House Museum;2 Hylan Blvd. Staten Island, NY 10305, Staten Island;10305;40.6152028;-74.06307050000001;4.6
+4;Alice Tully Hall;1941 Broadway Manhattan, NY 10023, Upper West Side;10023;40.7735005;-73.9827897;4.8
+5;Alvin Ailey American Dance Theate;405 W. 55th St. Manhattan, NY 10019, Midtown West;10019;40.7668755;-73.98691529999999;4.5
+6;American Girl Place;609 Fifth Ave. Manhattan, NY 10017, Midtown East;10017;40.7600073;-73.9779319;4.5
+7;American Museum of Natural History;Central Park West at 79th St. Manhattan, NY 10024, Upper West Side;10024;40.7813241;-73.9739882;4.6
+8;Apollo Theater;253 W. 125th St.  Manhattan, NY 10027, Harlem;10027;40.810018;-73.95005600000002;4.6
+9;arts>Brookfield Place;230 Vesey St. Manhattan, NY 10281, Battery Park City;10281;40.7145625;-74.01615249999999;5.0
+10;Barclays Center;620 Atlantic Ave. Brooklyn, NY 11217, Prospect Heights;11217;40.6826465;-73.97541559999999;4.5
+11;Bartow-Pell Mansion Museum;895 Shore Rd. Bronx, NY 10464, Pelham Bay;10464;40.8717842;-73.8055573;4.6
+12;Bateaux New York;Pier 61, Chelsea Piers (23rd St. & Hudson River) Manhattan, NY 10011, Chelsea;10011;40.7475756;-74.0092964;4.5
+13;Bronx Brewery;856 East 136th Street NY 10454, South Bronx;10454;40.8019185;-73.9105843;4.3
+14;Bronx Library Center;310 E. Kingsbridge Rd. Bronx, NY 10458, Fordham;10458;40.8630503;-73.8943939;4.3
+15;Bronx Zoo;2300 Southern Blvd. Bronx, NY 10460, Fordham;10460;40.8505949;-73.8769982;4.6
+16;Brooklyn Botanic Garden;1000 Washington Ave. Brooklyn, NY 11225, Prospect Heights;11225;40.6685798;-73.9644696;4.6
+17;Brooklyn Bridge;Tillary St Brooklyn, NY 11201,Downtown Brooklyn;11201;40.6916598;-73.98574339999999;4.5
+18;Brooklyn Heights Promenade;Brooklyn-Queens Expressway Brooklyn , NY 11201, Brooklyn Heights;11201;40.6961936;-73.9975036;4.8
+19;Brooklyn Historical Society;128 Pierrepont St. Brooklyn, NY 11201, Brooklyn Heights;11201;40.69480180000001;-73.9924157;4.6
+20;Brooklyn Navy Yard;63 Flushing Ave, bldg 292, unit 300 (main office) Brooklyn, NY 11205, Navy Yard;11205;40.698841;-73.9786453;4.5
+21;Brooklyn Nets;The Barclays Center, 620 Atlantic Ave. Brooklyn, NY 11217, Prospect Heights;11217;40.6826465;-73.97541559999999;4.5
+22;Brooklyn Public Library;Grand Army Plaza at Flatbush Ave Brooklyn, NY 11238, Park Slope;11238;40.67251110000001;-73.9682;4.6
+23;Calvary Cemetery;49-02 Laurel Hill Blvd. Queens, NY 11377, Woodside;11377;40.7352225;-73.9135952;4.2
+24;Carnegie Hall;57th St. and Seventh Ave. Manhattan, NY 10019, Midtown West;10019;40.7651258;-73.97992359999999;4.7
+25;Cathedral Church of St. John the Divine;1047 Amsterdam Ave. Manhattan, NY 10025, Morningside Heights;10025;40.8041159;-73.9625652;4.5
+26;Central Park Conservancy—Official Central Park Tours;14 E. 60th St., 8th fl. New York, NY 10022, Upper East Side;10022;40.764391;-73.97160509999999;4.5
+27;Charles A. Dana Discovery Center/Harlem Meer;106th to 110th Sts on the east side of the park Manhattan, NY 10029, Central Park;10029;40.7970821;-73.95147;4.6
+28;Chelsea Craft Brewing Company;463 East 173rd Street NY 10457, The Bronx;10457;40.8418964;-73.9017487;4.7
+29;Chelsea Piers Sports & Entertainment Complex;23rd St. & Hudson River Park Manhattan, NY 10011, Chelsea;10011;40.7481792;-74.0086142;4.5
+30;Chrysler Building;405 Lexington Ave Manhattan, NY, Midtown East;10174;40.7516208;-73.97550199999999;4.6
+31;Circle Line Downtown;Pier 16 at S. St. Seaport Manhattan, NY 10038, Lower Manhattan;10038;40.705734;-74.0030894;4.3
+32;Circle Line Sightseeing Cruises;Pier 83, 42nd St. and Twelfth Ave. Manhattan, NY 10036, Hells Kitchen;10036;40.7548987;-73.983837;3.9
+33;City Hall;City Hall  Broadway and Murray St. Manhattan, NY 10007, Lower Manhattan;10007;40.7127744;-74.006059;4.3
+34;City Hall Park;Broadway and Chambers St Manhattan, NY 10007, Lower Manhattan;10007;40.7124142;-74.0065164;4.5
+35;Classic Harbor Line LLC;Chelsea Piers, Pier 62 (22nd St. & Hudson River) Manhattan, NY 10011, Chelsea;10011;40.7482291;-74.00825929999999;4.9
+36;Clove Lakes Park;1150 Clove Rd. Staten Island, NY, Randall Manor;10301;40.6186608;-74.11163979999999;4.6
+37;Coney Island Brewing Company;1904 Surf Ave. Brooklyn, NY 11224, Coney Island;11224;40.5750617;-73.9838845;4.6
+38;Coney Island Circus Sideshow;Surf Avenue Brooklyn, NY 11224, Coney Island;11224;40.575368;-73.9798454;4.6
+39;Delacorte Theate;Mid-park at 80th St Manhattan, NY 10024, Central Park;10024;;;
+40;Douglaston Golf Course;6320 Marathon Pkwy Queens, NY 11363, Bayside;11363;40.7524457;-73.73160419999999;4.0
+41;Duffy Square;46th and Broadway  47th and 7th Avenue New York, NY, Times Square/Theatre District;10036;40.7590077;-73.9850222;4.6
+42;Ellis Island;New York Harbor Manhattan, NY 10004, Lower Manhattan;10004;40.6994352;-74.0415182;4.6
+43;Ellis Island National Museum of Immigration;Ellis Island, New York Harbor Manhattan, NY 10004, Battery Park City;10004;40.6992753;-74.0394328;4.7
+44;Ellis Island/American Family Immigration History Center;Ellis Island, New York Harbor Manhattan, NY 10004, Battery Park City;10004;40.6992753;-74.0394328;4.7
+45;Empire State Building Experience;350 Fifth Ave. Manhattan, NY 10118, Herald Square;10118;40.7484405;-73.98566439999999;4.7
+46;FDNY Fire Zone;34 W. 51st St. Manhattan, NY 10020, Midtown West;10020;40.7581424;-73.9799206;4.8
+47;Flatiron Building;175 5th Ave Manhattan, NY, Flatiron District;10010;40.7410605;-73.9896986;4.6
+48;Flushing Meadows Corona Park;111th Street to Van Wyck Expressway Queens, NY 11375, Flushing;11375;40.7400275;-73.8406953;4.6
+49;Fort Tryon Park;Between Riverside Drive, Broadway, Dyckman Street and West 192nd Street New York, NY 10040, Washington Heights/Inwood;10040;40.8625608;-73.9312995;4.7
+50;Governors Island;Governors Island New York, NY 10004, Governors Island;10004;40.7009894;-74.01178829999999;4.6
+51;Gramercy Park;E 20th St to E 21st St bet Gramercy Park West and Gramercy Park East Manhattan, NY 10010, Gramercy;10010;40.7373626;-73.9838874;4.0
+52;Grand Army Plaza;Fifth Avenue and W 59th Street Manhattan, NY, Midtown East;10019;40.7646959;-73.9731439;4.6
+53;Grand Army Plaza Memorial Arch;Grand Army Plaza at Eastern Parkway Brooklyn, NY 11238, Prospect Heights;11238;40.6740248;-73.9701254;4.5
+54;Grand Central Terminal;15 Vanderbilt Ave., Hall 2A Manhattan, NY 10017, Midtown East;10017;40.7527262;-73.9772294;4.7
+55;Green-Wood Cemetery;500 25th St. Brooklyn, NY 11232, Sunset Park;11232;40.6579777;-73.9940634;4.7
+56;Greenbelt Nature Center;700 Rockland Ave Staten Island, NY 10314, New Dorp;10314;40.5884511;-74.13916669999999;4.7
+57;Gulliver's Gate;216 W. 44th St. Manhattan, NY 10036 Times Square/Theatre District;10036;40.7606171;-73.9862864;3.3
+58;Hell Gate Bridge;Hell gate bridge Manhattan, NY, South Bronx;11105;40.7825959;-73.9219127;4.6
+59;Hershey's Chocolate World Times Square;1593 Broadway Manhattan, NY 10019, Times Square/Theatre District;10019;40.7593411;-73.9843095;4.6
+60;Historic Richmond Town;441 Clarke Ave. Staten Island, NY 10306 Richmond Town;10306;40.5709205;-74.1456038;4.5
+61;Holographic Studios;240 E. 26th St. New York, NY 10010, Chelsea;10010;40.7399148;-73.980104;4.7
+62;Hunters Point Community Library;47 Center Blvd. Queens, NY 11101;11101;40.7453222;-73.9580667;3.6
+63;Intrepid Sea, Air & Space Museum;Pier 86, Twelfth Ave. at 46th St. Manhattan, NY 10036, Hells Kitchen;10036;40.7645266;-73.99960759999999;4.6
+64;Irish Hunger Memorial;290 Vesey St Manhattan, NY 10281, Battery Park City;10281;40.7150615;-74.01636810000001;4.7
+65;Jacqueline Kennedy Onassis Reservoir;Bet 86th and 96th Sts Manhattan, NY 10024, Central Park;10024;;;
+66;James A. Farley Post Office;421 Eighth Ave. Manhattan, NY 10001, Chelsea;10001;40.7513536;-73.9951255;3.3
+67;Jane's Carousel;Dock Street Brooklyn, NY 11201, DUMBO;11201;40.7043802;-73.99239229999999;4.7
+68;Jazz at Lincoln Center;Frederick P. Rose Hall, Broadway at 60th St. Manhattan, NY 10019, Upper West Side;10019;40.7687363;-73.982525;4.6
+69;Jeffrey's Hook Lighthouse;Fort Washington Park Manhattan , NY 10033, Washington Heights/Inwood;10033;40.8502815;-73.9469788;4.7
+70;Loeb Central Park Boathouse;Central Park, enter at Fifth Ave. & 72nd St. Manhattan, NY 10028, Central Park;10028;40.7752927;-73.96876929999999;4.4
+71;Luna Park at Coney Island;1000 Surf Ave. Brooklyn, NY 11224, Coney Island;11224;40.5752568;-73.9785149;4.4
+72;Macy's Herald Square;151 W. 34th St. Manhattan, NY 10001, Herald Square;10001;40.750831;-73.9890961;4.4
+73;Madison Square Garden;2 Penn Plaza Manhattan, NY 10121, Midtown West;10121;40.7505045;-73.9934387;4.7
+74;Mahayana Buddhist Temple;133 Canal St Manhattan, NY 10002, Chinatown;10002;40.71614030000001;-73.99541900000001;4.4
+75;McCarren Park;Lorimer St. between Bayard St. and Driggs Ave. Brooklyn, NY, Williamsburg;11222;40.7210549;-73.95244;4.6
+76;Museum at Eldridge Street Synagogue;12 Eldridge St. Manhattan, NY 10002, Lower East Side;10002;40.71475969999999;-73.993594;4.6
+77;Museum Mile;Fifth Avenue Manhattan, NY, Upper East Side;10128;40.7794366;-73.963244;4.8
+78;Museum of American Finance;48 Wall St. Manhattan, NY 10005, Lower Manhattan;10005;40.7073993;-74.0102088;4.5
+79;Mystery Room NYC;365 Seventh Ave., fl. 2N Manhattan, NY 10001, Chelsea;10001;40.743339;-73.990338;4.7
+80;National Geographic Encounter: Ocean Odyssey;226 W. 44th St. Manhattan, NY 10036., Times Square/Theatre District;10036;40.75773299999999;-73.98715969999999;4.2
+81;National Parks of New York Harbor;Federal Hall National Memorial, 26 Wall St. Manhattan, NY 10005, Lower Manhattan;10005;40.7073034;-74.0102734;4.8
+82;New York Botanical Garden;2900 Southern Blvd. Bronx, NY 10458, Bedford Park;10458;40.8614705;-73.8809242;4.7
+83;New York City FC;Yankee Stadium, 1 E. 161st St. Bronx, NY 10451, South Bronx;10451;40.8296426;-73.9261745;4.6
+84;New York Giants;MetLife Stadium East Rutherford, NJ 07073, Not in New York City;07073;40.8135064;-74.074457;4.5
+85;New York Hall of Science;47-01 111th St. Queens, NY 11368, Corona;11368;40.7475733;-73.8519487;4.3
+86;New York Knicks;Madison Square Garden, Seventh Ave. betw. 31st and 33rd Sts. Manhattan, NY 10001, Midtown West;10001;40.7505045;-73.9934387;4.7
+87;New York Public Library, Stephen A. Schwarzman Building;Fifth Ave. & 42nd St. Manhattan, NY 10018, Midtown West;10018;40.75318230000001;-73.9822534;4.7
+88;New York Rangers;Madison Square Garden, Seventh Ave. betw. 31st and 33rd Sts. Manhattan, NY 10001, Midtown West;10001;40.7505045;-73.9934387;4.7
+89;New York Transit Museum;99 Schermerhorn St. Brooklyn, NY 11201, Brooklyn Heights;11201;40.6905696;-73.9900672;4.6
+90;New York Wheel;7 Penn Plaza, ste. 1705 New York, NY 10001, Staten Island;10001;40.7501172;-73.9925793;0.0
+91;New York Yankees;Yankee Stadium, 1 E. 161st St. Bronx, NY 10451, South Bronx;10451;40.8296426;-73.9261745;4.6
+92;Official NYC Information Center at Macy's Herald Square;151 W. 34th St. Manhattan, NY 10011, Midtown West;10011;40.75073709999999;-73.98950669999999;4.0
+93;Old Stone House;336 3rd St. Brooklyn, NY 11215, Park Slope;11215;40.6729574;-73.9846285;4.6
+94;One World Observatory;One World Trade Center, 285 Fulton St. 45 fl. ste. F Manhattan, NY 10007, Lower Manhattan;10007;40.7130062;-74.013173;4.7
+95;Parachute Jump;Boardwalk W. (bet. W. 16th and W. 19th Sts.) Brooklyn, NY 11224, Coney Island;11224;40.578853;-73.9864304;0.0
+96;Paradise Theater;2403 Grand Concourse Bronx, NY 10468, Fordham;10468;40.8606657;-73.8984645;4.6
+97;Pepsi-Cola Sign;30-99 48th AvenueNew York, NY 11101, Long Island City;11101;;;
+98;Plymouth Church of the Pilgrims;75 Hicks St Brooklyn, NY 11201, Brooklyn Heights;11201;40.6993563;-73.9937889;3.7
+99;Poe Park;Grand Concourse and East 192nd Street Bronx, NY 10458, Fordham;10458;40.8648137;-73.8945473;4.2
+100;Prospect Park;95 Prospect Park West Brooklyn , NY 11215, Park Slope;11215;40.6670385;-73.9737845;4.3
+101;Prospect Park Audubon Center;Prospect Park Brooklyn, NY 11225, Park Slope;11225;40.6608215;-73.9652444;4.7
+102;Prospect Park Carousel;Enter the park at Willink entrance (intersection of Empire, Ocean and Flatbush Aves.) Brooklyn, NY 11210, Park Slope;11210;;;
+103;Prospect Park Lake;Parkside and Ocean Avenues entrance Brooklyn, NY 11218, Park Slope;11218;40.6602037;-73.9689558;4.7
+104;Prospect Park Litchfield Villa;95 Prospect Park West Brooklyn, NY 11215, Park Slope;11215;40.6669961;-73.97382859999999;4.4
+105;Prospect Park Zoo;450 Flatbush Ave. Brooklyn, NY 11225, Crown Heights;11225;40.6642506;-73.9651138;4.4
+106;Queens Museum;New York City Building, Flushing Meadows Corona Park Queens, NY 11368, Flushing;11368;40.745914;-73.8467247;4.4
+107;Queens Zoo;53-51 111th St. Queens, NY 11368, Flushing;11368;40.7439678;-73.84924579999999;4.5
+108;Queensboro Bridge;Ed Koch Queensboro Bridge, New York, NY 10044;10044;40.75673159999999;-73.9542239;4.5
+109;Radio City Music Hall;1260 Sixth Ave. Manhattan, NY 10020, Midtown West;10020;40.75997599999999;-73.9799772;4.7
+110;Resorts World Casino New York City;110-00 Rockaway Blvd. Queens, NY 11420, Jamaica;11420;40.6731042;-73.8326167;3.7
+111;Ripley's Believe It or Not! Times Square;234 W. 42nd St. Manhattan, NY 10036, Times Square/Theatre District;10036;40.7565399;-73.98867709999999;4.1
+112;Riverside Park;Riverside Drive to Hudson River 72nd St. to St Clair Pl. New York, NY 10115, Upper West Side;10115;40.8096051;-73.967289;4.6
+113;Rockefeller Center;45 Rockefeller Plaza Manhattan, NY 10111, Midtown West;10111;40.7587402;-73.9786736;4.7
+114;Roosevelt Island;591 Main St. Roosevelt Island, NY 10044, Roosevelt Island;10044;40.7629972;-73.9493952;4.5
+115;Roundabout Theatre Company;231 W. 39th St., ste. 1200 New York, NY 10018, Midtown West;10018;40.7548855;-73.9896215;4.1
+116;Sail the Park;Kerbs Memorial Boathouse in Central Park (off Fifth Ave. btw. 72nd–76th Sts.) Manhattan, NY 10021, Central Park;10021;40.7752927;-73.96876929999999;4.4
+117;Schomburg Center for Research in Black Culture;515 Malcolm X Blvd. Manhattan, NY 10037, Harlem;10037;40.8149729;-73.9421892;4.6
+118;SeaGlass Carousel;The Battery Manhattan, NY 10004, Lower Manhattan;10004;40.7021838;-74.0149134;4.5
+119;Seaport District NYC;Pier 17, Fulton and Front Streets Manhattan, NY 10038, Lower Manhattan;10038;40.7058555;-74.00192729999999;4.6
+120;Sheep Meadow, Central Park;1802 65th St Transverse, New York, NY 10065;10065;40.7717813;-73.9748418;4.8
+121;Sleep No More;530 W. 27th St. Manhattan, NY 10001, Chelsea;10001;40.7505872;-74.0038546;4.2
+122;Socrates Sculpture Park;32-01 Sculpture Park at Broadway Queens, NY 11106, Long Island City;11106;40.7688089;-73.93650989999999;4.3
+123;Solomon R. Guggenheim Museum;1071 Fifth Ave. Manhattan, NY 10128, Upper East Side;10128;40.7829796;-73.9589706;4.3
+124;South Street Seaport Museum;"Pier 16, South Street Seaport, South St. at the foot of John St.; office: 12 Fulton St. Manhattan, NY 10038, Lower Manhattan";10038;40.7064979;-74.0036463;4.1
+125;Spirit of New York;Pier 61, Chelsea Piers at W. 23rd St. & 12th Avenue Manhattan, NY 10011, Chelsea;10011;40.74735500000001;-74.0083691;4.6
+126;St. Patrick's Cathedral;Fifth Ave. btw. 50th-51st Sts. Manhattan, NY 10126, Midtown East;10126;40.7586117;-73.9761953;4.8
+127;St. Patrick’s Old Cathedra;263 Mulberry St Manhattan, NY 10012, Nolita;10012;40.72336809999999;-73.9950618;4.7
+128;St. Paul's Chapel;209 Broadway Manhattan, NY 10007, Lower Manhattan;10007;40.7113281;-74.0091831;4.6
+129;Staten Island Borough Hall;10 Richmond Terrace Staten Island, NY 10301, St. George;10301;40.6424769;-74.0760188;4.7
+130;Staten Island Ferry;St. George Terminal, 1 Bay St. Staten Island, NY 10301, St. George;10301;40.64409819999999;-74.0725489;4.4
+131;Staten Island September 11 Memorial;St George Esplanade Staten Island, NY 10301, St. George;10301;40.6468129;-74.07651;4.6
+132;Staten Island Yankees;Richmond County Bank Ballpark, 75 Richmond Terr. Staten Island, NY 10301 St. George;10301;40.6455625;-74.07719349999999;4.5
+133;Staten Island Zoo;614 Broadway Staten Island, NY 10310, Staten Island;10310;40.625124;-74.11537;4.5
+134;Statue of Liberty National Monument;Liberty Island, New York Harbor Manhattan, NY 10004, Battery Park City;10004;40.6897643;-74.04523669999999;4.6
+135;Strawberry Fields/Imagine Mosaic;Bet 71st and 74th Sts on the Central Park West side Manhattan, NY 10023, Central Park;10023;40.7758392;-73.9747655;4.6
+136;The Church of St. Luke in the Fields;487 Hudson St Manhattan, NY 10014, West Village;10014;40.7326301;-74.0066421;4.7
+137;The Cyclone;834 Surf Ave Brooklyn, NY 11224, Coney Island;11224;40.575042;-73.9868963;3.0
+138;The Frick Collection;1 E. 70th St. Manhattan, NY 10021 Upper East Side;10021;40.7710857;-73.9673861;4.6
+139;The High Line;Gansevoort Street to West 30th Street Manhattan, NY 10011, Meatpacking District;10011;40.7524598;-74.0021101;4.7
+140;The Met Breuer;945 Madison Ave. Manhattan, NY 10021, Upper East Side;10021;40.7794366;-73.963244;4.8
+141;The Met Cloisters;Fort Tryon Park, 99 Margaret Corbin Dr. Manhattan, NY 10040, Washington Heights/Inwood;10040;40.8648628;-73.9317274;4.8
+142;The Met Fifth Avenue;Fifth Ave. at 82nd St. Manhattan, NY 10028 ,Upper East Side;10028;;;
+143;The Metropolitan Opera;Metropolitan Opera House at Lincoln Center Manhattan, NY 10023, Upper West Side;10023;40.7727076;-73.9839082;4.8
+144;The Museum of Modern Art (MoMA);11 W. 53rd St. Manhattan, NY 10019, Midtown West;10019;40.7614327;-73.97762159999999;4.6
+145;The New York Chinese Scholar's Garden;Snug Harbor Cultural Center & Botanical Garden, 1000 Richmond Terrace Staten Island, NY, Randall Manor;10301;40.642;-74.10427779999999;4.5
+146;The New York Pass;36 W. 44th St., ste. 1407 New York, NY 10036 Midtown West;10036;;;
+147;The New-York Historical Society;170 Central Park West Manhattan, NY 10024;10024;40.7793289;-73.9739087;4.5
+148;The PIT;123 E 24th St Manhattan, NY, Flatiron District;10010;40.74306989999999;-73.99056039999999;4.4
+149;The Plaza Hotel;Fifth Ave. at Central Park South Manhattan, NY 10019, Midtown West;10019;40.764656;-73.9744408;4.5
+150;The Ride;box office: inside The Gift Shop at 584 Eighth Ave. Manhattan, NY 10018, Garment District;10018;40.7549998;-73.9911523;4.5
+151;The Rink at Rockefeller Center;One Rockefeller Plaza Manhattan, NY 10020, Midtown West;10020;40.7586996;-73.978375;4.4
+152;The Riverside Church New York City;490 Riverside Dr. Manhattan, NY 10027, Morningside Heights;10027;40.8119008;-73.9630756;4.6
+153;The Tenement Museum;103 Orchard St. Manhattan, NY 10002, Lower East Side;10002;40.718818;-73.9900876;4.6
+154;The Thunderbolt;W. 16th St. and the Boardwalk Brooklyn, NY 11224, Coney Island;11224;40.5730298;-73.9821213;4.4
+155;The Tour at NBC Studios;30 Rockefeller Plaza Manhattan, NY 10112, Midtown West;10112;40.7593651;-73.98009789999999;4.6
+156;The Town Hall;123 W. 43rd St. Manhattan, NY 10036, Times Square/Theatre District;10036;40.7560527;-73.98452999999999;4.5
+157;Theodore Roosevelt Birthplace;28 E. 20th St. Manhattan, NY 10003, Gramercy;10003;40.738695;-73.9889267;4.6
+158;Times Square;Broadway Manhattan, NY 10036, Times Square/Theatre District;10036;40.7579747;-73.9855426;4.7
+159;Top of the Rock Observation Deck;30 Rockefeller Plaza Manhattan, NY 10112, Midtown West;10112;40.7593495;-73.9794087;4.7
+160;Turtle Pond;New York, NY 10024, Central Park;10024;40.7790951;-73.9670148;5.0
+161;Underpenny Plane and Cast Iron Museum;10-13 50th Ave. Queens, NY 11101, Long Island City;11101;40.7426932;-73.95338799999999;4.8
+162;United Nations;First Ave. at 46th St. Manhattan, NY 10017, Midtown East;10017;40.75264180000001;-73.9713628;4.6
+163;United Palace House of Inspiration;4140 Broadway Manhattan, NY 10033, Washington Heights/Inwood;10033;40.846539;-73.9379235;4.5
+164;USTA Billie Jean King National Tennis Center;Flushing Meadows Corona Park Queens, NY 11368, Flushing;11368;40.7503676;-73.8456118;4.7
+165;Van Cortlandt House Museum;Van Cortlandt Park, Broadway @ 246th St. Bronx, NY 10471, Fordham;10471;40.8911186;-73.8948241;4.7
+166;Verrazano-Narrows Bridge;Verrazano-Narrows Bridge, Staten Island, NY;11209;40.6066162;-74.0446602;4.2
+167;Victorian Gardens Amusement Park (Central Park);Wollman Rink in Central Park, enter park at 59th St. and Sixth Ave. Manhattan, NY 10065, Central Park;10065;40.76777939999999;-73.97446630000002;4.2
+168;VR World NYC;4 E. 34 St. Manhattan, NY 10022 Murray Hill;10022;40.74793;-73.9839898;4.2
+169;Wall Street;Wall St. Manhattan, NY 10006, Lower Manhattan;10006;40.707491;-74.0116385;4.5
+170;Washington Square Park;W 4th St to Waverly Pl Manhattan, NY 10003, Greenwich Village;10003;40.7308838;-73.997332;4.6
+171;Waterfront at Brookfield Place;230 Vesey St. Manhattan, NY 10281, Battery Park City;10281;40.7127168;-74.01528239999999;4.6
+172;Wave Hill;675 W. 252nd St. Bronx, NY 10471, Riverdale;10471;40.8978516;-73.91144489999999;4.7
+173;Wildlife Conservation Society;2300 Southern Blvd. Bronx, NY 10460, The Bronx;10460;40.8502791;-73.8784699;4.2
+174;Williamsburg Bridge;Williamsburg, New York, NY 11104;11104;40.7135955;-73.9719618;4.5
+175;Woodlawn Cemetery;"Webster Ave. & E. 233rd St.; second entrance: Jerome Ave. at Bainbridge Ave. Bronx, NY 10470, Woodlawn";10470;40.888249;-73.872023;4.4
+176;World Trade Center Transportation Hub;New York, NY, Lower Manhattan;10007;40.7126452;-74.00989799999999;4.7
+177;Wyckoff Farmhouse Museum;5816 Clarendon Rd. Brooklyn, NY 11203, Midwood;11203;40.6443479;-73.92082839999999;4.5
+178;African Burial Ground National Monument;290 Broadway Manhattan, NY 10007, Tribeca;10007;40.7145494;-74.0043289;4.7
+179;Manhattan Bridge;Enter at Bowery between Canal and Bayard Streets (Manhattan side) Manhattan, NY 10002, Manhattan;10002;40.7074959;-73.99077419999999;4.6
+180;Conservatory Garden;Fifth Ave and 105th St Manhattan, NY 10029, Central Park;10029;40.7936928;-73.9524588;4.8
+181;Mount Vernon Hotel Museum & Garden;421 E. 61st St. Manhattan, NY 10065, Upper East Side;10065;40.7605042;-73.9597668;4.5
+182;St. George Theatre;35 Hyatt St. Staten Island, NY 10301, St. George;10301;40.6419566;-74.0773972;4.6
+183;Explorer Pass;151 W 34th St, New York, NY 10001;10001;40.7484405;-73.98566439999999;4.7
+184;Wollman Rink;near 59th St. & Sixth Ave. within Central Park Manhattan, NY 10021, Central Park;10021;40.7677792;-73.9744673;4.3
+185;Friedsam Memorial Carousel;Mid-park at 64th St Manhattan, NY 10023, Central Park;10023;;;
+186;Japan Society;333 E. 47th St. Manhattan, NY 10017, Midtown East;10017;40.7525152;-73.9682831;4.6
+187;FDNY Fire Zone Rockefeller Center ;34 West 51st Street New York, NY 10020, Midtown West;10020;40.7586083;-73.9806843;4.8
+188;TimeLooper`;mail: 40 Harrison St., 3K New York, NY 10013;10013;;;
+189;On Location Tours, Inc.;"Meeting Sites in Midtown Manhattan; mail: 555 Eighth Ave., ste. 2003 Manhattan, NY 10018, Times Square/Theatre District";10018;;;
+190;Snug Harbor Cultural Center & Botanical Garden;1000 Richmond Terr. Staten Island, NY 10301;10301;40.6433718;-74.1027431;4.5
+191;Voilà Chocolat;221 W. 79th St. Manhattan, NY 10024, Upper West Side;10024;40.7822478;-73.9757935;4.6
+192;Central Park Zoo;830 Fifth Ave. (southeast corner of Central Park) Manhattan, NY 10021, Central Park;10021;40.767778;-73.9718335;4.4
+193;Asser Levy/Seaside Park;W 5th St Brooklyn, NY 11224, Coney Island;11224;40.5751863;-73.9713897;4.4
+194;Woolworth Building;233 Broadway New York, NY 10007, Lower Manhattan;10007;40.71243;-74.0083547;4.5
+195;Brookfield Place;230 Vesey St. Manhattan, NY 10281, Battery Park City;10281;40.7127168;-74.01528239999999;4.6
+196;New York Mets;Citi Field, 126th St. and Roosevelt Ave. Queens, NY 11368, Flushing;11368;40.7570877;-73.8458213;4.6
+197;Onassis Cultural Center New York;645 Fifth Ave. (enter on 51st St.) Manhattan, NY 10022, Midtown East;10022;40.7744146;-73.9656177;4.8
+198;Official NYC Information Center–South Street Seaport;Hornblower Cruises on the East River Waterfront Esplanade at Pier 15 Manhattan, NY 10038, Lower Manhattan;10038;40.7043756;-74.0029654;4.5
+199;Fort Wadsworth;210 New York Ave. Staten Island, NY 10305, Staten Island;10305;40.6038079;-74.0585589;4.6
+200;Deno's Wonder Wheel Amusement Park;3059 Denos Vourderis Place (W 12th St) Brooklyn, NY 11224, Coney Island;11224;40.57333089999999;-73.9791552;4.5
+201;Bethesda Terrace/Fountain;Mid-park at 72nd St. New York, NY, Central Park;10021;40.7739489;-73.9709661;4.7
+202;George Washington Bridge;George Washington Bridge Manhattan, NY, Washington Heights/Inwood;07024;40.8516964;-73.9527159;4.1
+203;The Public Theate;425 Lafayette St. Manhattan, NY 10003, East Village;10003;40.72907319999999;-73.9919097;4.7
+204;Washington Street between Front and Water Streets;Brooklyn, NY 11205, DUMBO;11205;40.70331650000001;-73.9895698;4.8
+205;Brooklyn Bridge Park;334 Furman St. Brooklyn, NY 11201, DUMBO;11201;40.6991496;-73.9976004;4.8
+206;Tompkins Square Park;E 10th St, New York, NY 10009;10009;40.7262205;-73.981901;4.3
+207;Lincoln Center for the Performing Arts;70 Lincoln Center Plaza Manhattan, NY 10023, Upper West Side;10023;40.7724641;-73.9834889;4.8
+208;National Park Service;c/o Statue of Liberty National Monument New York, NY 10004, Battery Park City;10004;40.6892494;-74.04450039999999;4.7
+209;Belvedere Castle;Central Park, midpark at 79th St Manhattan, NY, Central Park;10021;40.7794302;-73.9690677;4.5
+210;Sunset Park;Bet. Fifth and Seventh Aves. and 41st and 44th Sts. Brooklyn, NY 11220, Sunset Park;11220;40.6479517;-74.0037443;4.5
+211;Official NYC Information Center (Times Square);Broadway Plaza, between 43rd and 44th Streets New York, NY 10036, Times Square/Theatre District;10036;;;
+212;Morris-Jumel Mansion;65 Jumel Terr. Manhattan, NY 10032, Washington Heights/Inwood;10032;40.8344548;-73.9385727;4.5
+213;Conservatory Water;72nd to 75th Sts Manhattan, NY 10021 Central Park;10021;40.7742331;-73.9671147;4.6
+214;Madame Tussauds New York;234 W. 42nd St. Manhattan, NY 10036, Times Square/Theatre District;10036;40.7564269;-73.9888338;4.4
+215;Whitney Museum of American Art;99 Gansevoort St. Manhattan, NY 10014, Meatpacking District;10014;40.7395877;-74.0088629;4.5
+216;Coney Island History Project;Deno's Wonder Wheel Amusement Park, 3059 W. 12th St. Brooklyn, NY 11224, Coney Island;11224;40.57333089999999;-73.9791552;4.5
+217;United Palace Theatre;4140 Broadway Manhattan, NY 10033, Washington Heights/Inwood;10033;40.846539;-73.9379235;4.5
+218;Central Park;Between Fifth Ave. and Central Park West Manhattan, NY 10024, Central Park;10024;40.7812199;-73.9665138;4.8
+219;Bank of America Winter Village at Bryant Park;Bryant Park, 42nd St. and 6th Ave. Manhattan, NY 10018, Midtown West;10018;40.7539575;-73.9841871;4.6
+220;New York City Ballet;David H. Koch Theater, 20 Lincoln Center Plaza Manhattan, NY 10023, Upper West Side;10023;40.7718737;-73.9836184;4.8
+221;Museum of Sex;233 Fifth Ave. Manhattan, NY 10016, NoMad;10016;40.7440291;-73.9872529;4.2
+222;Coney Island;Surf Avenue Brooklyn, NY 11224, Coney Island;11224;40.5749391;-73.9812657;4.0
+223;Unbreakable Kimmy Schmidt Apartment;74 Freeman St. Brooklyn, NY 11222, Greenpoint;11222;;;
+224;Bryant Park;Sixth Ave. between 40th and 42nd Sts. Manhattan, NY Midtown West;10018;40.7548368;-73.9841215;4.1
+225;New York Rangers;Madison Square Garden, Seventh Ave. betw. 31st and 33rd Sts. Manhattan, NY 10001, Midtown West;10001;40.7505045;-73.9934387;4.7
+226;Citi Field;126th St. and Roosevelt Ave. Flushing, NY 11368, Flushing;11368;40.7570877;-73.8458213;4.6
+227;Queens Botanical Garden;43-50 Main St. Queens, NY 11355, Flushing;11355;40.75123929999999;-73.8261905;4.3
+228;Prospect Park Bandshell;Prospect Park West Brooklyn, NY 11217, Park Slope;11217;40.6602037;-73.9689558;4.7
+229;Prospect Park Concert Grove;Parkside and Ocean Avenues entrance Brooklyn, NY 11225, Park Slope;11225;40.6602037;-73.9689558;4.7
+230;The Mall and Literary Walk;Mid-park bet 66th and 72nd Sts Manhattan, NY 10022, Central Park;10022;;;
+231;IFC Center;323 Sixth Ave. New York, NY 10014, West Village;10014;40.7312056;-74.0016722;4.5
+232;Andrew Heiskell Braille and Talking Book Library;40 W 20th St # 1 New York, NY 10011, Chelsea;10011;40.74047849999999;-73.9933635;4.0
+233;Brooklyn Borough Hall;209 Joralemon St Brooklyn, NY 11209, Downtown Brooklyn;11209;40.6928442;-73.990303;4.5
+234;New York Aquarium;602 Surf Ave. Brooklyn, NY 11224, Coney Island;11224;40.5742667;-73.97492369999999;4.2
+235;Yankee Stadium;1 E. 161st St. Bronx, NY 10451, South Bronx;10451;40.8296426;-73.9261745;4.6
+236;High Bridge;Amsterdam Avenue and West 172nd Street Manhattan, NY 10032, Washington Heights/Inwood;10032;;;
+237;One World Trade Center;1 World Trade Center Manhattan, NY 10007, Lower Manhattan;10007;40.7127431;-74.0133795;4.7
+238;9/11 Memorial Museum Store;20 Vesey St. Manhattan, NY 10007, Lower Manhattan;10007;40.7114147;-74.0124786;4.8
+239;Madison Square Park;23rd to 26th Sts. (bet. Fifth and Madison Aves.) Manhattan, NY 10010, Flatiron District;10010;40.7421893;-73.98799129999999;4.6
+240;New York Philharmonic;David Geffen Hall (formerly Avery Fisher), 10 Lincoln Center Plaza Manhattan, NY 10023, Upper West Side;10023;40.7728691;-73.9831009;4.7
+241;Gracie Mansion;East End Ave Manhattan, NY 10128, Upper East Side;10128;40.77614370000001;-73.943113;4.2
+242;Trinity Wall Street;Broadway at Wall St. Manhattan, NY 10006, Lower Manhattan;10006;40.7079928;-74.011594;4.6
+243;Brooklyn Cyclones;MCU Park, 1904 Surf Ave. Brooklyn, NY 11224, Coney Island;11224;40.5746867;-73.9845453;4.5
+244;Bronx Zoo Treetop Adventure;Bronx, NY 10460, Fordham;10460;40.8523658;-73.8741052;4.6
+245;West 4th Street Courts;Sixth Ave. Manhattan, NY 10011, Greenwich Village;10011;40.7312111;-74.0008609;4.6
+246;Staten Island Yankees;Richmond County Bank Ballpark, 75 Richmond Terr. Staten Island, NY 10301, St. George;10301;40.6455625;-74.07719349999999;4.5
+247;Manhattan by Sail;"Locations: N. Cove Marina, Brookfield Place (Liberty St.–Hudson River), Manhattan 10007; ";10007;;;
+248;Manhattan by Sail;inside Battery Park at the Hudson River (enter across from 17 State St.) Manhattan, NY 10004, Battery Park City;10004;;;
+249;Museum of American Finance;48 Wall St. Manhattan, NY 10005, Lower Manhattan;10005;40.7073993;-74.0102088;4.5
+250;New York Stock Exchange;11 Wall St. Manhattan, NY 10005, Lower Manhattan;10005;40.706877;-74.0112654;4.3
+251;Hook & Ladder Company 8;14 N. Moore St. Manhattan, NY 10013, Tribeca;10013;40.719559;-74.0066219;4.5
+252;Grand Masonic Lodge of New York;71 W. 23rd St. Manhattan, NY 10010, Chelsea;10010;40.7429639;-73.9922766;4.8
+253;St. Mark’s Place;113 St Marks Pl, New York City, NY 10009-5161;10009;40.7292529;-73.9885989;1.0
+254;Franklin D. Roosevelt Four Freedoms Park;1 FDR Four Freedoms Park, E. Rd. S. of Rd. 3 Manhattan, NY 10044, Roosevelt Island;10044;40.7506105;-73.96052399999999;4.7
+255;Gray Line CitySightseeing New York Bus Tours;777 Eighth Ave. Manhattan, NY 10036, Times Square/Theatre District;10036;;;
+256;Abracadabra Superstore;19 W 21st St Manhattan , NY 10010, Chelsea;10010;40.740934;-73.9918788;4.5
+257;Brooklyn Brewery;79 N. 11th St. Brooklyn, NY 11211, Williamsburg;11211;40.7217625;-73.9577086;4.5
+258;Kingsland Homestead;143-35 37th Ave. Queens, NY 11354, Flushing;11354;40.7635681;-73.8241305;4.6
+259;French Institute Alliance Française;22 E. 60th St. Manhattan, NY 10022, Upper East Side;10022;40.763826;-73.9703237;4.5
+260;Commodore Barry Park;Nassau Street (bet. Navy St. and N. Elliot Place) Brooklyn, NY 11201, Fort Greene;11201;;;
+261;Saint Augustine's Episcopal Church;290 Henry St Manhattan, NY 10002, Lower East Side;10002;40.7138689;-73.98318499999999;4.3
+262;Casa Belvedere;79 Howard Ave. Staten Island, NY 10301, St. George;10301;40.6284634;-74.0880772;4.7
+263;Merchant's House Museum;29 E. 4th St. Manhattan, NY 10003, Greenwich Village;10003;40.72766499999999;-73.99234;4.7
+264;Kissena Park;164th St and Oak Ave Queens, NY 11358, Flushing;11358;40.74611910000001;-73.8076036;4.5
+265;Alley Pond Park;22806 Northern Blvd  Alley Pond Environmental Center Queens, NY 11363, Bayside;11363;40.7403396;-73.74741019999999;4.7
+266;The Battery;Enter on State Street or Battery Place Manhattan, NY 10004, Battery Park City;10004;40.70293119999999;-74.0153603;4.6
+267;Emmanuel Baptist Church;279 Lafayette Ave Brooklyn, NY 11238, Fort Greene;11238;40.6884144;-73.9650896;4.8
+268;UNICEF House—Danny Kaye Visitors Centre;3 U.N. Plaza, 44th St. btw. First & Second Aves. Manhattan, NY 10016, Midtown East;10016;;;
+269;St. Ann & The Holy Trinity Church;157 Montague St Brooklyn, NY, Brooklyn Heights;11201;40.69450519999999;-73.99246889999999;4.7
+270;Hoodwinked Escape;151 W. 116th St. Manhattan, NY 10026, Harlem;10026;40.8032172;-73.9521093;4.6
+271;Flatbush Dutch Reformed Church;890 Flatbush Ave Brooklyn, NY 11226, Flatbush;11226;40.6501603;-73.9588287;4.1
+272;Staten Island Supreme Courthouse;18 Richmond Terrace Staten Island, NY 10301, St. George;10301;40.6408168;-74.07759399999999;3.9
+273;Adam Yauch Park;Atlantic Avenue at Columbia Place Brooklyn, NY 11201, Brooklyn Heights;11201;40.6920679;-73.99888299999999;4.5
+274;Islamic Cultural Center of New York;1711 3rd Avenue New York, NY 10029, Upper East Side;10029;40.7855765;-73.9485819;4.4
+275;Roosevelt House Public Policy Institute at Hunter College;47-49 E. 65th St. Manhattan, NY 10065, Upper East Side;10065;40.7671206;-73.96767919999999;4.7
+276;Old Quaker Meeting House;137-16 Northern Blvd. Queens, NY 11354, Flushing;11354;40.76300699999999;-73.83034359999999;4.8
+277;Go Select NYC;Official NYC Information Center, 810 Seventh Ave. Manhattan, NY 10019, Times Square/Theatre District;10019;;;
+278;Weeksville Heritage Center;158 Buffalo Ave Brooklyn, NY 11213 Bedford-Stuyvesant;11213;40.67398370000001;-73.92522509999999;4.6
+279;The Sightseeing Pass;777 Eighth Ave. Manhattan, NY 10036, Times Square/Theatre District;10036;;;
+280;Hudson Yards New York;New York, NY 10001, Midtown West;10001;40.7560744;-74.00347959999999;0.0
+281;Castle Clinton National Monument;Castle Clinton National Monument, 17 Battery Pl. Manhattan, NY 10005-1996, Battery Park City;10005-1996;40.7034401;-74.0168023;4.4
+282;34th Street Partnership;mail: 1065 Sixth Ave., ste. 2400 New York, NY 10018 , Midtown West;10018;40.7539141;-73.9853115;4.2
+283;General Grant National Memorial;Riverside Dr and 122nd St Manhattan, NY 10027, Morningside Heights;10027;40.8134045;-73.9630671;4.5
+284;Pier 25, Hudson River Park;225 West St. Manhattan, NY 10013, Tribeca ;10013;40.7203108;-74.01434499999999;4.7
+285;55 Central Park West;55 Central Park West New York, NY 10023, Upper West Side;10023;40.7722715;-73.9790704;5.0
+286;Sara D. Roosevelt Park;East Houston Street to Canal Street (bet. Forsyth and Chrystie Sts.) Manhattan, NY 10002, Lower East Side;10002;40.7217408;-73.9915425;4.0
+287;Central Park Arsenal;East side of the park at Fifth Ave and 64th St Manhattan, NY 10065, Central Park;10065;40.767686;-73.97117990000001;4.4
+288;InterChurch Center;475 Riverside Dr., rm. 253 Manhattan, NY 10115, Morningside Heights;10115;40.8107177;-73.9634758;4.5
+289;Sakura Park;W 122nd St and Riverside Dr Manhattan, NY 10027, Morningside Heights;10027;40.8127856;-73.9622491;4.5
+290;Pelham Bay Park;Bruckner Blvd and Westchester Ave Bronx, NY 10461, Pelham Bay;10461;40.85293069999999;-73.8270555;4.2
+291;Hudson River Park;West Side Highway, bet. Battery Place and W. 59th St. Manhattan, NY 10014, Manhattan;10014;40.7330699;-74.011028;4.7
+292;LIC Flea & Food;5-25 46th Ave. Queens, NY 11101, Long Island City;11101;40.7475414;-73.9543394;3.8
+293;Grant's Tomb;Riverside Drive and West 122nd Street Manhattan, NY 10027, Morningside Heights;10027;40.8134045;-73.9630671;4.5
+294;Gravesend Cemetery;Ave V and Van Sicklen St Brooklyn, NY 11223, Gravesend;11223;40.5947408;-73.97446289999999;4.7
+295;Piers 92/94 New York;711 Twelfth Ave. Manhattan, NY 10019, Midtown West;10019;40.7683725;-73.9962852;4.3
+296;New York Marble Cemetery;41 1/2 Second Ave Manhattan, NY 10003, Lower East Side;10003;40.725612;-73.9909457;4.4
+297;New York City AIDS Memorial;200-218 West 12th Street New York, NY 10011, West Village;10011;40.737406;-74.0014307;4.6
+298;Peter Jay Sharp Theater at Julliard;155 W. 65th St. Manhattan, NY 10023, Upper West Side;10023;40.7737547;-73.9833998;4.8
+299;Chester A. Arthur House;123 Lexington Ave. Manhattan, NY 10016, Midtown East;10016;40.7428025;-73.9821796;4.7
+300;Chateau Stables;608 W. 48th St. New York, NY 10036, Hells Kitchen;10036;40.7642236;-73.99517279999999;4.9
+301;LIC Beer Project;39-28 23rd Street NY 11101, Long Island City;11101;40.7547369;-73.9392462;4.6
+302;Central Park's Rumsey Playfield;14 E 71st St, New York, NY 10021;10021;40.7725815;-73.9702143;4.5
+303;Christie’s Auction House;20 Rockefeller Plaza New York, NY 10020, Midtown West;10020;40.75857500000001;-73.980023;4.6
+304;Lasker Rink;830 5th Avenue New York, NY 10065, Central Park;10065;40.7961289;-73.9549593;4.1
+305;Marble Collegiate Church;1 W. 29th St. Manhattan, NY 10001, NoMad;10001;40.7455677;-73.9869088;4.6
+306;Riverdale Park;West 254 Street Bronx, NY 10463, Riverdale;10463;40.8947402;-73.91680319999999;4.5
+307;Brooklyn Army Terminal;140 58th St. Brooklyn, NY 11220, Sunset Park;11220;40.6447867;-74.025042;4.5
+308;NYC Department of Records and Information Services;Visitor Center, 31 Chambers St., rm. 112 Manhattan, NY 10007, Lower Manhattan;10007;;;
+309;City Ice Pavilion;47-32 32nd Place Queens, NY 11101, Long Island City;11101;40.7416445;-73.93348870000001;4.3
+310;Floyd Bennett Field;50 Aviation Road Brooklyn, NY 11234, Brooklyn;11234;40.5910174;-73.89060909999999;4.5
+311;69th Regiment Armory;68 Lexington Ave Manhattan, NY Midtown East;10010;40.7412213;-73.98388059999999;4.4
+312;Federal Hall National Memorial;26 Wall St Manhattan, NY 10005, Lower Manhattan;10005;40.7073993;-74.0102088;4.5
+313;Scandinavia House: The Nordic Center in America;58 Park Ave. Manhattan, NY 10016, Murray Hill;10016;40.74944;-73.9800649;4.5
+314;NYRR RunCenter Featuring the New Balance Run Hub;320 W. 57th St. Manhattan, NY 10019, Midtown West;10019;40.7669722;-73.9839611;4.7
+315;Bowling Green Park;Broadway and Whitehall St Manhattan, NY 10004, Lower Manhattan;10004;40.7049774;-74.0136509;4.5
+316;New York City Horse Carriages;Pickup location: 59th St. btw. Fifth & Sixth Aves. opposite plaza hotel Manhattan, NY --, Central Park;10019;40.764656;-73.9744408;4.5
+317;New York Public Library for the Performing Arts;40 Lincoln Center Plaza Manhattan, NY 10023, Upper West Side;10023;40.7734129;-73.9847291;4.7
+318;Empire Stores;53-83 Water Street NY 11201, DUMBO;11201;40.7033814;-73.9916008;4.5
+319;Central Park Bandshell;Mid-park, 66th to 72nd Sts Manhattan, NY, Central Park;10019;40.7812199;-73.9665138;4.8
+320;The Players Theatre;115 Macdougal St. Manhattan, NY 10012, Greenwich Village;10012;40.7300972;-74.0005408;4.4
+321;Lefferts Historic House;452 Flatbush Ave, Brooklyn, NY 11225;11225;40.6643664;-73.96370759999999;4.6
+322;Ford Amphitheater at Coney Island Boardwalk;3052 W. 21st St. Brooklyn, NY 11224, Coney Island;11224;40.5725321;-73.98769469999999;4.4
+323;MetLife Building;200 Park Ave. Manhattan, NY 10166, Midtown East;10166;40.7535178;-73.9767512;4.5
+324;Valentine-Varian House;3266 Bainbridge Ave. Bronx, NY 10458, The Bronx;10458;40.8773882;-73.8794419;4.5
+325;Bronx Council on the Arts;1738 Hone Ave. Bronx, NY 10461, The Bronx;10461;40.842593;-73.8459192;4.3
+326;NFL Experience Times Square;20 Times Square, 701 Seventh Ave. Manhattan, NY 10036, Times Square/Theatre District;10036;40.75930169999999;-73.98426119999999;4.5
+327;Randall's Island Park;East and Harlem Rivers Manhattan, NY 10035, Randalls Island;10035;40.795813;-73.922517;4.4
+328;Ed Sullivan Theater;1697 Broadway Manhattan, NY 10019, Midtown West;10019;40.7637699;-73.982904;4.7
+329;Essex Street Market;120 Essex St. Manhattan, NY 10002, Lower East Side;10002;40.7180004;-73.98819;4.5
+330;The Conference House Museum;298 Satterlee St Staten Island, 10307, Tottenville;10307;40.5005834;-74.2512474;4.6
+331;Pier 45;Enter at Christopher St and the West Side Highway Manhattan, NY 10014, West Village;10014;40.7331473;-74.011326;4.8
+332;Riverbank State Park Ice Rink;679 Riverside Dr. Manhattan, NY 10031, Harlem;10031;40.8264062;-73.9557669;4.4
+333;American Stock Exchange Building;86 Trinity Place New York, NY 10006, Lower Manhattan;10006;40.7085213;-74.01264379999999;4.0
+334;Pier 40;353 West St Manhattan, NY 10014, Greenwich Village;10014;40.7292334;-74.011664;4.5
+335;Long Island City Partnership;mail: 27-01 Queens Plaza North, 9th fl. Queens, NY 11101, Long Island City;11101;40.7506004;-73.9384906;0.0
+336;The Great Hall, Cooper Union;7 East 7th Street Manhattan, NY 10003, East Village;10003;40.7291023;-73.9904741;4.4
+337;Czech Center New York;321 E 73rd St Manhattan, NY, Upper East Side;10021;40.76908110000001;-73.95648039999999;4.7
+338;The Malcolm X and Dr. Betty Shabazz Memorial & Educational Center;3940 Broadway Manhattan, NY, Harlem;10032;40.83929699999999;-73.9407459;4.0
+339;79th Street Boat Basin;W 79th St and the Hudson River Manhattan, NY 10024, Upper West Side;10024;40.78597910000001;-73.9851444;4.5
+340;New York City Center;"W. 55th St. betw. Sixth & Seventh Aves.; mail: 130 W. 56th St. Manhattan, NY 10019, Midtown West";10019;40.76394459999999;-73.97944009999999;4.7
+341;Electric Lady Studios;52 W 8th St New York, NY 10011 West Village;10011;40.7332054;-73.9988374;4.6
+342;Harlem Park to Park;mail: 134 W. 118th St., ground fl. Manhattan, NY 10026, Harlem;10026;40.8051111;-73.9531463;4.6
+343;St. Bartholomew's Church;325 Park Ave Manhattan, NY, Midtown East;10022;40.7574631;-73.9733474;4.6
+344;Kissena Golf Course;16415 Booth Memorial Ave Queens, NY 11365, Fresh Meadows;11365;40.7423532;-73.8000144;4.0
+345;Riverside Park South;Henry Hudson Parkway at W. 70th St. Manhattan, NY 10023, Upper West Side;10023;;;
+346;Poets House;10 River Terr. Manhattan, NY 10282, Battery Park City;10282;40.7160691;-74.01632769999999;4.7
